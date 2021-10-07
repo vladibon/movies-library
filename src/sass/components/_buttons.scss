@@ -1,0 +1,62 @@
+.btn {
+  max-height: 44px;
+  padding: 13px 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn--primary {
+  min-width: 130px;
+  margin-bottom: 65px;
+
+  color: $btn-primary-color;
+  border: $btn-border;
+  background-color: $btn-primary-bg-color;
+
+  @include respond-above($tablet) {
+    min-width: 136px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $btn-accent-bg-color;
+    border: 1px solid $btn-accent-bg-color;
+    box-shadow: $btn-primary-accent-shadow;
+    transform: scale(1.1);
+  }
+}
+
+.btn--secondary {
+  max-width: 112px;
+  margin-bottom: 40px;
+
+  color: $btn-secondary-color;
+  border: $btn-border;
+  background-color: $btn-secondary-bg-color;
+
+  @include respond-above($tablet) {
+    max-width: 125px;
+  }
+
+  @include respond-above($desktop) {
+    max-width: 136px;
+    margin-bottom: 102px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $btn-primary-color;
+    background-color: $btn-accent-bg-color;
+    border: 1px solid $btn-accent-bg-color;
+    transform: scale(1.1);
+  }
+}

@@ -1,7 +1,45 @@
+// Fonts
+$main-font: 'Roboto', sans-serif;
+
+// Text Colors
+$movie-title-black-color: #000000;
+$genre-orange-title-color: #ff6b08;
+$white-text-color: #ffffff;
+$footer-grey-text-color: #545454;
+$modal-grey-title-color: #8c8c8c;
+$header-error-search-color: #ff001b;
+
+// Backgroung Color
+$primary-bg-color: #ffffff;
+$header-bg-color: rgba(0, 0, 0, 0.56);
+$footer-bg-color: #f7f7f7;
+$rating-bg-color: #ff6b01;
+$page-accent-bg-color: #ff6b08;
+$arrow-bg-color: #f7f7f7;
+
+// Additional elements
+$header-accent-page-line: #ff6b08;
+$arrow-color: #000000;
+$footer-heart-color: #ff6b08;
+$colse-modal-color: #000000;
+
+// Btn Color
+$btn-primary-color: #ffffff;
+$btn-primary-bg-color: transparent;
+$btn-accent-bg-color: #ff6b01;
+$btn-secondary-color: #000000;
+$btn-secondary-bg-color: #ffffff;
+
+// Border
+$btn-border: 1px solid currentColor;
+
+// Shadows
+$btn-primary-accent-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+
 // Breakpoints
 $mobile: 480px;
 $tablet: 768px;
-$desktop: 1200px;
+$desktop: 1024px;
 
 // Gaps
 $card-gap: 30px;
