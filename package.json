@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/vladibon/movies-library/issues"
   },
-  "homepage": "https://github.com/vladibon/movies-library#readme",
+  "homepage": "https://vladibon.github.io/movies-library/",
   "devDependencies": {
     "axios": "^0.22.0",
     "parcel-bundler": "^1.12.5",
