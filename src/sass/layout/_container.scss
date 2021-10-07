@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include respond-above($mobile) {
+    max-width: $mobile;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include respond-above($tablet) {
+    max-width: $tablet;
+  }
+
+  @include respond-above($desktop) {
+    max-width: $desktop;
+  }
+}

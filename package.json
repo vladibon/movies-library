@@ -1,0 +1,33 @@
+{
+  "name": "movies-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /movies-library/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladibon/movies-library.git"
+  },
+  "keywords": [],
+  "author": "Vladimir Bondar <vladi.bondar@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladibon/movies-library/issues"
+  },
+  "homepage": "https://github.com/vladibon/movies-library#readme",
+  "devDependencies": {
+    "axios": "^0.22.0",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.7.2",
+    "sass": "^1.42.1"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4",
+    "tui-pagination": "^3.4.1"
+  }
+}

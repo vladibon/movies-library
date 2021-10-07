@@ -1,0 +1,30 @@
+// Grid
+@mixin grid($item-gap: 30px) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$item-gap / 2;
+}
+
+@mixin grid-item($items-num: 4, $item-gap: 30px) {
+  flex-basis: calc((100% - #{$items-num} * #{$item-gap}) / #{$items-num});
+  margin: $item-gap / 2;
+}
+
+// Media Queries
+@mixin respond-above($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media screen and (max-width: $breakpoint - 1) {
+    @content;
+  }
+}
+
+@mixin respond-between($breakpoint-lower, $breakpoint-upper) {
+  @media screen and (min-width: $breakpoint-lower) and (max-width: $breakpoint-upper - 1) {
+    @content;
+  }
+}
