@@ -1,6 +1,7 @@
 .btn {
-  max-height: 44px;
-  padding: 13px 36px;
+  height: 44px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,15 +14,16 @@
 }
 
 .btn--primary {
-  min-width: 130px;
-  margin-bottom: 65px;
+  width: 130px;
+  padding-left: 36px;
+  padding-right: 36px;
 
   color: $btn-primary-color;
   border: $btn-border;
   background-color: $btn-primary-bg-color;
 
   @include respond-above($tablet) {
-    min-width: 136px;
+    width: 136px;
   }
 
   &:hover,
@@ -35,20 +37,22 @@
 }
 
 .btn--secondary {
-  max-width: 112px;
-  margin-bottom: 40px;
+  width: 112px;
+  padding-left: 8px;
+  padding-right: 8px;
 
   color: $btn-secondary-color;
   border: $btn-border;
   background-color: $btn-secondary-bg-color;
 
   @include respond-above($tablet) {
-    max-width: 125px;
+    width: 125px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   @include respond-above($desktop) {
-    max-width: 136px;
-    margin-bottom: 102px;
+    width: 136px;
   }
 
   &:hover,
