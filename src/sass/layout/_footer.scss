@@ -1,0 +1,29 @@
+.footer {
+  background-color: $footer-bg-color;
+}
+
+.footer__text {
+  @include respond-below($tablet) {
+    max-width: 250px;
+  }
+
+  @include respond-above($mobile) {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: $card-gap;
+    padding-bottom: $card-gap;
+    font-family: $main-font;
+    font-size: 14px;
+    letter-spacing: 1.17;
+    color: $footer-grey-text-color;
+  }
+
+  @include respond-above($tablet) {
+    font-size: 16px;
+  }
+}
+
+.footer__link {
+  color: $footer-grey-text-color;
+}
