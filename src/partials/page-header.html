@@ -1,17 +1,17 @@
 <!-- Header -->
 <header class="page-header">
-  <div class="container page-header__container">
+  <div class="container">
     <!-- Company`s Logo -->
-    <a class="logo" href="index.html">
-      <img src="./images/film.svg" alt="" width="24" />
-      <span class="logo-title">Filmoteka</span>
-    </a>
+    <div class="page-header__container">
+      <a class="logo" href="index.html">
+        <img src="./images/film.svg" alt="" width="24" height="24" />
+        <span class="logo-title">Filmoteka</span>
+      </a>
 
-    <div>
       <!-- Site Navigation -->
       <nav class="site-nav">
         <ul class="site-nav__list">
-          <li class="site-nav__item">
+          <li class="site-nav__item site-nav__item--margin">
             <a class="site-nav__link site-nav__link--active" href="">HOME</a>
           </li>
 
@@ -21,11 +21,11 @@
         </ul>
       </nav>
     </div>
-
     <!-- Header Search -->
-    <div class="page-header__input">
+    <div class="page-header__search">
       <!-- Site Search Input -->
-      <input type="input" />
+      <input class="page-header__search--input" type="input" placeholder="Поиск фильмов" />
+      <img class="search-img" src="./images/search.svg" alt="" width="12" height="12" />
     </div>
 
     <!-- Header Buttons -->
