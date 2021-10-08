@@ -1,7 +1,9 @@
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/placeholders';
 @import './utils/common';
 
 @import './layout/container';
+@import './layout/gallery-container';
 
 @import './components/basiclightbox';
