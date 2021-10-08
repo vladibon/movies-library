@@ -11,9 +11,13 @@
 
   @include respond-above($tablet) {
     max-width: $tablet;
+    padding-left: 75px;
+    padding-right: 75px;
   }
 
   @include respond-above($desktop) {
     max-width: $desktop;
+    padding-left: 71px;
+    padding-right: 71px;
   }
 }

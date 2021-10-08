@@ -1,8 +1,10 @@
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/placeholders';
 @import './utils/common';
 
 @import './layout/container';
 @import './layout/footer';
 
 @import './components/basiclightbox';
+@import './components/buttons';
