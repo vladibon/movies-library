@@ -1,0 +1,21 @@
+.page-header {
+  padding-top: 46px;
+}
+
+.logo {
+  display: flex;
+}
+
+.site-nav {
+  display: flex;
+}
+
+.logo-title {
+  @include respond-below($mobile) {
+    display: none;
+  }
+}
+
+.site-nav {
+  display: flex;
+}
