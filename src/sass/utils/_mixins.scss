@@ -2,7 +2,7 @@
 @mixin grid($item-gap: 30px) {
   display: flex;
   flex-wrap: wrap;
-  margin: -$item-gap / 2;
+  margin: -($item-gap / 2);
 }
 
 @mixin grid-item($items-num: 3, $item-gap: 30px) {

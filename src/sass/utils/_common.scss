@@ -25,8 +25,14 @@ p {
   margin-bottom: 0;
 }
 
-a {
-  text-decoration: none;
+p {
+  margin-top: 0;
+  padding: 0;
+}
+
+.page {
+  font-size: 12px;
+  line-height: 1.17;
 }
 
 ul {
@@ -39,6 +45,9 @@ img {
   display: block;
   width: 100%;
   height: auto;
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 // Скрытые заголовки /

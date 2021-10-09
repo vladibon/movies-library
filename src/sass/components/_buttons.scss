@@ -5,6 +5,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   border-radius: 5px;
 
   font-size: 12px;
@@ -32,12 +33,12 @@
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
     box-shadow: $btn-primary-accent-shadow;
-    transform: scale(1.1);
+    // transform: scale(1.1);
   }
 }
 
 .btn--secondary {
-  width: 112px;
+  width: 113px;
   padding-left: 8px;
   padding-right: 8px;
 
