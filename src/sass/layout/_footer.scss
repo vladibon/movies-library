@@ -3,18 +3,16 @@
 }
 
 .footer__text {
+  text-align: center;
+  padding-top: $card-gap;
+  padding-bottom: $card-gap;
+  font-family: $main-font;
+  font-size: 14px;
+  line-height: 1.18;
+  color: $footer-grey-text-color;
+
   @include respond-below($tablet) {
     max-width: 250px;
-  }
-
-  @include respond-above($mobile) {
-    text-align: center;
-    padding-top: $card-gap;
-    padding-bottom: $card-gap;
-    font-family: $main-font;
-    font-size: 14px;
-    line-height: 1.18;
-    color: $footer-grey-text-color;
   }
 
   @include respond-above($tablet) {
