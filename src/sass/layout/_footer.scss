@@ -1,5 +1,5 @@
 .footer {
-  background-color: $footer-bg-color;
+  background-color: $arrow-bg-color;
 }
 
 .footer__text {
@@ -8,14 +8,12 @@
   }
 
   @include respond-above($mobile) {
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     padding-top: $card-gap;
     padding-bottom: $card-gap;
     font-family: $main-font;
     font-size: 14px;
-    letter-spacing: 1.17;
+    line-height: 1.18;
     color: $footer-grey-text-color;
   }
 
@@ -24,11 +22,17 @@
   }
 }
 
+.footer__text-select {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .footer__icon {
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .footer__link {
+  text-decoration: underline;
   color: $footer-grey-text-color;
 }
