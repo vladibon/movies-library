@@ -1,7 +1,7 @@
-{{#each this}}
+{{#each results}}
 <div class="main-gallery">
-  <img class="main-gallery__img" src="{{backdrop_path}}" alt="{{name}}" id={{id}}>
-  <h2 class="main-gallery__title">{{name}}</h2>
+  <img class="main-gallery__img" src="http://image.tmdb.org/t/p/w300{{backdrop_path}}" alt="{{title}}" id={{id}}>
+  <h2 class="main-gallery__title">{{title}}</h2>
   <ul class="main-gallery__genres">
     {{#each genre_ids}}
     <li class="main-gallery__genres-item">{{this}}</li>
