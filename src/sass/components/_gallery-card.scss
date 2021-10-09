@@ -1,6 +1,8 @@
 .gallery__item {
-  position: relative;
   @include grid-item(1);
+  transform: scale(1);
+  transition: transform 150ms ease-out;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -12,6 +14,10 @@
   @include respond-above($desktop) {
     @include grid-item();
   }
+}
+
+.gallery__item:hover {
+  transform: scale(1.01);
 }
 
 .gallery__img-thumb {
@@ -28,12 +34,8 @@
 }
 
 .gallery__info {
-  position: relative;
-  bottom: 0;
   width: 100%;
   padding-top: 10px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.705);
 }
 
 .gallery__title {
@@ -64,7 +66,7 @@
   background-color: $genre-orange-title-color;
 }
 
-.gallery__release {
+.gallery__date {
   margin-right: 10px;
 }
 
