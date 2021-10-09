@@ -1,12 +1,20 @@
-{{#each this}}
-<div class="main-gallery">
-  <img class="main-gallery__img" src="{{backdrop_path}}" alt="{{name}}" id={{id}}>
-  <h2 class="main-gallery__title">{{name}}</h2>
-  <ul class="main-gallery__genres">
-    {{#each genre_ids}}
-    <li class="main-gallery__genres-item">{{this}}</li>
-    {{/each}}
-  </ul>
-  <p class="main-gallery__release">{{release_date}}</p>
-</div>
+{{#each results}}
+  <li class='gallery__item'>
+    <div class='gallery__img-thumb'>
+      <img
+        class='gallery__img'
+        src='http://image.tmdb.org/t/p/w300{{poster_path}}'
+        alt='{{title}}'
+        id={{id}}
+      />
+    </div>
+    <div class='gallery__info'>
+      <h2 class='gallery__title'>{{title}}</h2>
+      <div class='gallery__help-wrapper'>
+        <span class='gallery__genres'>action, comedy</span>
+        <span class='gallery__date'>{{release_date}}</span>
+        <span class='gallery__rating'>2.0</span>
+      </div>
+    </div>
+  </li>
 {{/each}}

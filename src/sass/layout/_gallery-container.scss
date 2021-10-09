@@ -1,10 +1,15 @@
 .gallery {
-  @include grid();
   @extend %list;
-
+  @include grid();
   padding-top: 20px;
+  padding-bottom: 40px;
 
   @include respond-above($tablet) {
     padding-top: 60px;
+    padding-bottom: 50px;
+  }
+
+  @include respond-above($desktop) {
+    padding-bottom: 46px;
   }
 }

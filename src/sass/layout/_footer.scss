@@ -1,0 +1,36 @@
+.footer {
+  background-color: $arrow-bg-color;
+}
+
+.footer__text {
+  text-align: center;
+  padding-top: $card-gap;
+  padding-bottom: $card-gap;
+  font-family: $main-font;
+  font-size: 14px;
+  line-height: 1.18;
+  color: $footer-grey-text-color;
+
+  @include respond-below($tablet) {
+    max-width: 250px;
+  }
+
+  @include respond-above($tablet) {
+    font-size: 16px;
+  }
+}
+
+.footer__text-select {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer__icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer__link {
+  text-decoration: underline;
+  color: $footer-grey-text-color;
+}
