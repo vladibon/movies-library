@@ -1,6 +1,17 @@
+html {
+  height: 100%;
+}
+
 body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   color: $movie-title-black-color;
   font-family: $main-font;
+}
+
+main {
+  flex: 1;
 }
 
 h1,
@@ -8,13 +19,20 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-a {
-  text-decoration: none;
+p {
+  margin-top: 0;
+  padding: 0;
+}
+
+.page {
+  font-size: 12px;
+  line-height: 1.17;
 }
 
 ul {
@@ -29,9 +47,9 @@ img {
   height: auto;
 }
 
-body {
-  color: $movie-title-black-color;
-  font-family: $main-font;
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 // Скрытые заголовки /

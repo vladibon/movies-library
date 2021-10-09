@@ -3,8 +3,10 @@
 @import './utils/placeholders';
 @import './utils/common';
 
+@import './layout/page-header';
 @import './layout/container';
 @import './layout/gallery-container';
+@import './layout/footer';
 
 @import './components/gallery-card';
 @import './components/basiclightbox';
