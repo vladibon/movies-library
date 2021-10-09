@@ -1,5 +1,6 @@
 .gallery__item {
   @include grid-item(1);
+
   transform: scale(1);
   transition: transform 150ms ease-out;
 
@@ -17,7 +18,7 @@
 }
 
 .gallery__item:hover {
-  transform: scale(1.01);
+  transform: scale(1.03);
 }
 
 .gallery__img-thumb {
