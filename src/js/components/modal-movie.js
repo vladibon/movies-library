@@ -1,4 +1,14 @@
-<div class="modal-movie">
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+import refs from './refs';
+//import modalMovie from '../../templates/modal-movie.hbs';
+
+refs.galleryContainer.addEventListener('click', onOpenModalMovie);
+function onOpenModalMovie(e) {
+  const modalMovie= e.target;
+    
+      const instance = basicLightbox.create(
+`<div class="modal-movie">
     <button class="modal-movie__close-btn" type="button">
       <svg width="14" height="14">
         <use href=""></use>
@@ -40,4 +50,7 @@
     <button class="btn btn--secondary" type="button">add to watched</button>
     <button class="btn btn--secondary" type="button">add to queue</button>
   </div>
-</div>
+</div>`
+        );
+          instance.show();
+}

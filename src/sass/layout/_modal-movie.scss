@@ -1,0 +1,89 @@
+.modal-movie {
+  padding: 40px 20px;
+  background-color: $white-text-color;
+}
+
+.modal-movie__close-icon {
+  //position: absolute;
+  top: 18px;
+  left: 10%;
+  cursor: pointer;
+}
+.modal-movie__close-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-movie__img {
+  margin-top: 15px;
+  max-width: 320px;
+  @include respond-below($tablet) {
+    text-align: center;
+    max-width: 240px;
+    max-height: 355px;
+  }
+  @include respond-below($desktop) {
+    max-width: 265px;
+    max-height: 375px;
+  }
+  @include respond-above($desktop) {
+    min-width: 395px;
+    min-height: 480px;
+  }
+}
+.name {
+  text-transform: uppercase;
+  margin-top: 30px;
+  @include respond-below($tablet) {
+    font-size: 20px;
+    line-height: 0.9;
+  }
+  @include respond-below($desktop) {
+    font-size: 20px;
+    line-height: 1.17;
+  }
+  @include respond-above($desktop) {
+    font-size: 30px;
+    line-height: 1.16;
+  }
+}
+.modal-movie__history {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: $modal-grey-title-color;
+}
+.vote {
+  font-size: 12px;
+  line-height: 1.7;
+  background-color: $rating-bg-color;
+  color: $white-text-color;
+}
+.modal-movie__original {
+  text-transform: uppercase;
+}
+.overviev-title {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.modal-movie__overview {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.67;
+}
+.modal-movie__btn-list {
+  text-align: center;
+}
+.btn--secondary {
+  margin-top: 20px;
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
