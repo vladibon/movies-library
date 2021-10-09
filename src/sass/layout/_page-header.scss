@@ -1,8 +1,19 @@
 .page-header {
+  max-width: 1920px;
+  height: 230px;
   padding-top: 46px;
   background-image: url(../images/header.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
+  text-align: center;
+
+  @include respond-above($tablet) {
+    background-image: url(../images/header-tablet.jpeg);
+  }
+
+  @include respond-above($desktop) {
+    background-image: url(../images/header-desktop.jpeg);
+  }
 }
 
 .page-header__container {
@@ -12,9 +23,15 @@
 
   margin-bottom: 38px;
 }
+.logo {
+  display: flex;
+}
 
 .logo-title {
-  @include respond-below($mobile - 1) {
+  margin-left: 10px;
+
+  color: #ffffff;
+  @include respond-below($tablet) {
     display: none;
   }
 }
@@ -39,6 +56,12 @@
 
 .page-header__search {
   position: relative;
+
+  @include respond-above($tablet) {
+    width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .page-header__search--input {
@@ -61,4 +84,18 @@
 .search-img {
   position: absolute;
   right: 0;
+}
+
+.page-header__buttons {
+  display: none;
+  // display: flex;
+  justify-content: space-between;
+
+  @include respond-above($tablet) {
+    justify-content: center;
+  }
+}
+
+.btn__margin {
+  margin-right: 15px;
 }
