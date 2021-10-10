@@ -1,7 +1,13 @@
-import imagesApiService from './api/homeAPIservice';
-import imageCardTpl from '../templates/card-markup.hbs';
+import searchAPIservice from '../api/searchAPIservice';
+import imageCardTpl from '../../templates/card-markup.hbs';
+
+// --- Подключение плагина debounce ---
+const debounce = require('lodash.debounce');
 
 const imagesContainer = document.querySelector('#js-gallery');
+const searchForm = document.querySelector('#js-input');
+
+searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 // --- Intersection Observer ---
 const options = {
@@ -30,14 +36,26 @@ function removeObserver(data) {
 }
 
 // --- Функции рендеринга изображений ---
-function onSearch() {
-  imagesApiService.fetchArticles().then(createGallery).then(setObserver).catch(onFetchError);
+function onSearch(e) {
+  imagesContainer.innerHTML = '';
+  searchAPIservice.resetPage();
+  searchAPIservice.query = e.target.value.trim();
+
+  if (searchAPIservice.query.length < 1) {
+    imagesContainer.innerHTML = '';
+    alert('Too many matches found. Please enter a more specific query!');
+    e.target.value = '';
+    return;
+  }
+
+  searchAPIservice.fetchArticles().then(createGallery).then(setObserver).catch(onFetchError);
+  e.target.value = '';
 }
 
 function onLoadMore() {
-  imagesApiService.incrementPage();
+  searchAPIservice.incrementPage();
   removeObserver();
-  imagesApiService
+  searchAPIservice
     .fetchArticles()
     .then(removeObserver)
     .then(createGallery)
@@ -46,12 +64,9 @@ function onLoadMore() {
 }
 
 function createGallery(images) {
-  console.log(images);
   imagesContainer.insertAdjacentHTML('beforeend', imageCardTpl(images));
 }
 
 function onFetchError(message) {
   console.log(message);
 }
-
-onSearch();
