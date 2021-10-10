@@ -1,23 +1,13 @@
 [
   {
-    "image": "images/team/Vladimir-Bondar.jpg",
+    "image": "./images/team/Vladimir-Bondar.jpg",
     "name": "Vladimir Bondar",
     "status": "Team leader",
     "rating": "10/10",
     "localization": "Kyiv, Ukraine",
     "contacts": [
-      {"contact": {"contact-link": "linkedin", "contact-url": "#"},
-    "svgs": [
-      {"svg": {"svg-link": "linkedin", "svg-url": "./images/linkedin.svg#linkedin"}}
-    ]
-    },
-      {"contact": {"contact-link": "github", "contact-url": "https://github.com/vladibon"},
-    "svgs": [
-      {"svg": {"svg-link": "github", "svg-url": "./images/sprite.svg#github"}}
+      {"contact": {"contact-link": "linkedin", "contact-url": "#"}},
+      {"contact": {"contact-link": "github", "contact-url": "https://github.com/vladibon"} }
   ]
-    }
-  ]
-
   }
 ]
-

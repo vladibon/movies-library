@@ -57,7 +57,7 @@
   }
 }
 
-.team {
+.item {
   padding-top: 40px;
   padding-right: 20px;
   padding-bottom: 40px;
@@ -101,4 +101,40 @@
     height: 22px;
     fill: $btn-secondary-color;
   }
+}
+
+.team__description {
+  padding-top: 12px;
+  line-height: 1.1;
+}
+
+.team__name {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.team-info {
+  font-weight: 500;
+  font-size: 14px;
+
+  &__status {
+    font-size: 18px;
+  }
+
+  &__rating {
+    font-size: 18px;
+    display: inline-block;
+    padding: 0 4px;
+    border-radius: 5px;
+    color: $white-text-color;
+    background-color: $rating-bg-color;
+  }
+
+  &__localization--text {
+    color: $modal-grey-title-color;
+  }
+}
+
+.team-contact__text {
+  color: $modal-grey-title-color;
 }
