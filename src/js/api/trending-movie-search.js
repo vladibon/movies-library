@@ -9,9 +9,10 @@ function onTrendingMoviesLoad() {
   imagesApiService
     .fetchArticles()
     .then(data => {
-      const currentPageMovies = localStorage.getFilmData(data.results);
-      localStorage.saveCurrentPage(currentPageMovies);
-      createGallery(currentPageMovies);
+      localStorage.normalizeMovies(data.results).then(currentPageMovies => {
+        localStorage.saveCurrentPage(currentPageMovies);
+        createGallery(currentPageMovies);
+      });
     })
     .catch(onFetchError);
 }
