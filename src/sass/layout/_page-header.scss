@@ -66,6 +66,10 @@
     font-weight: 500;
     font-size: 12px;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     &--active[data-nav='home'] {
       border-bottom: 3px solid $header-accent-page-line;
     }
