@@ -1,36 +1,42 @@
 {{#each this}}
-<div class='team__item'>
+<div class='team'>
     <div class='team__img-thumb'>
         <img class='team__img' src='{{{image}}}' alt='{{name}}' />
     </div>
     <div class='team__description'>
         <h2 class='team__name'>{{name}}</h2>
 
-        <div class='team-info'>
-            <span class='team-info__status'>{{status}}</span>
-            <span class='team-info__rating'>{{rating}}</span>
-            <div class="team-info__localizations">
-                <span class='team-info__localization--text'>Localization:</span>
-                <span class='team-info__localization'>{{localization}}</span>
-            </div>
-
-            <div class="team-contact">
-                <span class="team-contact__text">Contact me:</span>
-            
-                <!-- social links -->
-                
-                {{#each contacts}}
-                    <a class="team-socia__link" href="{{contact.contact-url}}" target="_blank" rel="nofollow noreferrer">
+        <table>
+            <tr>
+                <td class='team__status'>{{status}}</td>
+                <td class='team__rating'>{{rating}}</td>
+            </tr>
+            <tr>
+                <td class='team__text'>Localization:</td>
+                <td class='team__info'>{{localization}}</td>
+            </tr>
+            <tr>
+                <td class="team__text">Contact me:</td>
+                <td class="team__info">
+                    
+                    <a class="team-socia__link" href="{{contact1.contact-url}}" target="_blank" rel="nofollow noreferrer">
                         <svg class="team-socia__icon">
                             <use href="../images/sprite.svg#linkedin"></use>
                         </svg>
+                        
+                    </a>
+                    <a class="team-socia__link" href="{{contact2.contact-url}}" target="_blank" rel="nofollow noreferrer">
+                   
                         <svg class="team-socia__icon">
                             <use href="../images/sprite.svg#github"></use>
                         </svg>
                     </a>
-            {{/each}}
-            </div>
-        </div>
+                 
+                </td>
+            </tr>
+        </table>
+
+        <p class="team__our">Team 17plus</p>
     </div>
 </li>
 {{/each}}
