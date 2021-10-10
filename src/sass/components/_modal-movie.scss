@@ -5,7 +5,7 @@
   @include respond-above($tablet) {
     padding: 40px, 30px;
     max-width: 620px;
-    max-height: 562px;
+    min-height: 562px;
     display: flex;
   }
   @include respond-above($desktop) {
@@ -54,6 +54,10 @@
   @include respond-above($tablet) {
     max-width: 260px;
     margin-left: 30px;
+  }
+  @include respond-above($desktop) {
+    max-width: 400px;
+    max-height: 480px;
   }
 }
 .modal-movie_name {
