@@ -1,3 +1,3 @@
 import './sass/main.scss';
 
-import './js/api/movies-api';
+import './js/api/trending-movie-search';

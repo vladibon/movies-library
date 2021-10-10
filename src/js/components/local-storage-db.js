@@ -1,5 +1,5 @@
 export default {
-  CURRENT_PAGE: 'currentPage',
+  CURRENT_PAGE_MOVIES: 'currentPageMovies',
   QUEUE: 'queue',
   WATCHED: 'watched',
 
