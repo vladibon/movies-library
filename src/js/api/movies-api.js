@@ -3,7 +3,7 @@ import imageCardTpl from '../../templates/card-markup.hbs';
 
 const imagesContainer = document.querySelector('#js-gallery');
 
-function onSearch() {
+export default function onSearch() {
   imagesApiService.fetchArticles().then(createGallery).catch(onFetchError);
 }
 
