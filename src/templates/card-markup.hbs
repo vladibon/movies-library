@@ -1,19 +1,14 @@
-{{#each results}}
-  <li class='gallery__item'>
+{{#each this}}
+  <li class='gallery__item' id={{id}}>
     <div class='gallery__img-thumb'>
-      <img
-        class='gallery__img'
-        src='http://image.tmdb.org/t/p/w300{{poster_path}}'
-        alt='{{title}}'
-        id={{id}}
-      />
+      <img class='gallery__img' src='{{poster_path}}' alt='{{title}}' />
     </div>
     <div class='gallery__info'>
       <h2 class='gallery__title'>{{title}}</h2>
       <div class='gallery__help-wrapper'>
-        <span class='gallery__genres'>action, comedy</span>
+        <span class='gallery__genres'>{{genres}}</span>
         <span class='gallery__date'>{{release_date}}</span>
-        <span class='gallery__rating'>2.0</span>
+        <span class='gallery__rating'>{{vote_average}}</span>
       </div>
     </div>
   </li>
