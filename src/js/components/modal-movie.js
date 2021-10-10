@@ -21,3 +21,4 @@ function onOpenModalMovie(e) {
   const movieLightbox = basicLightbox.create(modalMovieTemplate(options));
   movieLightbox.show();
 }
+ 
