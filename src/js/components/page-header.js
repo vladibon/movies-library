@@ -1,4 +1,4 @@
-import onSearch from '../api/movies-api';
+// import onSearch from '../api/movies-api';
 import svgURL from '../../images/sprite.svg';
 
 const getNavRef = document.querySelector('.site-nav__list');
@@ -23,7 +23,7 @@ function goNavLink(e) {
                 </svg>
             </div >
             `;
-            onSearch();
+            // onSearch();
         } else {
             getSectionHeader.innerHTML = `
             <div class="page-header__buttons">

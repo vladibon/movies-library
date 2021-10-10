@@ -58,6 +58,10 @@
     display: flex;
   }
 
+  &__item {
+    padding: 5px;
+  }
+
   &__item--margin {
     margin-right: 40px;
   }
