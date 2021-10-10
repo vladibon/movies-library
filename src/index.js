@@ -1,4 +1,4 @@
-import './js/components/sitenav.js'
+import './js/components/page-header.js'
 import './sass/main.scss';
 
 import './js/api/movies-api';
