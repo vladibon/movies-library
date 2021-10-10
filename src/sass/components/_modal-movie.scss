@@ -14,23 +14,21 @@
   }
 }
 
-.modal-movie__close-icon {
-  position: absolute;
-  top: 18px;
-  left: 10%;
-  cursor: pointer;
-}
 .modal-movie__close-btn {
-  background-color: $white-text-color;
   position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 16px;
-  right: 16px;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+  background-color: $white-text-color;
 }
+
 .modal-movie__poster {
   margin-right: 0px;
 }
