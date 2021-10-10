@@ -1,4 +1,4 @@
-import searchAPIservice from '../api/searchAPIservice';
+import searchAPIservice from '../api/searchApiService';
 import imageCardTpl from '../../templates/card-markup.hbs';
 
 // --- Подключение плагина debounce ---

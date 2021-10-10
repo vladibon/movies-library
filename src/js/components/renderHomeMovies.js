@@ -1,4 +1,4 @@
-import homeAPIservice from '../api/homeAPIservice';
+import homeAPIservice from '../api/homeApiService';
 import imageCardTpl from '../../templates/card-markup.hbs';
 
 const imagesContainer = document.querySelector('#js-gallery');
