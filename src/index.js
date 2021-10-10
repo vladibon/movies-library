@@ -1,3 +1,4 @@
 import './sass/main.scss';
 
-import './js/renderHomeMovies';
+import './js/components/renderHomeMovies';
+import './js/components/renderSearchMovies';
