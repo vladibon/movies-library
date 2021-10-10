@@ -4,7 +4,9 @@
     <!-- Company`s Logo -->
     <div class="page-header__container">
       <a class="logo" href="index.html">
-        <img src="./images/film.svg" alt="" width="24" />
+        <svg width="24" height="24">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
         <h2 class="logo-title">Filmoteka</h2>
       </a>
 
@@ -31,6 +33,10 @@
         id="js-input"
       />
       <img class="search-img" src="./images/search.svg" alt="" width="12" />
+      <input class="page-header__search--input" type="input" placeholder="Поиск фильмов" />
+      <svg class="search-img" width="12" height="12">
+        <use href="./images/sprite.svg#icon-search"></use>
+      </svg>
     </div>
 
     <!-- Header Buttons -->

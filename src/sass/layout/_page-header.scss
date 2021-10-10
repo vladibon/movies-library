@@ -1,18 +1,24 @@
 .page-header {
-  max-width: 1920px;
   height: 230px;
   padding-top: 46px;
-  background-image: url(../images/header.jpeg);
+  background-image: url(../images/backgraund/header-home480.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
 
   @include respond-above($tablet) {
-    background-image: url(../images/header-tablet.jpeg);
+    background-image: url(../images/backgraund/header-home768.jpg);
   }
 
   @include respond-above($desktop) {
-    background-image: url(../images/header-desktop.jpeg);
+    background-image: url(../images/backgraund/header-home1200.jpg);
+  }
+
+  @include respond-above(1920px) {
+    width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/backgraund/header-home1920.jpg);
   }
 }
 
