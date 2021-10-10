@@ -1,6 +1,13 @@
 .page-header {
   height: 230px;
   padding-top: 46px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  color: $white-text-color;
+
   background-image: url(../images/backgraund/header-home480.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,7 +21,7 @@
     background-image: url(../images/backgraund/header-home1200.jpg);
   }
 
-  @include respond-above(1920px) {
+  @include respond-above($big-desktop) {
     width: 1920px;
     margin-left: auto;
     margin-right: auto;
@@ -31,12 +38,15 @@
 }
 .logo {
   display: flex;
+  align-items: center;
 }
 
 .logo-title {
   margin-left: 10px;
 
-  color: #ffffff;
+  font-weight: 500;
+  font-size: 30px;
+
   @include respond-below($tablet) {
     display: none;
   }
@@ -44,12 +54,6 @@
 
 .site-nav__list {
   display: flex;
-
-  font-family: Roboto;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  color: #ffffff;
 }
 
 .site-nav__item--margin {
@@ -57,7 +61,7 @@
 }
 
 .site-nav__link--active {
-  border-bottom: 3px solid #ff6b08;
+  border-bottom: 3px solid $header-accent-page-line;
 }
 
 .page-header__search {
@@ -73,17 +77,17 @@
 .page-header__search--input {
   width: 100%;
 
-  font-family: Roboto;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 16px;
-  color: #ffffff;
+  line-height: 1.14;
+
   outline: none;
   background-color: transparent;
   border: none;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.5px solid $input-line-color;
 
   &::placeholder {
-    color: #ffffff;
+    color: $white-text-color;
   }
 }
 
@@ -94,7 +98,6 @@
 
 .page-header__buttons {
   display: none;
-  // display: flex;
   justify-content: space-between;
 
   @include respond-above($tablet) {
