@@ -1,12 +1,12 @@
 .container {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
 
   @include respond-above($mobile) {
     max-width: $mobile;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include respond-above($tablet) {
