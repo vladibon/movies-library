@@ -6,80 +6,99 @@
 //   height: 100%;
 //   z-index: 5;
 //   opacity: 1;
-//   // background-color: ;
+//   background-color: $backdrop-bg-color;
 
 //   &.is-hidden {
 //     opacity: 0;
 //     pointer-events: none;
 //     visibility: hidden;
+//     transition: visibility $modal-animation, opacity $modal-animation;
 //   }
 // }
 
-.modal {
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-team {
   position: absolute;
   top: 50%;
   left: 50%;
   min-width: 280px;
-  min-height: 958px;
+  min-height: 575px;
   background-color: $primary-bg-color;
+  border-radius: 5px;
   transform: translate(-50%, -50%) scale(1);
+  transition: transform $modal-animation;
 
   @include respond-above($tablet) {
-    min-width: 618px;
-    min-height: 562px;
+    min-width: 500px;
   }
 
-  @include respond-above($desktop) {
-    min-width: 882px;
-    min-height: 568px;
+  .backdrop.is-hidden & {
+    // transform: translate(-50%, -50%) scale(0.5);
+    transition: transform $modal-animation;
   }
 }
 
 .btn-modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  right: 8px;
   width: 30px;
   height: 30px;
   background-color: $primary-bg-color;
   border: none;
   fill: $colse-modal-color;
-}
-.btn-modal-close:hover,
-.btn-modal-close:focus {
-  fill: $btn-accent-bg-color;
-  transition: transform var(--transition-duration) var(--transition-timing-function);
+
+  .btn-modal-close:hover,
+  .btn-modal-close:focus {
+    stroke: $btn-accent-bg-color;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
+  }
 }
 
-.modal-container {
-  padding-top: 48px;
+.team {
+  padding-top: 40px;
   padding-right: 20px;
   padding-bottom: 40px;
   padding-left: 20px;
 
   @include respond-above($tablet) {
-    padding-top: 40px;
     padding-right: 30px;
     padding-left: 30px;
   }
 
   @include respond-above($desktop) {
-    padding-top: 50px;
   }
 }
 
-.team__title {
-  font-family: $team-title;
-  font-size: 25px;
-  line-height: 1.33;
-  font-weight: 500;
-  text-align: center;
-}
+// social link
 
-.team__name {
-  font-family: $team-name;
-  font-size: 12px;
-  line-height: 1.33;
-  font-weight: 400;
-  text-align: center;
+.team-socia {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 12px;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    // border-radius: 50%;
+
+    transition: background-color $animation, fill $animation;
+  }
+  &__link:hover,
+  &__link:focus {
+    fill: $btn-secondary-color;
+    background-color: $btn-accent-bg-color;
+  }
+  &__icon {
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    fill: $btn-secondary-color;
+  }
 }
