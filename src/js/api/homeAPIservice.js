@@ -20,9 +20,3 @@ export default {
     this.page = 1;
   },
 };
-
-// Запрос кинофильма по ключевому слову на главное странице:
-// ${URL.BASE}/search/movie?${URL.KEY}&language=en-US&query=${this.searchQuery}&page=1&include_adult=false
-
-// Запрос о полной информации о кинофильме для страницы кинофильма:
-// ${URL.BASE}/movie/{movie_id}?${URL.KEY}&language=en-US
