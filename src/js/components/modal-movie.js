@@ -18,10 +18,13 @@ function onOpenModalMovie(e) {
   movieLightbox.show();
 
   const addToWatchedBtn = document.querySelector('[data-action="add-to-watched"]');
+  const addToQueueBtn = document.querySelector('[data-action="add-to-queue"]');
+
   addToWatchedBtn.addEventListener(
     'click',
     onAddToWatchedClick.bind(null, movieId, addToWatchedBtn),
   );
+  addToQueueBtn.addEventListener('click', onAddToQueueClick.bind(null, movieId, addToQueueBtn));
 }
 
 function onAddToWatchedClick(movieId, btn, e) {
@@ -31,4 +34,13 @@ function onAddToWatchedClick(movieId, btn, e) {
   dataStorage.getWatchedPropForMovie(movieId)
     ? (btn.textContent = 'remove from watched')
     : (btn.textContent = 'add to watched');
+}
+
+function onAddToQueueClick(movieId, btn, e) {
+  const id = e.target.getAttribute('data-id');
+  dataStorage.toggleQueueMovieProp(id);
+
+  dataStorage.getQueuePropForMovie(movieId)
+    ? (btn.textContent = 'remove from queue')
+    : (btn.textContent = 'add to queue');
 }
