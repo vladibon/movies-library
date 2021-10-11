@@ -4,7 +4,7 @@ export default {
   WATCHED: 'watched',
 
   saveCurrentPage(array) {
-    localStorage.setItem(this.CURRENT_PAGE, JSON.stringify(array));
+    localStorage.setItem(this.CURRENT_PAGE_MOVIES, JSON.stringify(array));
   },
 
   getFilmData(data) {
