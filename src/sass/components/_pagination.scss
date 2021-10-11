@@ -1,0 +1,42 @@
+.tui-pagination {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.tui-page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  cursor: pointer;
+}
+
+.tui-btn {
+  padding: 12px;
+  border-radius: 5px;
+  background-color: $footer-bg-color;
+}
+
+.tui-btn:not(:last-child) {
+  margin-right: 12px;
+}
+
+// .tui-prev {
+//   margin-right: 12px;
+// }
+.tui-num {
+  padding: 8px;
+  // margin-right: 16px;
+}
+
+.tui-next-is-ellip {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.tui-is-selected {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $page-accent-bg-color;
+  color: $white-text-color;
+}
