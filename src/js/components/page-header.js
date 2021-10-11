@@ -4,7 +4,8 @@ import refs from '../components/refs.js';
 refs.menuNav.addEventListener('click', goNavLink);
 
 function goNavLink(e) {
-    if (!e.target.classList.contains('site-nav__link--active')) {
+    console.log(e.target.classList);
+    if (!e.target.classList.contains('site-nav__link--active') || !e.target.classList.contains('site-nav__link--active')) {
         refs.buttonHomeMenu.classList.toggle('site-nav__link--active');
         refs.buttonLibraryMenu.classList.toggle('site-nav__link--active');
 

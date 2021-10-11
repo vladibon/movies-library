@@ -54,10 +54,7 @@
 .site-nav {
   &__list {
     display: flex;
-  }
-
-  &__item {
-    padding: 5px;
+    padding: 0;
   }
 
   &__item--margin {
@@ -65,6 +62,7 @@
   }
 
   &__link {
+    padding: 10px;
     font-weight: 500;
     font-size: 12px;
 
@@ -119,7 +117,7 @@
   right: 0;
 }
 
-.page-header__buttons {
+.page-header__library {
   margin-top: 46px;
   justify-content: space-between;
 

@@ -6,5 +6,5 @@ export default {
   buttonHomeMenu: document.querySelector('[data-nav="home"]'),
   buttonLibraryMenu: document.querySelector('[data-nav="my library"]'),
   sectionHome: document.querySelector('.page-header__search'),
-  sectionMyLibrary: document.querySelector('.page-header__buttons'),
+  sectionMyLibrary: document.querySelector('.page-header__library'),
 };
