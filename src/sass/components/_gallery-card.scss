@@ -1,5 +1,6 @@
 .gallery__item {
   @include grid-item(1);
+  cursor: pointer;
 
   transform: scale(1);
   transition: transform 150ms ease-out;

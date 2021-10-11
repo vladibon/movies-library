@@ -1,4 +1,3 @@
 export default {
-galleryContainer: document.getElementById('js-gallery'),
-
+  galleryContainer: document.getElementById('js-gallery'),
 };
