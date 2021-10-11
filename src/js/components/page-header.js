@@ -1,6 +1,5 @@
 // import onSearch from '../api/movies-api';
 import refs from '../components/refs.js';
-import svgURL from '../../images/sprite.svg';
 
 refs.menuNav.addEventListener('click', goNavLink);
 
@@ -9,12 +8,8 @@ function goNavLink(e) {
         refs.buttonHomeMenu.classList.toggle('site-nav__link--active');
         refs.buttonLibraryMenu.classList.toggle('site-nav__link--active');
 
-        if (e.target.dataset.nav === "home") {
-           
-            // onSearch();
-        } else {
-           
-        }
+        refs.sectionHome.classList.toggle('page-header--hidden');
+        refs.sectionMyLibrary.classList.toggle('page-header--hidden');
     }
 }
 

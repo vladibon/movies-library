@@ -32,8 +32,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-
-    margin-bottom: 38px;
   }
 }
 
@@ -84,8 +82,13 @@
   }
 }
 
+.page-header--hidden {
+  display: none;
+}
+
 .page-header__search {
   position: relative;
+  margin-top: 38px;
 
   @include respond-above($tablet) {
     width: 336px;
@@ -117,6 +120,7 @@
 }
 
 .page-header__buttons {
+  margin-top: 46px;
   justify-content: space-between;
 
   @include respond-above($tablet) {
