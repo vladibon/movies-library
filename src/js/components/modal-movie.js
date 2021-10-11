@@ -16,4 +16,19 @@ function onOpenModalMovie(e) {
 
   const movieLightbox = basicLightbox.create(modalMovieTemplate(movieObj));
   movieLightbox.show();
+
+  const addToWatchedBtn = document.querySelector('[data-action="add-to-watched"]');
+  addToWatchedBtn.addEventListener(
+    'click',
+    onAddToWatchedClick.bind(null, movieId, addToWatchedBtn),
+  );
+}
+
+function onAddToWatchedClick(movieId, btn, e) {
+  const id = e.target.getAttribute('data-id');
+  dataStorage.toggleWatchedMovieProp(id);
+
+  dataStorage.getWatchedPropForMovie(movieId)
+    ? (btn.textContent = 'remove from watched')
+    : (btn.textContent = 'add to watched');
 }

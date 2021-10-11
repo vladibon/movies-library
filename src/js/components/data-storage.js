@@ -10,6 +10,7 @@ export default {
 
   // my transitional arrays of data from local storage
   watchedList: [],
+  currentList: [],
 
   // current page seves to local storage, so we can render gallery
   saveCurrentMovies(array) {
@@ -17,7 +18,8 @@ export default {
   },
 
   getCurrentMovies() {
-    return JSON.parse(localStorage.getItem(this.CURRENT_PAGE_MOVIES));
+    this.currentList = JSON.parse(localStorage.getItem(this.CURRENT_PAGE_MOVIES));
+    return this.currentList;
   },
 
   // watched movies list data handling
@@ -25,6 +27,7 @@ export default {
     const list = localStorage.getItem(this.WATCHED);
     if (list) {
       this.watchedList = JSON.parse(list);
+      return this.watchedList;
     }
   },
 
@@ -33,22 +36,32 @@ export default {
     if (this.watchedList.length > 0) {
       const idList = this.watchedList.map(el => el.id);
       return idList.includes(movieId);
+    } else {
+      return false;
     }
   },
 
-  addItemToWatchedList(movieId) {
-    const currentPage = localStorage.getItem(this.CURRENT_PAGE_MOVIES);
-    const obj = JSON.parse(currentPage).find(el => el.id === movieId);
-    obj.watched = true;
-
+  toggleWatchedMovieProp(movieId) {
+    this.getCurrentMovies();
     this.getWatchedMovies();
-    this.watchedList.push(obj);
-    localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
-  },
+    const obj = this.currentList.find(el => el.id === movieId);
+    const list = this.currentList.reduce((acc, el) => {
+      if (el.id === movieId) {
+        el.watched = !el.watched;
 
-  removeItemFromWatchedList(movieId) {
-    this.watchedList = this.watchedList.filter(el => el.id !== movieId);
-    localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
+        if (el.watched) {
+          this.watchedList.push(el);
+          localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
+        } else if (!el.watched) {
+          this.watchedList = this.watchedList.filter(el => el.id !== obj.id);
+          localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
+        }
+      }
+      acc.push(el);
+      return acc;
+    }, []);
+
+    this.saveCurrentMovies(list);
   },
 
   // general get data functions
