@@ -18,11 +18,15 @@
     "url": "https://github.com/vladibon/movies-library/issues"
   },
   "homepage": "https://vladibon.github.io/movies-library/",
+  "staticFiles": {
+    "staticPath": "src/images/team"
+  },
   "devDependencies": {
     "axios": "^0.22.0",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "posthtml-include": "^1.7.2",
     "sass": "^1.42.1"
   },
