@@ -10,14 +10,7 @@ function goNavLink(e) {
         refs.buttonLibraryMenu.classList.toggle('site-nav__link--active');
 
         if (e.target.dataset.nav === "home") {
-            refs.sectionHeader.innerHTML = `
-            <div class="page-header__search">
-                <input class="page-header__search--input" type="input" placeholder="Поиск фильмов" />
-                <svg class="search-img" width="12" height="12">
-                    <use href="${svgURL}#icon-search"></use>
-                </svg>
-            </div >
-            `;
+            refs.sectionHeader.innerHTML = ``;
             // onSearch();
         } else {
             refs.sectionHeader.innerHTML = `
