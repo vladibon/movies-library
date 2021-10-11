@@ -6,42 +6,40 @@
     <div class='team__description'>
       <h2 class='team__name'>{{name}}</h2>
 
-      <table>
+      <table class="team-table">
         <tr>
-          <td class='team__status'>{{position}}</td>
-          <td class='team__rating'>{{rating}}</td>
+          <td class='team__position'>{{position}}</td>
+          <td class='team__rating td-positioning'><span class="rating">{{rating}}</span></td>
         </tr>
         <tr>
           <td class='team__text'>Localization:</td>
-          <td class='team__info'>{{localization}}</td>
+          <td class='team__info td-positioning'>{{localization}}</td>
         </tr>
         <tr>
           <td class='team__text'>Contact me:</td>
-          <td class='team__info'>
-
-            <a
-              class='team-socia__link'
-              href='{{contacts.linkedin_url}}'
-              target='_blank'
-              rel='nofollow noreferrer'
-            >
-              <svg class='team-socia__icon'>
-                <use href='socials.svg#linkedin'></use>
-              </svg>
-
-            </a>
-            <a
-              class='team-socia__link'
-              href='{{contact2.contact-url}}'
-              target='_blank'
-              rel='nofollow noreferrer'
-            >
-
-              <svg class='team-socia__icon'>
-                <use href='socials.svg#github'></use>
-              </svg>
-            </a>
-
+          <td class='team__info td-positioning'>
+            <div class="team-socia">
+              <a
+                class='team-socia__link link-linkedin'
+                href='{{contacts.linkedin_url}}'
+                target='_blank'
+                rel='nofollow noreferrer'
+              >
+                <svg class='team-socia__icon'>
+                  <use href='socials.svg#linkedin'></use>
+                </svg>
+              </a>
+              <a
+                class='team-socia__link link-github'
+                href='{{contacts.github_url}}'
+                target='_blank'
+                rel='nofollow noreferrer'
+              >
+                <svg class='team-socia__icon'>
+                  <use href='socials.svg#github'></use>
+                </svg>
+              </a>
+            </div>
           </td>
         </tr>
       </table>
