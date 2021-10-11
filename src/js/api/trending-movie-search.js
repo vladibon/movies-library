@@ -12,11 +12,7 @@ export default function onTrendingMoviesLoad() {
     .fetchArticles()
     .then(data => {
       const currentPageMovies = dataStorage.getFilmData(data);
-      dataStorage.saveCurrentPage(currentPageMovies);
-
-      // todelete
-      // dataStorage.saveWatched(currentPageMovies);
-      // dataStorage.addToWatchedList('497698');
+      dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
     })
