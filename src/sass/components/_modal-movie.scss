@@ -32,23 +32,28 @@
 
 .modal-movie__poster {
   margin-right: 0px;
-}
-.modal-movie__img {
-  max-width: 320px;
-  @include respond-below($tablet) {
-    text-align: center;
-    max-width: 240px;
-    max-height: 355px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  width: 240px;
+  height: 356px;
+
+  @include respond-above($tablet) {
+    width: 264px;
+    height: 374px;
   }
-  @include respond-below($desktop) {
-    max-width: 265px;
-    max-height: 375px;
-  }
+
   @include respond-above($desktop) {
-    max-width: 100%;
-    max-height: 100%;
+    width: 396px;
+    height: 478px;
   }
 }
+
+.modal-movie__img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .modal-movie__description {
   @include respond-above($tablet) {
     max-width: 260px;
@@ -59,8 +64,10 @@
     max-height: 480px;
   }
 }
+
 .modal-movie_name {
   text-transform: uppercase;
+  font-weight: 500;
   @include respond-below($tablet) {
     margin-top: 30px;
     font-size: 20px;
@@ -76,20 +83,23 @@
     line-height: 1.16;
   }
 }
+
 .modal-movie__table {
   margin-top: 20px;
+  font-weight: 500;
 }
+
 .modal-movie__history {
   margin-top: 20px;
   width: 130px;
-  //padding-right: 40px;
   font-size: 12px;
-  line-height: 1.3;
+  line-height: 1.6;
   color: $modal-grey-title-color;
   @include respond-above($tablet) {
     width: 105px;
   }
 }
+
 .vote {
   text-align: center;
   display: inline-block;
@@ -100,35 +110,39 @@
   background-color: $rating-bg-color;
   color: $white-text-color;
 }
-// .tr {
-//   padding-left: 20px;
-// }
+
 .votes {
   min-width: 36px;
   background-color: $footer-bg-color;
 }
+
 .modal-movie__show {
   margin-top: 10px;
-  // padding-left: 20px;
 }
+
 .modal-movie__original {
   text-transform: uppercase;
 }
+
 .overviev-title {
   margin-top: 20px;
   font-size: 12px;
+  font-weight: 500;
   line-height: 1.3;
   text-transform: uppercase;
 }
+
 .modal-movie__overview {
   margin-top: 10px;
   font-size: 12px;
   line-height: 1.67;
 }
+
 .modal-movie__btn-list {
   text-align: center;
   display: flex;
 }
+
 .modal-movie__btn-item {
   text-transform: uppercase;
   margin-top: 20px;
