@@ -16,6 +16,10 @@ export default {
     localStorage.setItem(this.CURRENT_PAGE_MOVIES, JSON.stringify(array));
   },
 
+  getCurrentMovies() {
+    return JSON.parse(localStorage.getItem(this.CURRENT_PAGE_MOVIES));
+  },
+
   // watched movies list data handling
   getWatchedMovies() {
     const list = localStorage.getItem(this.WATCHED);
