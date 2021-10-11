@@ -2,12 +2,16 @@
   {
     "image": "Vladimir-Bondar.jpg",
     "name": "Vladimir Bondar",
-    "status": "Team leader",
+    "position": "Team leader",
     "rating": "10/10",
     "localization": "Kyiv, Ukraine",
     "contacts": [
       { "contact": { "contact-link": "linkedin", "contact-url": "#" } },
       { "contact": { "contact-link": "github", "contact-url": "https://github.com/vladibon" } }
-    ]
+    ],
+    "#contacts": {
+      "linkedin_url": "https://www.linkedin.com/in/vladimir-bondar-760463212/",
+      "github_url": "https://github.com/vladibon"
+    }
   }
 ]
