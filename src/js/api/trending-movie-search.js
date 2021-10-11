@@ -7,7 +7,7 @@ dataStorage.saveGenresToLS();
 onTrendingMoviesLoad();
 getOneMovie();
 
-function onTrendingMoviesLoad() {
+export default function onTrendingMoviesLoad() {
   homeApiService
     .fetchArticles()
     .then(data => {

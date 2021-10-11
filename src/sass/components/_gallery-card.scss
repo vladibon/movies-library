@@ -8,6 +8,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  cursor: pointer;
 
   @include respond-above($tablet) {
     @include grid-item(2);
@@ -28,6 +29,7 @@
   background-size: cover;
   overflow: hidden;
   border-radius: 5px;
+  pointer-events: none;
 }
 
 .gallery__img {
@@ -38,6 +40,7 @@
 .gallery__info {
   width: 100%;
   padding-top: 10px;
+  pointer-events: none;
 }
 
 .gallery__title {
