@@ -4,13 +4,14 @@ import settingsUrl from '../api/settingsURL';
 export default {
   // local storage keys names
   CURRENT_PAGE_MOVIES: 'currentPageMovies',
-  QUEUE: 'queue',
   WATCHED: 'watched',
+  QUEUE: 'queue',
   GENRES: 'genres',
 
   // my transitional arrays of data from local storage
-  watchedList: [],
   currentList: [],
+  watchedList: [],
+  queueList: [],
 
   // current page seves to local storage, so we can render gallery
   saveCurrentMovies(array) {
@@ -22,7 +23,7 @@ export default {
     return this.currentList;
   },
 
-  // watched movies list data handling
+  // WATCHED movies list data handling
   getWatchedMovies() {
     const list = localStorage.getItem(this.WATCHED);
     if (list) {
@@ -64,6 +65,48 @@ export default {
     this.saveCurrentMovies(list);
   },
 
+  // QUEUE movies list data handling
+  getQueueMovies() {
+    const list = localStorage.getItem(this.QUEUE);
+    if (list) {
+      this.queueList = JSON.parse(list);
+      return this.queueList;
+    }
+  },
+
+  getQueuePropForMovie(movieId) {
+    this.getQueueMovies();
+    if (this.queueList.length > 0) {
+      const idList = this.queueList.map(el => el.id);
+      return idList.includes(movieId);
+    } else {
+      return false;
+    }
+  },
+
+  toggleQueueMovieProp(movieId) {
+    this.getCurrentMovies();
+    this.getQueueMovies();
+    const obj = this.currentList.find(el => el.id === movieId);
+    const list = this.currentList.reduce((acc, el) => {
+      if (el.id === movieId) {
+        el.queue = !el.queue;
+
+        if (el.queue) {
+          this.queueList.push(el);
+          localStorage.setItem(this.QUEUE, JSON.stringify(this.queueList));
+        } else if (!el.queue) {
+          this.queueList = this.queueList.filter(el => el.id !== obj.id);
+          localStorage.setItem(this.QUEUE, JSON.stringify(this.queueList));
+        }
+      }
+      acc.push(el);
+      return acc;
+    }, []);
+
+    this.saveCurrentMovies(list);
+  },
+
   // general get data functions
   getFilmData(data) {
     let movies = data.map(el => {
@@ -79,7 +122,7 @@ export default {
           return arr.join(', ');
         })(),
         watched: this.getWatchedPropForMovie(String(el.id)),
-        queue: false,
+        queue: this.getQueuePropForMovie(String(el.id)),
       };
 
       return movie;
