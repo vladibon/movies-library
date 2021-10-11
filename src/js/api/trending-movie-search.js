@@ -1,4 +1,4 @@
-import { homeApiService, movieApiService, genresApiService } from './apiServicePlugin';
+import { homeApiService, movieApiService } from './apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from '../components/data-storage';
 import refs from '../components/refs.js';
@@ -13,6 +13,11 @@ function onTrendingMoviesLoad() {
     .then(data => {
       const currentPageMovies = dataStorage.getFilmData(data);
       dataStorage.saveCurrentPage(currentPageMovies);
+
+      // todelete
+      // dataStorage.saveWatched(currentPageMovies);
+      // dataStorage.addToWatchedList('497698');
+
       createGallery(currentPageMovies);
     })
     .catch(onFetchError);
