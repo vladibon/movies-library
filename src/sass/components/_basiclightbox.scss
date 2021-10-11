@@ -4,3 +4,9 @@ $basicLightbox__duration: 450ms; // Transition duration
 $basicLightbox__timing: ease-out; // Transition timing
 
 @import 'basiclightbox/src/styles/main';
+
+.basicLightbox {
+  @include respond-below($tablet) {
+    align-items: flex-start;
+  }
+}
