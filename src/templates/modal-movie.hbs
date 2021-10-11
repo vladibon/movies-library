@@ -1,41 +1,45 @@
-<div class="modal-movie">
-  <button type="button">
-    <svg width="14" height="14">
-      <use href=""></use>
+<div class='modal-movie'>
+  <button class='modal-movie__close-btn' type='button'>
+    <svg width='30' height='30'>
+      <path d='M8 8L22 22' stroke='black' stroke-width='2'></path>
+      <path d='M8 22L22 8' stroke='black' stroke-width='2'></path>
     </svg>
   </button>
-  <img class="modal-movie__img" src="{{poster_path}}" alt="{{name}}" id={{id}}>
-</div>
-<div>
-  <table>
-    <tr>
-      <td class="modal-movie__history"> <span>Vote</span> / Votes</td>
-      <td class="modal-movie__show">{{vote_average}}/{{vote_count}}</td>
-    </tr>
-    <tr>
-      <td class="modal-movie__history">Popularity</td>
-      <td class="modal-movie__show">{{popularity}}</td>
-    </tr>
-    <tr>
-      <td class="modal-movie__history">Original Title</td>
-      <td class="modal-movie__show">{{original_title}}</td>
-    </tr>
-    <tr>
-      <td class="modal-movie__history">Genre</td>
-      <td class="modal-movie__show">
-        <ul class="modal-genres">
-          {{#each genre_ids}}
-          <li class="modal-genres__item">{{this}}</li>
-          {{/each}}
-        </ul>
-      </td>
-    </tr>
-  </table>
-</div>
-<h3>about</h3>
-<p class="modal-movie__overview">{{overview}}</p>
-</div>
-<div>
-  <button type="button">add to watched</button>
-  <button type="button">add to queue</button>
+  <div class='modal-movie__poster'>
+    <img class='modal-movie__img' src='{{poster_path}}' alt='{{title}}' id={{id}} />
+  </div>
+  <div class='modal-movie__description'>
+    <h2 class='modal-movie_name'>{{title}} </h2>
+    <table class='modal-movie__table'>
+      <tr class='tr'>
+        <td class='modal-movie__history'> Vote / Votes</td>
+        <td class='modal-movie__show'>
+          <span class='vote'>7.3</span> / 
+          <span class='votes'>1260</span></td>
+      </tr>
+      <tr>
+        <td class='modal-movie__history'>Popularity</td>
+        <td class='modal-movie__show'>100.2</td>
+      </tr>
+      <tr>
+        <td class='modal-movie__history'>Original Title</td>
+        <td class='modal-movie__show'>{{title}}</td>
+      </tr>
+      <tr>
+        <td class='modal-movie__history'>Genre</td>
+        <td class='modal-movie__show'>Documentary, Drama, Other </td>
+      </tr>
+    </table>
+    <h3 class='overviev-title'>about</h3>
+    <p class='modal-movie__overview'>Four of the West’s most infamous outlaws assemble to steal a
+      huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes
+      to plan one is killed and the other three escapes with bags of gold hide out in the abandoned
+      gold mine where they happen across another gang of three – who themselves were planning to hit
+      the very same bank! As tensions rise, things go from bad to worse as they realise the bags of
+      gold are filled with lead... they’ve been double crossed – but by who and how?</p>
+    <div class='modal-movie__btn-list'>
+      <button class='modal-movie__btn-item btn btn--secondary ' type='button'>add to watched</button>
+      <button class=' modal-movie__btn-item btn btn--secondary' type='button'>add to queue</button>
+    </div>
+  </div>
 </div>
