@@ -58,13 +58,18 @@
   }
 
   &__item--margin {
-    margin-right: 40px;
+    margin-right: 20px;
   }
 
   &__link {
     padding: 10px;
     font-weight: 500;
     font-size: 12px;
+    transform: translate(10px, 10px);
+
+    color: $white-text-color;
+    background-color: transparent;
+    border: none;
 
     &:hover {
       cursor: pointer;
@@ -126,6 +131,6 @@
   }
 }
 
-.btn__margin {
+.btn--margin {
   margin-right: 15px;
 }
