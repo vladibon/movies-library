@@ -7,9 +7,9 @@ onTrendingMoviesLoad();
 getOneMovie();
 getGenresMovies();
 
-export default function onTrendingMoviesLoad() {
+export default function onTrendingMoviesLoad(page) {
   homeApiService
-    .fetchArticles()
+    .fetchArticles(page)
     .then(data => {
       const currentPageMovies = localStorage.getFilmData(data);
       localStorage.saveCurrentPage(currentPageMovies);
