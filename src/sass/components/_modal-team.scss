@@ -1,47 +1,10 @@
-// .backdrop {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 5;
-//   opacity: 1;
-//   background-color: $backdrop-bg-color;
-
-//   &.is-hidden {
-//     opacity: 0;
-//     pointer-events: none;
-//     visibility: hidden;
-//     transition: visibility $modal-animation, opacity $modal-animation;
-//   }
-// }
-
-.modal-team {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 280px;
-  min-height: 575px;
-  background-color: $primary-bg-color;
-  border-radius: 5px;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform $modal-animation;
-
-  .backdrop.is-hidden & {
-    // transform: translate(-50%, -50%) scale(0.5);
-    transition: transform $modal-animation;
-  }
-}
-
 .team {
-  min-width: 280px;
-  height: 575px;
-  padding-top: 30px;
-  padding-right: 20px;
-  padding-bottom: 30px;
-  padding-left: 20px;
+  width: 274px;
+  min-height: 572px;
+  padding: 30px 20px;
   background-color: $primary-bg-color;
   border-radius: 5px;
+  box-shadow: $team-card-shadow;
 }
 
 .team__description {
@@ -91,17 +54,13 @@
   color: $modal-grey-title-color;
 }
 
-// social link
+// social links
 
-.team-socia {
+.team-social {
   display: flex;
 }
 
-.team-socia__link:not(:last-child) {
-  margin-right: 12px;
-}
-
-.team-socia__link {
+.team-social__link {
   display: flex;
   align-items: center;
   width: 22px;
@@ -109,12 +68,16 @@
   justify-content: center;
 
   transition: background-color $animation, fill $animation;
-}
 
-.team-socia__link:hover,
-.team-socia__link:focus {
-  fill: $btn-secondary-color;
-  background-color: $btn-accent-bg-color;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    fill: $btn-secondary-color;
+    background-color: $btn-accent-bg-color;
+  }
 }
 
 .link-linkedin:hover,
@@ -127,7 +90,7 @@
   border-radius: 50%;
 }
 
-.team-socia__icon {
+.team-social__icon {
   background-size: contain;
   width: 22px;
   height: 22px;
