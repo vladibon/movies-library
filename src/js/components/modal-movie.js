@@ -1,45 +1,58 @@
 import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
-
+import dataStorage from '../components/data-storage';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
 function onOpenModalMovie(e) {
-  e.preventDefault();
-  
   if (!e.target.classList.contains('gallery__item')) return;
-  
-  // Временный код ---------
-  const img = e.target.firstElementChild.firstElementChild;
-  
-  const options = {
-    poster_path: img.src,
-    title: img.alt,
-  };
-  // -----------------------
-  
-  const movieLightbox = basicLightbox.create(modalMovieTemplate(options));
+
+  const currentMovies = dataStorage.getCurrentMovies();
+  const movieId = e.target.getAttribute('id');
+  const movieObj = currentMovies.find(el => el.id === movieId);
+  const movieLightbox = basicLightbox.create(modalMovieTemplate(movieObj));
   movieLightbox.show();
-  
+
+  const addToWatchedBtn = document.querySelector('[data-action="add-to-watched"]');
+  const addToQueueBtn = document.querySelector('[data-action="add-to-queue"]');
+  const btnCloseModal = document.querySelector('.js-modal-movie__close-btn');
+
+  addToWatchedBtn.addEventListener(
+    'click',
+    onAddToWatchedClick.bind(null, movieId, addToWatchedBtn),
+  );
+  addToQueueBtn.addEventListener('click', onAddToQueueClick.bind(null, movieId, addToQueueBtn));
+  btnCloseModal.addEventListener('click', onModalClose);
   window.addEventListener('keydown', onModalCloseEsc);
+
   function onModalCloseEsc(e) {
     if (e.code === 'Escape') {
       movieLightbox.close();
-      window.removeEventListener('keydown', onModalCloseEsc)
+      window.removeEventListener('keydown', onModalCloseEsc);
     }
-  };
-  
-  const btnCloseModal = document.querySelector('.modal-movie__close-js');
-  btnCloseModal.addEventListener('click', onModalClose);
+  }
+
   function onModalClose() {
     movieLightbox.close();
     window.removeEventListener('keydown', onModalCloseEsc);
-  };
-  
-};
+  }
 
+  function onAddToWatchedClick(movieId, btn, e) {
+    const id = e.target.getAttribute('data-id');
+    dataStorage.toggleWatchedMovieProp(id);
 
+    dataStorage.getWatchedPropForMovie(movieId)
+      ? (btn.textContent = 'remove from watched')
+      : (btn.textContent = 'add to watched');
+  }
 
+  function onAddToQueueClick(movieId, btn, e) {
+    const id = e.target.getAttribute('data-id');
+    dataStorage.toggleQueueMovieProp(id);
 
-  
+    dataStorage.getQueuePropForMovie(movieId)
+      ? (btn.textContent = 'remove from queue')
+      : (btn.textContent = 'add to queue');
+  }
+}

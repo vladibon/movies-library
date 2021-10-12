@@ -1,12 +1,19 @@
 <div class='modal-movie'>
-  <button class='modal-movie__close-btn modal-movie__close-js ' type='button'>
-    <svg  width='30' height='30'>
+  <button class='modal-movie__close-btn js-modal-movie__close-btn' type='button'>
+    <svg width='30' height='30'>
       <path d='M8 8L22 22' stroke='black' stroke-width='2'></path>
       <path d='M8 22L22 8' stroke='black' stroke-width='2'></path>
     </svg>
   </button>
   <div class='modal-movie__poster'>
-    <img class='modal-movie__img' src='{{poster_path}}' alt='{{title}}' id={{id}} />
+    <img
+      class='modal-movie__img'
+      srcset='{{poster_path_W342}} 342w, {{poster_path_W500}} 500w, {{poster_path_W780}} 780w'
+      sizes='(min-width: 2048px) 780px, (min-width: 1024px) 500px, 300px'
+      src='{{poster_path_W342}}'
+      alt='{{title}}'
+      id={{id}}
+    />
   </div>
   <div class='modal-movie__description'>
     <h2 class='modal-movie_name'>{{title}} </h2>
@@ -14,32 +21,38 @@
       <tr class='tr'>
         <td class='modal-movie__history'> Vote / Votes</td>
         <td class='modal-movie__show'>
-          <span class='vote'>7.3</span> / 
-          <span class='votes'>1260</span></td>
+          <span class='vote'>{{vote_average}}</span>
+          /
+          <span class='votes'>{{vote_count}}</span></td>
       </tr>
       <tr>
         <td class='modal-movie__history'>Popularity</td>
-        <td class='modal-movie__show'>100.2</td>
+        <td class='modal-movie__show'>{{popularity}}</td>
       </tr>
       <tr>
         <td class='modal-movie__history'>Original Title</td>
-        <td class='modal-movie__show'>{{title}}</td>
+        <td class='modal-movie__show'>{{original_title}}</td>
       </tr>
       <tr>
         <td class='modal-movie__history'>Genre</td>
-        <td class='modal-movie__show'>Documentary, Drama, Other </td>
+        <td class='modal-movie__show'>{{genres}}</td>
       </tr>
     </table>
     <h3 class='overviev-title'>about</h3>
-    <p class='modal-movie__overview'>Four of the West’s most infamous outlaws assemble to steal a
-      huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes
-      to plan one is killed and the other three escapes with bags of gold hide out in the abandoned
-      gold mine where they happen across another gang of three – who themselves were planning to hit
-      the very same bank! As tensions rise, things go from bad to worse as they realise the bags of
-      gold are filled with lead... they’ve been double crossed – but by who and how?</p>
+    <p class='modal-movie__overview'>{{overview}}</p>
     <div class='modal-movie__btn-list'>
-      <button class='modal-movie__btn-item btn btn--secondary ' type='button'>add to watched</button>
-      <button class=' modal-movie__btn-item btn btn--secondary' type='button'>add to queue</button>
+      <button
+        class='modal-movie__btn-item btn btn--secondary'
+        type='button'
+        data-id='{{id}}'
+        data-action='add-to-watched'
+      >{{#if watched}}remove from watched{{else}}add to watched{{/if}}</button>
+      <button
+        class='modal-movie__btn-item btn btn--secondary'
+        type='button'
+        data-id='{{id}}'
+        data-action='add-to-queue'
+      >{{#if queue}}remove from queue{{else}}add to queue{{/if}}</button>
     </div>
   </div>
 </div>
