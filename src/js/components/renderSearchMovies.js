@@ -57,7 +57,6 @@ function onSearch(e) {
     })
     .then(setObserver)
     .catch(onFetchError);
-  e.target.value = '';
 }
 
 function onLoadMore() {
