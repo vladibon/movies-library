@@ -3,10 +3,10 @@ import URL from './settingsURL';
 // Запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице
 export const homeApiService = {
   PATH: 'trending/movie/day',
-  page: 1,
+  // page: 1,
 
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}?${URL.KEY}&page=${this.page}`;
+  async fetchArticles(page = 1) {
+    const url = `${URL.BASE}/${this.PATH}?${URL.KEY}&page=${page}`;
 
     const response = await fetch(url);
     const movies = await response.json();
