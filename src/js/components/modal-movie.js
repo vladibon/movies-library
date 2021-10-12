@@ -2,23 +2,44 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 
+
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
 function onOpenModalMovie(e) {
   e.preventDefault();
-
+  
   if (!e.target.classList.contains('gallery__item')) return;
-
+  
   // Временный код ---------
   const img = e.target.firstElementChild.firstElementChild;
-
+  
   const options = {
     poster_path: img.src,
     title: img.alt,
   };
   // -----------------------
-
+  
   const movieLightbox = basicLightbox.create(modalMovieTemplate(options));
   movieLightbox.show();
-}
- 
+  
+  window.addEventListener('keydown', onModalCloseEsc);
+  function onModalCloseEsc(e) {
+    if (e.code === 'Escape') {
+      movieLightbox.close();
+      window.removeEventListener('keydown', onModalCloseEsc)
+    }
+  };
+  
+  const btnCloseModal = document.querySelector('.modal-movie__close-js');
+  btnCloseModal.addEventListener('click', onModalClose);
+  function onModalClose() {
+    movieLightbox.close();
+    window.removeEventListener('keydown', onModalCloseEsc);
+  };
+  
+};
+
+
+
+
+  
