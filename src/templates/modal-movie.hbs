@@ -46,13 +46,13 @@
         type='button'
         data-id='{{id}}'
         data-action='add-to-watched'
-      >add to watched</button>
+      >{{#if watched}}remove from watched{{else}}add to watched{{/if}}</button>
       <button
         class='modal-movie__btn-item btn btn--secondary'
         type='button'
         data-id='{{id}}'
         data-action='add-to-queue'
-      >add to queue</button>
+      >{{#if queue}}remove from queue{{else}}add to queue{{/if}}</button>
     </div>
   </div>
 </div>
