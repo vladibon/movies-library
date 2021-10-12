@@ -56,7 +56,7 @@ export const searchApiService = {
 // Запрос о полной информации о кинофильме для страницы кинофильма
 export const movieApiService = {
   PATH: `movie`,
-  movieId: '5',
+  movieId: '',
 
   async fetchArticles() {
     const url = `${URL.BASE}/${this.PATH}/${this.movieId}?${URL.KEY}&language=en-US`;
