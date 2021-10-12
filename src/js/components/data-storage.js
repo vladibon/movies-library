@@ -113,8 +113,10 @@ export default {
       let movie = {
         ...el,
         id: String(el.id),
-        poster_path: `${settingsUrl.BASE_IMG_URL}${el.poster_path}`,
-        backdrop_path: `${settingsUrl.BASE_IMG_URL}${el.backdrop_path}`,
+        poster_path_W342: `${settingsUrl.W342_IMG_URL}${el.poster_path}`,
+        poster_path_W500: `${settingsUrl.W500_IMG_URL}${el.poster_path}`,
+        poster_path_W780: `${settingsUrl.W780_IMG_URL}${el.poster_path}`,
+        backdrop_path: `${settingsUrl.W780_IMG_URL}${el.backdrop_path}`,
         release_date: el.release_date.slice(0, 4),
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));

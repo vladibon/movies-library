@@ -6,7 +6,14 @@
     </svg>
   </button>
   <div class='modal-movie__poster'>
-    <img class='modal-movie__img' src='{{poster_path}}' alt='{{title}}' id={{id}} />
+    <img
+      class='modal-movie__img'
+      srcset='{{poster_path_W342}} 342w, {{poster_path_W500}} 500w, {{poster_path_W780}} 780w'
+      sizes='(min-width: 2048px) 780px, (min-width: 1024px) 500px, 300px'
+      src='{{poster_path_W342}}'
+      alt='{{title}}'
+      id={{id}}
+    />
   </div>
   <div class='modal-movie__description'>
     <h2 class='modal-movie_name'>{{title}} </h2>
