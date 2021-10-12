@@ -1,6 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
 import Splide from '@splidejs/splide';
-
 import refs from './refs';
 import teamCardsTemplate from '../../templates/team-markup.hbs';
 import team from '../db/team.json';
