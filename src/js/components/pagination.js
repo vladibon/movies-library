@@ -1,3 +1,5 @@
+import { homeApiService, movieApiService, genresApiService, searchApiService } from '../api/apiServicePlugin';
+import onSearch from './renderSearchMovies';
 import onTrendingMoviesLoad from '../api/trending-movie-search';
 import Pagination from 'tui-pagination';
 import refs from '../components/refs.js';
@@ -34,7 +36,8 @@ const myPagination = new Pagination(paginationContainer, options);
 
 myPagination.on('afterMove', function (eventData) {
     refs.galleryContainer.innerHTML = "";
-    onTrendingMoviesLoad(eventData.page);
+    // refs.pagination.dataset.pagin === '' ? onTrendingMoviesLoad(eventData.page) :
+    onSearch('c', 1);
     });
 
 

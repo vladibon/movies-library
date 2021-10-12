@@ -36,8 +36,10 @@ function removeObserver(data) {
 // ==============================================================
 
 // --- Функции рендеринга изображений ---
-function onSearch(e) {
+export default function onSearch(e, page) {
   refs.galleryContainer.innerHTML = '';
+  refs.pagination.dataset.pagin = 'input';
+  console.log(page);
   searchApiService.resetPage();
   searchApiService.query = e.target.value.trim();
 
@@ -49,13 +51,13 @@ function onSearch(e) {
   }
 
   searchApiService
-    .fetchArticles()
+    .fetchArticles(page)
     .then(data => {
       const currentPageMovies = localStorage.getFilmData(data);
       localStorage.saveCurrentPage(currentPageMovies);
       createGallery(currentPageMovies);
     })
-    .then(setObserver)
+    // .then(setObserver)
     .catch(onFetchError);
 }
 

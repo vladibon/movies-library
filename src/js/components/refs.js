@@ -13,4 +13,6 @@ export default {
   sectionMyLibrary: document.querySelector('.page-header__library'),
 
   buttonWatched: document.querySelector('[data-action="watched"]'),
+
+  pagination: document.querySelector('[data-pagin]'),
 };
