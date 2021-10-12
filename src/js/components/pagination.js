@@ -3,6 +3,9 @@ import onSearch from './renderSearchMovies';
 import onTrendingMoviesLoad from '../api/trending-movie-search';
 import Pagination from 'tui-pagination';
 import refs from '../components/refs.js';
+import localStorage from './local-storage-db';
+
+import imageCardTpl from '../../templates/card-markup.hbs';
 // import 'tui-pagination/dist/tui-pagination.css';
 
 const paginationContainer = document.getElementById('pagination');
@@ -36,8 +39,29 @@ const myPagination = new Pagination(paginationContainer, options);
 myPagination.on('afterMove', function (eventData) {
     refs.galleryContainer.innerHTML = "";
     // refs.pagination.dataset.pagin === '' ? 
-    onTrendingMoviesLoad(eventData.page);
-    // onSearch('c', 1);
+    // onTrendingMoviesLoad(eventData.page)
+    // onSearch(refs.pagination, 1);
+
+    onSrh(eventData.page);
+function onSrh(page) {
+  refs.galleryContainer.innerHTML = '';
+  refs.pagination.dataset.pagin = 'input';
+  console.log(searchApiService.query);
+  
+  searchApiService
+    .fetchArticles(page)
+      .then(data => {
+          console.log(page);
+        const currentPageMovies = localStorage.getFilmData(data);
+      localStorage.saveCurrentPage(currentPageMovies);
+      crtGal(currentPageMovies);
+  
+    })
+    }
+
+    function crtGal(data) {
+    refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(data));
+     }
     });
 
 
