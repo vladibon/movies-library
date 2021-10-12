@@ -7,7 +7,7 @@ onTrendingMoviesLoad();
 getOneMovie();
 getGenresMovies();
 
-function onTrendingMoviesLoad() {
+export default function onTrendingMoviesLoad() {
   homeApiService
     .fetchArticles()
     .then(data => {
