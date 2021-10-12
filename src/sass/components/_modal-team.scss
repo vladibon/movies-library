@@ -7,6 +7,12 @@
   box-shadow: $team-card-shadow;
 }
 
+.team__img-thumb {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: $team-img-shadow;
+}
+
 .team__description {
   padding-top: 12px;
   line-height: 1.1;
