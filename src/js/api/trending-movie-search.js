@@ -5,7 +5,6 @@ import refs from '../components/refs.js';
 
 dataStorage.saveGenresToLS();
 onTrendingMoviesLoad();
-getOneMovie();
 
 export default function onTrendingMoviesLoad() {
   homeApiService
@@ -20,17 +19,29 @@ export default function onTrendingMoviesLoad() {
 }
 
 function createGallery(images) {
-  refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(images));
+  refs.galleryContainer.innerHTML = imageCardTpl(images);
 }
 
 function onFetchError(message) {
   console.log(message);
 }
 
+// Это можно удалить потом
 // Временая показательная функция для последующего изменения
+// getOneMovie();
+
 function getOneMovie() {
   movieApiService
     .fetchArticles()
     .then(data => console.log('Полная информация о кинофильме для страницы кинофильма:', data))
     .catch(onFetchError);
+}
+
+// ВАЛЕРА, это тебе 🌷🌷🌷 (потом удалишь отсюда)
+function renderWatchedMovies() {
+  const watchedListMovies = dataStorage.getWatchedMovies();
+  console.log(watchedListMovies);
+
+  dataStorage.saveCurrentMovies(watchedListMovies);
+  createGallery(watchedListMovies);
 }

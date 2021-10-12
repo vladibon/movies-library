@@ -9,9 +9,9 @@
     display: flex;
   }
   @include respond-above($desktop) {
-    padding: 50px 20px;
+    padding: 50px 30px 40px;
     max-width: 900px;
-    max-height: 570px;
+    height: 570px;
   }
 }
 
@@ -44,8 +44,8 @@
   }
 
   @include respond-above($desktop) {
-    width: 396px;
-    height: 478px;
+    width: 380px;
+    height: 480px;
   }
 }
 

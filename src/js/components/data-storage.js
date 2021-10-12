@@ -114,6 +114,7 @@ export default {
         ...el,
         id: String(el.id),
         poster_path: `${settingsUrl.BASE_IMG_URL}${el.poster_path}`,
+        backdrop_path: `${settingsUrl.BASE_IMG_URL}${el.backdrop_path}`,
         release_date: el.release_date.slice(0, 4),
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
