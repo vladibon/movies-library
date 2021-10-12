@@ -1,32 +1,35 @@
-import { homeApiService, movieApiService, genresApiService } from './apiServicePlugin';
+import { homeApiService, movieApiService } from './apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import localStorage from '../components/local-storage-db';
+import dataStorage from '../components/data-storage';
 import refs from '../components/refs.js';
 
+dataStorage.saveGenresToLS();
 onTrendingMoviesLoad();
-getOneMovie();
-getGenresMovies();
 
 export default function onTrendingMoviesLoad() {
   homeApiService
     .fetchArticles()
     .then(data => {
-      const currentPageMovies = localStorage.getFilmData(data);
-      localStorage.saveCurrentPage(currentPageMovies);
+      const currentPageMovies = dataStorage.getFilmData(data);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+
       createGallery(currentPageMovies);
     })
     .catch(onFetchError);
 }
 
 function createGallery(images) {
-  refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(images));
+  refs.galleryContainer.innerHTML = imageCardTpl(images);
 }
 
 function onFetchError(message) {
   console.log(message);
 }
 
+// Это можно удалить потом
 // Временая показательная функция для последующего изменения
+// getOneMovie();
+
 function getOneMovie() {
   movieApiService
     .fetchArticles()
@@ -34,10 +37,11 @@ function getOneMovie() {
     .catch(onFetchError);
 }
 
-// Временая показательная функция для Лены
-function getGenresMovies() {
-  genresApiService
-    .fetchArticles()
-    .then(data => console.log('Жанры фильмов (ДЛЯ ЛЕНЫ):', data))
-    .catch(onFetchError);
+// ВАЛЕРА, это тебе 🌷🌷🌷 (потом удалишь отсюда)
+function renderWatchedMovies() {
+  const watchedListMovies = dataStorage.getWatchedMovies();
+  console.log(watchedListMovies);
+
+  dataStorage.saveCurrentMovies(watchedListMovies);
+  createGallery(watchedListMovies);
 }

@@ -1,7 +1,13 @@
 {{#each this}}
   <li class='gallery__item' id={{id}}>
     <div class='gallery__img-thumb'>
-      <img class='gallery__img' src='{{poster_path}}' alt='{{title}}' />
+      <img
+        class='gallery__img'
+        srcset='{{poster_path_W342}} 342w, {{poster_path_W500}} 500w'
+        sizes='(min-width: 2048px) 500px,  342px'
+        src='{{poster_path_W342}}'
+        alt='{{title}}'
+      />
     </div>
     <div class='gallery__info'>
       <h2 class='gallery__title'>{{title}}</h2>

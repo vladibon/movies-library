@@ -1,0 +1,57 @@
+<div class='splide container'>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {{#each this}}
+        <li class='team splide__slide'>
+          <div class='team__img-thumb'>
+            <img class='team__img' src='{{image}}' alt='{{name}}' />
+          </div>
+
+          <div class='team__description'>
+            <h2 class='team__name'>{{name}}</h2>
+
+            <table class='team-table'>
+              <tr>
+                <td class='team__position'>{{position}}</td>
+                <td class='team__rating td-positioning'><span class='rating'>{{rating}}</span></td>
+              </tr>
+              <tr>
+                <td class='team__text'>Localization:</td>
+                <td class='team__info td-positioning'>{{localization}}</td>
+              </tr>
+              <tr>
+                <td class='team__text'>Contact me:</td>
+                <td class='team__info td-positioning'>
+                  <div class='team-social'>
+                    <a
+                      class='team-social__link link-linkedin'
+                      href='{{contacts.linkedin_url}}'
+                      target='_blank'
+                      rel='nofollow noreferrer'
+                    >
+                      <svg class='team-social__icon'>
+                        <use href='socials.svg#linkedin'></use>
+                      </svg>
+                    </a>
+                    <a
+                      class='team-social__link link-github'
+                      href='{{contacts.github_url}}'
+                      target='_blank'
+                      rel='nofollow noreferrer'
+                    >
+                      <svg class='team-social__icon'>
+                        <use href='socials.svg#github'></use>
+                      </svg>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <p class='team__our'>Team 17plus</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
