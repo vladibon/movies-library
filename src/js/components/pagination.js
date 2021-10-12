@@ -32,10 +32,12 @@ const options = {
     }
 };
 
+const myPagination = new Pagination(paginationContainer, options);
 myPagination.on('afterMove', function (eventData) {
     refs.galleryContainer.innerHTML = "";
-    // refs.pagination.dataset.pagin === '' ? onTrendingMoviesLoad(eventData.page) :
-    onSearch('c', 1);
+    // refs.pagination.dataset.pagin === '' ? 
+    onTrendingMoviesLoad(eventData.page);
+    // onSearch('c', 1);
     });
 
 
