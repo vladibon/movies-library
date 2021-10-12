@@ -9,7 +9,6 @@ export const homeApiService = {
 
     const response = await fetch(url);
     const movies = await response.json();
-    console.log(movies);
     return movies.results;
   },
 
