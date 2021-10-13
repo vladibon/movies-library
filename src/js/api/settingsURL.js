@@ -4,4 +4,5 @@ export default URL = {
   W342_IMG_URL: 'https://image.tmdb.org/t/p/w342',
   W500_IMG_URL: 'https://image.tmdb.org/t/p/w500',
   W780_IMG_URL: 'https://image.tmdb.org/t/p/w780',
+  TRAILER: 'https://www.youtube.com/embed/',
 };
