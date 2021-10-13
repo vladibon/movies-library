@@ -1,12 +1,10 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import dataStorage from '../components/data-storage';
+import dataStorage from './data-storage';
 import refs from './refs';
 
-// === ВРЕМЕННО, пока нет кнопки поиска ===
-document.querySelector('.page-header__search--input').addEventListener('input', onSearch);
-// refs.?????????.addEventListener('submit', onSearch);
+refs.sectionHome.addEventListener('submit', onSearch);
 
 // === ВРЕМЕННО, до подключения пагинации - Intersection Observer ===
 const options = {
@@ -37,9 +35,10 @@ function removeObserver(data) {
 
 // --- Функции рендеринга изображений ---
 function onSearch(e) {
+  e.preventDefault();
   refs.galleryContainer.innerHTML = '';
   searchApiService.resetPage();
-  searchApiService.query = e.target.value.trim();
+  searchApiService.query = e.currentTarget.firstElementChild.value.trim();
 
   if (searchApiService.query.length < 1) {
     refs.galleryContainer.innerHTML = '';
@@ -51,8 +50,9 @@ function onSearch(e) {
   searchApiService
     .fetchArticles()
     .then(data => {
-      const currentPageMovies = localStorage.getFilmData(data);
-      localStorage.saveCurrentPage(currentPageMovies);
+      const currentPageMovies = dataStorage.getFilmData(data);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+
       createGallery(currentPageMovies);
     })
     .then(setObserver)
@@ -67,7 +67,8 @@ function onLoadMore() {
     .then(removeObserver)
     .then(data => {
       const currentPageMovies = dataStorage.getFilmData(data);
-      dataStorage.saveCurrentPage(currentPageMovies);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+
       createGallery(currentPageMovies);
     })
     .then(setObserver)

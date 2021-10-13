@@ -1,4 +1,4 @@
-import { homeApiService, movieApiService } from './apiServicePlugin';
+import { homeApiService, homeWeekApiService, movieApiService } from './apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from '../components/data-storage';
 import refs from '../components/refs.js';
@@ -18,6 +18,22 @@ export default function onTrendingMoviesLoad() {
     .catch(onFetchError);
 }
 
+// ==============================================================
+// ВРЕМЕННЫЙ проект рендеринга самых популярных фильмов ЗА НЕДЕЛЮ
+// --------------------------------------------------------------
+function onTrendingWeekMoviesLoad() {
+  homeWeekApiService
+    .fetchArticles()
+    .then(data => {
+      const currentPageMovies = dataStorage.getFilmData(data);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+
+      createGallery(currentPageMovies);
+    })
+    .catch(onFetchError);
+}
+// ==============================================================
+
 function createGallery(images) {
   refs.galleryContainer.innerHTML = imageCardTpl(images);
 }
@@ -26,13 +42,14 @@ function onFetchError(message) {
   console.log(message);
 }
 
-// Это можно удалить потом
-// Временая показательная функция для последующего изменения
-// getOneMovie();
+// ==============================================================
+// ВРЕМЕНАЯ показательная функция - cсылка на ТРЕЙЛЕР кинофильма
+// --------------------------------------------------------------
+getOneMovie('643532');
 
-function getOneMovie() {
+function getOneMovie(id) {
   movieApiService
-    .fetchArticles()
-    .then(data => console.log('Полная информация о кинофильме для страницы кинофильма:', data))
+    .fetchArticles(id)
+    .then(data => console.log('Ссылка на трейлер фильма:', data))
     .catch(onFetchError);
 }
