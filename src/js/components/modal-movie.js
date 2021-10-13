@@ -25,6 +25,8 @@ function onOpenModalMovie(e) {
 
   addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
   addToQueueBtn.addEventListener('click', onAddToQueueClick);
+  btnYouTube.addEventListener('click', onTrailerPlay);
+
   btnCloseModal.addEventListener('click', movieLightbox.close);
   window.addEventListener('keydown', movieLightbox.close);
 
@@ -37,6 +39,8 @@ function onOpenModalMovie(e) {
   function onModalClose() {
     addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
     addToQueueBtn.removeEventListener('click', onAddToQueueClick);
+    btnYouTube.removeEventListener('click', onTrailerPlay);
+
     window.removeEventListener('keydown', onModalCloseEsc);
     btnCloseModal.removeEventListener('click', onModalClose);
     // const list = dataStorage.getCurrentMovies();
