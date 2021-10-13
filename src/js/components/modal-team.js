@@ -4,7 +4,9 @@ import refs from './refs';
 import teamCardsTemplate from '../../templates/team-markup.hbs';
 import team from '../db/team.json';
 
-const splideOptions = {
+let teamLightbox = null;
+let teamSplide = null;
+const teamSplideOptions = {
   perPage: 3,
   breakpoints: {
     768: {
@@ -22,11 +24,22 @@ const splideOptions = {
   // interval: 3000,
 };
 
-refs.footerLink.addEventListener('click', openModalTeam);
-
-function openModalTeam(e) {
+refs.footerLink.addEventListener('click', e => {
   e.preventDefault();
+  window.addEventListener('keydown', onKeydown);
 
-  basicLightbox.create(teamCardsTemplate(team)).show();
-  new Splide('.splide', splideOptions).mount();
+  teamLightbox = basicLightbox.create(teamCardsTemplate(team), {
+    onClose: () => window.removeEventListener('keydown', onKeydown),
+  });
+  teamLightbox.show();
+
+  teamSplide = new Splide('.splide', teamSplideOptions);
+  teamSplide.mount();
+});
+
+function onKeydown(e) {
+  console.log(e);
+  if (e.code !== 'Escape') return;
+
+  teamLightbox.close();
 }
