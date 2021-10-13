@@ -28,6 +28,22 @@
     background-image: url(../images/backgraund/header-home1920.jpg);
   }
 
+  &--my-library {
+    background-image: url(../images/backgraund/header-my-lib480.jpg);
+
+    @include respond-above($tablet) {
+      background-image: url(../images/backgraund/header-my-lib768.jpg);
+    }
+
+    @include respond-above($desktop) {
+      background-image: url(../images/backgraund/header-my-lib1200.jpg);
+    }
+
+    @include respond-above($big-desktop) {
+      background-image: url(../images/backgraund/header-my-lib1920.jpg);
+    }
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;

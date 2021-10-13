@@ -53,16 +53,3 @@ function getOneMovie(id) {
     .then(data => console.log('Ссылка на трейлер фильма:', data))
     .catch(onFetchError);
 }
-// ==============================================================
-
-// ==============================================================
-// ВАЛЕРА, это тебе 🌷🌷🌷 (потом удалишь отсюда)
-// --------------------------------------------------------------
-function renderWatchedMovies() {
-  const watchedListMovies = dataStorage.getWatchedMovies();
-  console.log(watchedListMovies);
-
-  dataStorage.saveCurrentMovies(watchedListMovies);
-  createGallery(watchedListMovies);
-}
-// ==============================================================
