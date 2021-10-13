@@ -14,6 +14,7 @@ export default {
   sectionMyLibrary: document.querySelector('.page-header__library'),
 
   buttonWatched: document.querySelector('[data-action="watched"]'),
+  buttonQueue: document.querySelector('[data-action="queue"]'),
 
   // Footer
   footerLink: document.querySelector('.js-footer__link'),

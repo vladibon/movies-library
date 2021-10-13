@@ -39,8 +39,7 @@ function onOpenModalMovie(e) {
   }
 
   function onAddToWatchedClick(movieId, btn, e) {
-    const id = e.target.getAttribute('data-id');
-    dataStorage.toggleWatchedMovieProp(id);
+    dataStorage.toggleWatchedMovieProp(movieId);
 
     dataStorage.getWatchedPropForMovie(movieId)
       ? (btn.textContent = 'remove from watched')
@@ -48,8 +47,7 @@ function onOpenModalMovie(e) {
   }
 
   function onAddToQueueClick(movieId, btn, e) {
-    const id = e.target.getAttribute('data-id');
-    dataStorage.toggleQueueMovieProp(id);
+    dataStorage.toggleQueueMovieProp(movieId);
 
     dataStorage.getQueuePropForMovie(movieId)
       ? (btn.textContent = 'remove from queue')

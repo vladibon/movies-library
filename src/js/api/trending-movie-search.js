@@ -36,12 +36,3 @@ function getOneMovie() {
     .then(data => console.log('Полная информация о кинофильме для страницы кинофильма:', data))
     .catch(onFetchError);
 }
-
-// ВАЛЕРА, это тебе 🌷🌷🌷 (потом удалишь отсюда)
-function renderWatchedMovies() {
-  const watchedListMovies = dataStorage.getWatchedMovies();
-  console.log(watchedListMovies);
-
-  dataStorage.saveCurrentMovies(watchedListMovies);
-  createGallery(watchedListMovies);
-}
