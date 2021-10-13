@@ -35,35 +35,41 @@ const options = {
     }
 };
 
+
 const myPagination = new Pagination(paginationContainer, options);
+
+const tuiIcoFirst= document.querySelector('.tui-ico-first');
+const tuiIcoLast= document.querySelector('.tui-ico-last');
+tuiIcoFirst.textContent = '<';
+tuiIcoLast.textContent = '>';
+
 myPagination.on('afterMove', function (eventData) {
     refs.galleryContainer.innerHTML = "";
-    // refs.pagination.dataset.pagin === '' ? 
-    // onTrendingMoviesLoad(eventData.page)
-    // onSearch(refs.pagination, 1);
-
-    onSrh(eventData.page);
-function onSrh(page) {
-  refs.galleryContainer.innerHTML = '';
-  refs.pagination.dataset.pagin = 'input';
-  console.log(searchApiService.query);
-  
-  searchApiService
-    .fetchArticles(page)
-      .then(data => {
-          console.log(page);
-        const currentPageMovies = dataStorage.getFilmData(data);
-      dataStorage.saveCurrentMovies(currentPageMovies);
-      crtGal(currentPageMovies);
-  
-    })
+    if (refs.pagination.dataset.pagin === '') { 
+    onTrendingMoviesLoad(eventData.page);
     }
+    else {
+        onSrh(eventData.page);
+        function onSrh(page) {
+            refs.galleryContainer.innerHTML = '';
+            refs.pagination.dataset.pagin = 'input';
+            console.log(searchApiService.query);
+  
+            searchApiService
+                .fetchArticles(page)
+                .then(data => {
+                    console.log(page);
+                    const currentPageMovies = dataStorage.getFilmData(data);
+                    dataStorage.saveCurrentMovies(currentPageMovies);
+                    crtGal(currentPageMovies);
+                })
+        }
 
-    function crtGal(data) {
-    refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(data));
-     }
-    });
-
+        function crtGal(data) {
+            refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(data));
+        }
+    }
+});
 
 
  

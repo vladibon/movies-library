@@ -18,4 +18,6 @@ export default {
   pagination: document.querySelector('[data-pagin]'),
   // Footer
   footerLink: document.querySelector('.js-footer__link'),
+
+  
 };
