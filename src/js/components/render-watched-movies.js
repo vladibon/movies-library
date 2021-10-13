@@ -6,6 +6,11 @@ export function renderWatchedMovies() {
   const watchedListMovies = dataStorage.getWatchedMovies();
   console.log(watchedListMovies);
   refs.galleryContainer.innerHTML = '';
-  dataStorage.saveCurrentMovies(watchedListMovies);
-  refs.galleryContainer.innerHTML = imageCardTpl(watchedListMovies);
+  if (watchedListMovies.length) {
+    dataStorage.saveCurrentMovies(watchedListMovies);
+    refs.galleryContainer.innerHTML = imageCardTpl(watchedListMovies);
+  } else {
+    refs.galleryContainer.innerHTML = '';
+    console.log('sorry');
+  }
 }
