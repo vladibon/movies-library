@@ -20,14 +20,11 @@ refs.buttonQueue.addEventListener('click', renderQueueMovies);
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
-  toggleHeader();
-  onTrendingMoviesLoad();
-}
 
-function toggleHeader() {
-  refs.sectionHome.classList.toggle('page-header--hidden');
-  refs.sectionMyLibrary.classList.toggle('page-header--hidden');
-  refs.header.classList.toggle('page-header--my-library');
+  refs.sectionHome.classList.remove('page-header--hidden');
+  refs.sectionMyLibrary.classList.add('page-header--hidden');
+  refs.header.classList.remove('page-header--my-library');
+  onTrendingMoviesLoad();
 }
 
 function toggleNav() {
@@ -39,5 +36,7 @@ function toggleNav() {
     refs.buttonQueue.classList.remove('btn--primary--active');
   }
 
-  toggleHeader();
+  refs.sectionHome.classList.toggle('page-header--hidden');
+  refs.sectionMyLibrary.classList.toggle('page-header--hidden');
+  refs.header.classList.toggle('page-header--my-library');
 }
