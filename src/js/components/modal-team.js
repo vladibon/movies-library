@@ -9,10 +9,10 @@ let teamSplide = null;
 const teamSplideOptions = {
   perPage: 3,
   breakpoints: {
-    768: {
+    767: {
       perPage: 1,
     },
-    1024: {
+    1023: {
       perPage: 2,
     },
   },
