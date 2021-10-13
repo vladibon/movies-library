@@ -12,3 +12,4 @@ import './js/components/renderSearchMovies';
 
 import './js/components/modal-team';
 import './js/components/pagination';
+import './js/components/scrollTop';
