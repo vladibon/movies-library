@@ -34,12 +34,11 @@ export default {
 
   getWatchedPropForMovie(movieId) {
     this.getWatchedMovies();
-    if (this.watchedList.length > 0) {
-      const idList = this.watchedList.map(el => el.id);
-      return idList.includes(movieId);
-    } else {
+    if (!this.watchedList.length) {
       return false;
     }
+    const idList = this.watchedList.map(el => el.id);
+    return idList.includes(movieId);
   },
 
   toggleWatchedMovieProp(movieId) {
@@ -76,12 +75,11 @@ export default {
 
   getQueuePropForMovie(movieId) {
     this.getQueueMovies();
-    if (this.queueList.length > 0) {
-      const idList = this.queueList.map(el => el.id);
-      return idList.includes(movieId);
-    } else {
+    if (!this.queueList.length) {
       return false;
     }
+    const idList = this.queueList.map(el => el.id);
+    return idList.includes(movieId);
   },
 
   toggleQueueMovieProp(movieId) {

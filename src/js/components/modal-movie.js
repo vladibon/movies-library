@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
-import imageCardTpl from '../../templates/card-markup.hbs';
+// import imageCardTpl from '../../templates/card-markup.hbs';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
@@ -12,7 +12,9 @@ function onOpenModalMovie(e) {
   const currentMovies = dataStorage.getCurrentMovies();
   const movieId = e.target.getAttribute('id');
   const movieObj = currentMovies.find(el => el.id === movieId);
-  const movieLightbox = basicLightbox.create(modalMovieTemplate(movieObj));
+  const movieLightbox = basicLightbox.create(modalMovieTemplate(movieObj), {
+    onClose: onModalClose,
+  });
   movieLightbox.show();
 
   const addToWatchedBtn = document.querySelector('[data-action="add-to-watched"]');
@@ -21,25 +23,22 @@ function onOpenModalMovie(e) {
 
   addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
   addToQueueBtn.addEventListener('click', onAddToQueueClick);
-  btnCloseModal.addEventListener('click', onModalClose);
-  window.addEventListener('keydown', onModalCloseEsc);
+  btnCloseModal.addEventListener('click', movieLightbox.close);
+  window.addEventListener('keydown', movieLightbox.close);
 
   function onModalCloseEsc(e) {
     if (e.code === 'Escape') {
       movieLightbox.close();
-      onModalClose();
     }
   }
 
   function onModalClose() {
-    movieLightbox.close();
-
     addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
     addToQueueBtn.removeEventListener('click', onAddToQueueClick);
     window.removeEventListener('keydown', onModalCloseEsc);
     btnCloseModal.removeEventListener('click', onModalClose);
-
-    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    // const list = dataStorage.getCurrentMovies();
+    // refs.galleryContainer.innerHTML = imageCardTpl(list);
   }
 
   function onAddToWatchedClick(e) {
@@ -50,7 +49,7 @@ function onOpenModalMovie(e) {
       ? (e.target.textContent = 'remove from watched')
       : (e.target.textContent = 'add to watched');
 
-    dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
+    // dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
   }
 
   function onAddToQueueClick(e) {
@@ -61,6 +60,6 @@ function onOpenModalMovie(e) {
       ? (e.target.textContent = 'remove from queue')
       : (e.target.textContent = 'add to queue');
 
-    dataStorage.saveCurrentMovies(dataStorage.getQueueMovies());
+    // dataStorage.saveCurrentMovies(dataStorage.getQueueMovies());
   }
 }
