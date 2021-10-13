@@ -3,6 +3,7 @@ export default {
   messageContainer: document.getElementById('message-container'),
 
   // Header Ref
+  header: document.querySelector('.page-header'),
   menuNav: document.querySelector('.site-nav__list'),
   titleHomeMenu: document.querySelector('[data-nav="home"]'),
   titleLibraryMenu: document.querySelector('[data-nav="my library"]'),

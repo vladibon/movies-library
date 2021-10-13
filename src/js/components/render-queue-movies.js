@@ -3,16 +3,16 @@ import refs from './refs';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import noResultsTpl from '../../templates/no-results.hbs';
 
-export function renderWatchedMovies() {
-  const watchedListMovies = dataStorage.getWatchedMovies();
+export function renderQueueMovies() {
+  const queueListMovies = dataStorage.getQueueMovies();
 
   refs.buttonWatched.classList.toggle('btn--primary--active');
   refs.buttonQueue.classList.toggle('btn--primary--active');
 
   refs.galleryContainer.innerHTML = '';
-  if (watchedListMovies.length) {
-    dataStorage.saveCurrentMovies(watchedListMovies);
-    refs.galleryContainer.innerHTML = imageCardTpl(watchedListMovies);
+  if (queueListMovies.length) {
+    dataStorage.saveCurrentMovies(queueListMovies);
+    refs.galleryContainer.innerHTML = imageCardTpl(queueListMovies);
   } else {
     const message = noResultsTpl({ list: 'watched' });
     // refs.messageContainer.innerHTML = message;
