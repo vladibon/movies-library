@@ -1,7 +1,7 @@
 [
   {
     "name": "Vladimir Bondar",
-    "image": "vladimir-bondar.jpg",
+    "image": "v_bondar.jpg",
     "position": "Team leader",
     "rating": "10/10",
     "localization": "Kyiv, Ukraine",
@@ -13,7 +13,7 @@
 
   {
     "name": "Olena Horobets",
-    "image": "olena-horobets.jpg",
+    "image": "o_horobets.jpg",
     "position": "Developer",
     "rating": "10/10",
     "localization": "Dnipro, Ukraine",
@@ -25,7 +25,7 @@
 
   {
     "name": "Valery Fedulov",
-    "image": "valery-fedulov.jpg",
+    "image": "v_fedulov.jpg",
     "position": "Developer",
     "rating": "10/10",
     "localization": "Uzhhorod, Ukraine",
@@ -37,7 +37,7 @@
 
   {
     "name": "Anna Holub",
-    "image": "anna-holub.jpg",
+    "image": "a_holub.jpg",
     "position": "Developer",
     "rating": "10/10",
     "localization": "Kyiv, Ukraine",
@@ -49,7 +49,7 @@
 
   {
     "name": "Eduard Konovka",
-    "image": "eduard-konovka.jpg",
+    "image": "e_konovka.jpg",
     "position": "Developer",
     "rating": "10/10",
     "localization": "Izmail, Ukraine",
@@ -60,11 +60,11 @@
   },
 
   {
-    "name": "Irina Grabovska",
-    "image": "irina-grabovska.jpg",
+    "name": "Iryna Grabovska",
+    "image": "i_grabovska.jpg",
     "position": "Developer",
     "rating": "10/10",
-    "localization": "",
+    "localization": "Aalborg, Danmark",
     "contacts": {
       "linkedin_url": "",
       "github_url": "https://github.com/Iryna-Grabovska"
@@ -73,7 +73,7 @@
 
   {
     "name": "Konstantin Zakrzhevski",
-    "image": "konstantin-zakrzhevski.jpg",
+    "image": "k_zakrzhevski.jpg",
     "position": "Developer",
     "rating": "10/10",
     "localization": "Zaporozhye, Ukraine",

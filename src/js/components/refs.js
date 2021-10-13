@@ -1,5 +1,6 @@
 export default {
   galleryContainer: document.getElementById('js-gallery'),
+
   // Header Ref
   menuNav: document.querySelector('.site-nav__list'),
   titleHomeMenu: document.querySelector('[data-nav="home"]'),
