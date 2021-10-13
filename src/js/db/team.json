@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Vladimir Bondar",
+    "image": "v_bondar.jpg",
+    "position": "Team leader",
+    "rating": "10/10",
+    "localization": "Kyiv, Ukraine",
+    "contacts": {
+      "linkedin_url": "https://www.linkedin.com/in/vladimir-bondar-760463212/",
+      "github_url": "https://github.com/vladibon"
+    }
+  },
+
+  {
+    "name": "Olena Horobets",
+    "image": "o_horobets.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Dnipro, Ukraine",
+    "contacts": {
+      "linkedin_url": "",
+      "github_url": "https://github.com/Olena-Horobets"
+    }
+  },
+
+  {
+    "name": "Valery Fedulov",
+    "image": "v_fedulov.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Uzhhorod, Ukraine",
+    "contacts": {
+      "linkedin_url": "",
+      "github_url": "https://github.com/Valeriy-Fedulov"
+    }
+  },
+
+  {
+    "name": "Anna Holub",
+    "image": "a_holub.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Kyiv, Ukraine",
+    "contacts": {
+      "linkedin_url": "#",
+      "github_url": "https://github.com/Anna-Sergeevna"
+    }
+  },
+
+  {
+    "name": "Eduard Konovka",
+    "image": "e_konovka.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Izmail, Ukraine",
+    "contacts": {
+      "linkedin_url": "",
+      "github_url": "https://github.com/Eduard-Konovka"
+    }
+  },
+
+  {
+    "name": "Iryna Grabovska",
+    "image": "i_grabovska.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Aalborg, Danmark",
+    "contacts": {
+      "linkedin_url": "",
+      "github_url": "https://github.com/Iryna-Grabovska"
+    }
+  },
+
+  {
+    "name": "Konstantin Zakrzhevski",
+    "image": "k_zakrzhevski.jpg",
+    "position": "Developer",
+    "rating": "10/10",
+    "localization": "Zaporozhye, Ukraine",
+    "contacts": {
+      "linkedin_url": "",
+      "github_url": "https://github.com/KonstantinZakrzhevskyi"
+    }
+  }
+]

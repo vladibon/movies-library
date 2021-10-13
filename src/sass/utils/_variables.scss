@@ -1,6 +1,9 @@
 // Fonts
 $main-font: 'Roboto', sans-serif;
 
+$team-title: 'Lobster', cursive;
+$team-name: 'Italianno', cursive;
+
 // Text Colors
 $movie-title-black-color: #000000;
 $genre-orange-title-color: #ff6b08;
@@ -16,6 +19,7 @@ $footer-bg-color: #f7f7f7;
 $rating-bg-color: #ff6b01;
 $page-accent-bg-color: #ff6b08;
 $arrow-bg-color: #f7f7f7;
+$backdrop-bg-color: rgba(0, 0, 0, 0.25);
 
 // Additional elements
 $header-accent-page-line: #ff6b08;
@@ -36,6 +40,13 @@ $btn-border: 1px solid currentColor;
 
 // Shadows
 $btn-primary-accent-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+$team-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+$team-img-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+// Animations
+$animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$modal-animation: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
 // Breakpoints
 $mobile: 320px;

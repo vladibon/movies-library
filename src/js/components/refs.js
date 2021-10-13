@@ -1,5 +1,6 @@
 export default {
   galleryContainer: document.getElementById('js-gallery'),
+  // modalClose: document.querySelector('.modal-movie__close-btn'),
 
   // Header Ref
   menuNav: document.querySelector('.site-nav__list'),
@@ -15,4 +16,6 @@ export default {
   buttonWatched: document.querySelector('[data-action="watched"]'),
 
   pagination: document.querySelector('[data-pagin]'),
+  // Footer
+  footerLink: document.querySelector('.js-footer__link'),
 };

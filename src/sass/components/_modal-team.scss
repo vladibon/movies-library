@@ -1,0 +1,112 @@
+.team {
+  width: 274px;
+  min-height: 572px;
+  padding: 30px 20px;
+  background-color: $primary-bg-color;
+  border-radius: 5px;
+  box-shadow: $team-card-shadow;
+}
+
+.team__img-thumb {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: $team-img-shadow;
+}
+
+.team__description {
+  padding-top: 12px;
+  line-height: 1.1;
+}
+
+.team__name {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.team-table {
+  width: 100%;
+  height: 100px;
+}
+
+.team__position {
+  font-size: 18px;
+}
+
+.rating {
+  padding: 0 4px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: $white-text-color;
+  background-color: $rating-bg-color;
+}
+
+.td-positioning {
+  display: flex;
+  justify-content: end;
+  padding-top: 5px;
+}
+
+.team__text {
+  color: $modal-grey-title-color;
+  font-size: 14px;
+}
+
+.team__info {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.team-contact__text {
+  color: $modal-grey-title-color;
+}
+
+// social links
+
+.team-social {
+  display: flex;
+}
+
+.team-social__link {
+  display: flex;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+
+  transition: background-color $animation, fill $animation;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    fill: $btn-secondary-color;
+    background-color: $btn-accent-bg-color;
+  }
+}
+
+.link-linkedin:hover,
+.link-linkedin:focus {
+  border-radius: 3px;
+}
+
+.link-github:hover,
+.link-github:focus {
+  border-radius: 50%;
+}
+
+.team-social__icon {
+  background-size: contain;
+  width: 22px;
+  height: 22px;
+  fill: $btn-secondary-color;
+}
+
+.team__our {
+  margin-top: 25px;
+  text-align: center;
+  color: $modal-grey-title-color;
+  font-size: 20px;
+  line-height: 1.2;
+}
