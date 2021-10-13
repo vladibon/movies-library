@@ -22,15 +22,15 @@ const options = {
         currentPage: '<strong class="tui-page-btn tui-is-selected tui-num">{{page}}</strong>',
         moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}} tui-btn">' +
-                '<span class="tui-ico-{{type}}">{{type}}</span>' +
+                '<span class="tui-ico-{{type}}">{{type}}{{page}}</span>' +
             '</a>',
         disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}} tui-btn">' +
-                '<span class="tui-ico-{{type}}">{{type}}</span>' +
+                '<span class="tui-ico-{{type}}">{{type}}{{page}}</span>' +
             '</span>',
         moreButton:
             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-                '<span class="tui-ico-ellip">...</span>' +
+                '<span class="tui-ico-ellip"></span>' +
             '</a>'
     }
 };
@@ -38,12 +38,17 @@ const options = {
 
 const myPagination = new Pagination(paginationContainer, options);
 
-const tuiIcoFirst= document.querySelector('.tui-ico-first');
+const tuiIcoFirst = document.querySelector('.tui-ico-first');
 const tuiIcoLast= document.querySelector('.tui-ico-last');
 tuiIcoFirst.textContent = '<';
 tuiIcoLast.textContent = '>';
 
 myPagination.on('afterMove', function (eventData) {
+    const tuiIcoFirst = document.querySelector('.tui-ico-first');
+    const tuiIcoLast= document.querySelector('.tui-ico-last');
+    tuiIcoFirst.textContent = '<';
+    tuiIcoLast.textContent = '>';
+
     refs.galleryContainer.innerHTML = "";
     if (refs.pagination.dataset.pagin === '') { 
     onTrendingMoviesLoad(eventData.page);

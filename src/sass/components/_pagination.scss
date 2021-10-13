@@ -1,6 +1,10 @@
 .tui-pagination {
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 40px;
+
+  @include respond-above($tablet) {
+    margin-bottom: 60px;
+  }
 }
 
 .tui-page-btn {
