@@ -3,7 +3,7 @@ import onSearch from './renderSearchMovies';
 import onTrendingMoviesLoad from '../api/trending-movie-search';
 import Pagination from 'tui-pagination';
 import refs from '../components/refs.js';
-import localStorage from './local-storage-db';
+import dataStorage from './data-storage';
 
 import imageCardTpl from '../../templates/card-markup.hbs';
 // import 'tui-pagination/dist/tui-pagination.css';
@@ -52,8 +52,8 @@ function onSrh(page) {
     .fetchArticles(page)
       .then(data => {
           console.log(page);
-        const currentPageMovies = localStorage.getFilmData(data);
-      localStorage.saveCurrentPage(currentPageMovies);
+        const currentPageMovies = dataStorage.getFilmData(data);
+      dataStorage.saveCurrentMovies(currentPageMovies);
       crtGal(currentPageMovies);
   
     })

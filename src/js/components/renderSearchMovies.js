@@ -1,7 +1,7 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import dataStorage from '../components/data-storage';
+import dataStorage from './data-storage';
 import refs from './refs';
 
 // === ВРЕМЕННО, пока нет кнопки поиска ===
@@ -53,8 +53,8 @@ export default function onSearch(e, page) {
   searchApiService
     .fetchArticles(page)
     .then(data => {
-      const currentPageMovies = localStorage.getFilmData(data);
-      localStorage.saveCurrentPage(currentPageMovies);
+      const currentPageMovies = dataStorage.getFilmData(data);
+      dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
     })
     // .then(setObserver)
@@ -69,7 +69,7 @@ function onLoadMore() {
     .then(removeObserver)
     .then(data => {
       const currentPageMovies = dataStorage.getFilmData(data);
-      dataStorage.saveCurrentPage(currentPageMovies);
+      dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
     })
     .then(setObserver)
