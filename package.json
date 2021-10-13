@@ -31,7 +31,6 @@
     "sass": "^1.42.1"
   },
   "dependencies": {
-    "-": "0.0.1",
     "@splidejs/splide": "^3.1.5",
     "basiclightbox": "^5.0.4",
     "tui-pagination": "^3.4.1"
