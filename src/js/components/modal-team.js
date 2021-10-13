@@ -5,7 +5,6 @@ import teamCardsTemplate from '../../templates/team-markup.hbs';
 import team from '../db/team.json';
 
 let teamLightbox = null;
-let teamSplide = null;
 const teamSplideOptions = {
   perPage: 3,
   breakpoints: {
@@ -24,22 +23,25 @@ const teamSplideOptions = {
   // interval: 3000,
 };
 
-refs.footerLink.addEventListener('click', e => {
+refs.footerLink.addEventListener('click', openTeamLightbox);
+
+function openTeamLightbox(e) {
   e.preventDefault();
+
   window.addEventListener('keydown', onKeydown);
 
-  teamLightbox = basicLightbox.create(teamCardsTemplate(team), {
-    onClose: () => window.removeEventListener('keydown', onKeydown),
-  });
+  teamLightbox = basicLightbox.create(teamCardsTemplate(team), { onClose: removeListener });
   teamLightbox.show();
 
-  teamSplide = new Splide('.splide', teamSplideOptions);
+  const teamSplide = new Splide('.splide', teamSplideOptions);
   teamSplide.mount();
-});
+}
 
 function onKeydown(e) {
-  console.log(e);
   if (e.code !== 'Escape') return;
-
   teamLightbox.close();
+}
+
+function removeListener() {
+  window.removeEventListener('keydown', onKeydown);
 }
