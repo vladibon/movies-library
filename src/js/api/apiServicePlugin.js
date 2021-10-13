@@ -79,6 +79,10 @@ export const searchApiService = {
 export const movieApiService = {
   PATH_1: `movie`,
   PATH_2: `videos`,
+  params: {
+    autoplay: 1,
+    mute: 1,
+  },
 
   async fetchArticles(id) {
     const url = `${URL.BASE}/${this.PATH_1}/${id}/${this.PATH_2}?${URL.KEY}&language=en-US`;
@@ -86,7 +90,7 @@ export const movieApiService = {
     const response = await fetch(url);
     const trailer = await response.json();
     const key = trailer.results[0].key;
-    return URL.TRAILER + key;
+    return `${URL.TRAILER}${key}?${new URLSearchParams(this.params).toString()}`;
   },
 };
 
