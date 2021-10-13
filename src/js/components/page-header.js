@@ -14,8 +14,12 @@ refs.menuNav.addEventListener('click', e => {
 
 refs.logo.addEventListener('click', onLogoClick);
 refs.buttonHomeMenu.addEventListener('click', onTrendingMoviesLoad);
-refs.buttonWatched.addEventListener('click', renderWatchedMovies);
-refs.buttonQueue.addEventListener('click', renderQueueMovies);
+refs.buttonWatched.addEventListener('click', e => {
+  !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
+});
+refs.buttonQueue.addEventListener('click', e => {
+  !e.target.classList.contains('btn--primary--active') ? renderQueueMovies() : null;
+});
 
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');

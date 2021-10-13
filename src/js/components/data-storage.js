@@ -13,12 +13,13 @@ export default {
   watchedList: [],
   queueList: [],
 
-  // current page seves to local storage, so we can render gallery
+  // current page saves to local storage, so we can render gallery
   saveCurrentMovies(array) {
     localStorage.setItem(this.CURRENT_PAGE_MOVIES, JSON.stringify(array));
   },
 
-  getCurrentMovies() {
+  getCurrentMovies(list) {
+    console.log(857566);
     this.currentList = JSON.parse(localStorage.getItem(this.CURRENT_PAGE_MOVIES));
     return this.currentList;
   },
