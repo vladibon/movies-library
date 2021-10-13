@@ -26,14 +26,14 @@ function onFetchError(message) {
   console.log(message);
 }
 
-// Это можно удалить потом
-// Временая показательная функция для последующего изменения
-// getOneMovie();
+// Ссылка на трейлер кинофильма
+// Временая показательная функция для последующего изменения - это можно удалить потом
+// getOneMovie('123');
 
-function getOneMovie() {
+function getOneMovie(id) {
   movieApiService
-    .fetchArticles()
-    .then(data => console.log('Полная информация о кинофильме для страницы кинофильма:', data))
+    .fetchArticles(id)
+    .then(data => console.log('Ссылка на трейлер фильма:', data))
     .catch(onFetchError);
 }
 

@@ -53,16 +53,16 @@ export const searchApiService = {
   },
 };
 
-// Запрос о полной информации о кинофильме для страницы кинофильма
+// Запрос трейлера кинофильма
 export const movieApiService = {
   PATH: `movie`,
-  movieId: '',
 
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}/${this.movieId}?${URL.KEY}&language=en-US`;
+  async fetchArticles(id) {
+    const url = `${URL.BASE}/${this.PATH}/${id}?${URL.KEY}&language=en-US`;
 
     const response = await fetch(url);
-    return await response.json();
+    const movie = await response.json();
+    return movie.video;
   },
 };
 

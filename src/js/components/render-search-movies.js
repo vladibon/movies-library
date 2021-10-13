@@ -1,7 +1,7 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import dataStorage from '../components/data-storage';
+import dataStorage from './data-storage';
 import refs from './refs';
 
 refs.sectionHome.addEventListener('submit', onSearch);

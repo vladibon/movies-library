@@ -8,7 +8,7 @@ import './js/components/refs';
 import './js/components/page-header';
 
 import './js/api/trending-movie-search';
-import './js/components/renderSearchMovies';
+import './js/components/render-search-movies';
 
 import './js/components/modal-team';
 import './js/components/pagination';
