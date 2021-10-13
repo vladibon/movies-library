@@ -1,6 +1,7 @@
 import dataStorage from './data-storage';
 import refs from './refs';
 import imageCardTpl from '../../templates/card-markup.hbs';
+import noResultsTpl from '../../templates/no-results.hbs';
 
 export function renderWatchedMovies() {
   const watchedListMovies = dataStorage.getWatchedMovies();
@@ -11,6 +12,9 @@ export function renderWatchedMovies() {
     refs.galleryContainer.innerHTML = imageCardTpl(watchedListMovies);
   } else {
     refs.galleryContainer.innerHTML = '';
-    console.log('sorry');
+    console.log();
+
+    const message = noResultsTpl({ list: 'watched' });
+    refs.messageContainer.innerHTML = message;
   }
 }

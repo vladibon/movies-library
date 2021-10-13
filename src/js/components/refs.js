@@ -1,6 +1,6 @@
 export default {
   galleryContainer: document.getElementById('js-gallery'),
-  // modalClose: document.querySelector('.modal-movie__close-btn'),
+  messageContainer: document.getElementById('message-container'),
 
   // Header Ref
   menuNav: document.querySelector('.site-nav__list'),

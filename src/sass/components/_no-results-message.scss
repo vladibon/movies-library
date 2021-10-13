@@ -1,0 +1,23 @@
+.message {
+  position: absolute;
+
+  top: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  align-items: center;
+}
+
+.message__text {
+  font-size: 32px;
+}
+
+.message__image {
+  width: 500px;
+  height: 500px;
+  //   margin-top: 20px;
+  background-image: url(../images/film-rolls.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
