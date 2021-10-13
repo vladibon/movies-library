@@ -5,8 +5,15 @@ import dataStorage from '../components/data-storage';
 import refs from './refs';
 
 // === ВРЕМЕННО, пока нет кнопки поиска ===
-document.querySelector('.page-header__search--input').addEventListener('input', onSearch);
+// document.querySelector('.page-header__search--input').addEventListener('input', onSearch);
 // refs.?????????.addEventListener('submit', onSearch);
+
+
+
+// мой код =================
+refs.sectionHome.addEventListener('submit', onSearch);
+
+//  =====================
 
 // === ВРЕМЕННО, до подключения пагинации - Intersection Observer ===
 const options = {
