@@ -10,11 +10,11 @@ export function renderQueueMovies() {
   refs.buttonQueue.classList.toggle('btn--primary--active');
 
   refs.galleryContainer.innerHTML = '';
-  if (queueListMovies.length) {
-    dataStorage.saveCurrentMovies(queueListMovies);
-    refs.galleryContainer.innerHTML = imageCardTpl(queueListMovies);
-  } else {
+  if (!queueListMovies || !queueListMovies.length) {
     const message = noResultsTpl({ list: 'watched' });
     // refs.messageContainer.innerHTML = message;
+  } else {
+    dataStorage.saveCurrentMovies(queueListMovies);
+    refs.galleryContainer.innerHTML = imageCardTpl(queueListMovies);
   }
 }
