@@ -39,7 +39,6 @@ function removeObserver(data) {
 export default function onSearch(e, page) {
   refs.galleryContainer.innerHTML = '';
   refs.pagination.dataset.pagin = 'input';
-  console.log(e);
   searchApiService.resetPage();
   searchApiService.query = e.target.value.trim();
 

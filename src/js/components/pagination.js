@@ -10,7 +10,7 @@ import imageCardTpl from '../../templates/card-markup.hbs';
 
 const paginationContainer = document.getElementById('pagination');
 const options = {
-    totalItems: 1000,
+    totalItems: 10000,
     itemsPerPage: 20,
     visiblePages: 7,
     page: 1,
@@ -29,7 +29,7 @@ const options = {
                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
             '</span>',
         moreButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip tui-{{type}}-is-hidden">' +
+            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip tui-ellip-is-hidden">' +
                 '<span class="tui-ico-ellip">...</span>' +
             '</a>'
     }
@@ -62,25 +62,21 @@ pagination.on('afterMove', function (eventData) {
         onTrendingMoviesLoad(eventData.page);
     }
     else {
-        onSrh(eventData.page);
-        function onSrh(page) {
-            refs.galleryContainer.innerHTML = '';
-            refs.pagination.dataset.pagin = 'input';
-             
-            searchApiService
-                .fetchArticles(page)
-                .then(data => {
-                    const currentPageMovies = dataStorage.getFilmData(data);
-                    dataStorage.saveCurrentMovies(currentPageMovies);
-                    crtGal(currentPageMovies);
-                })
-        }
-
-        function crtGal(data) {
-            refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(data));
-        }
+        refs.galleryContainer.innerHTML = '';
+        refs.pagination.dataset.pagin = 'input';
+    
+        searchApiService
+            .fetchArticles(eventData.page)
+            .then(data => {
+            const currentPageMovies = dataStorage.getFilmData(data);
+            dataStorage.saveCurrentMovies(currentPageMovies);
+            refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(currentPageMovies));
+            })  
     }
+        
 });
+
+// refs.input.addEventListener('input', movePageOne);
 
 export default function movePageOne() {
     pagination.movePageTo(1);

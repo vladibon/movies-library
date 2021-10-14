@@ -16,9 +16,10 @@ refs.logo.addEventListener('click', loadTrending);
 refs.buttonHomeMenu.addEventListener('click', loadTrending);
 
 function loadTrending() {
-    refs.galleryContainer.innerHTML = "";
     refs.input.value = '';
+    refs.galleryContainer.innerHTML = "";
     movePageOne();
+    refs.pagination.dataset.pagin = 'home';
     onTrendingMoviesLoad();
 }
 
