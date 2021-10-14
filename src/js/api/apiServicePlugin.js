@@ -89,7 +89,6 @@ export const movieApiService = {
     return URL.TRAILER + key;
   },
 };
-
 // Запрос всех ЖАНРОВ кинофильмов
 export const genresApiService = {
   PATH: `genre/movie/list`,
