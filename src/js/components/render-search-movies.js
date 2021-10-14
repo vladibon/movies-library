@@ -50,8 +50,8 @@ function onSearch(e, page) {
 
   searchApiService
     .fetchArticles(page)
-    .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data);
+    .then(({ results, total_results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
     })

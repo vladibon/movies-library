@@ -12,8 +12,7 @@ export const homeApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies;
+    return await response.json();
   },
 
   incrementPage() {
@@ -37,8 +36,7 @@ export const homeWeekApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies;
+    return await response.json();
   },
 
   incrementPage() {
@@ -65,8 +63,7 @@ export const searchApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies;
+    return await response.json();
   },
 
   incrementPage() {
@@ -123,7 +120,7 @@ export const genresApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies.genres;
+    const { genres } = await response.json();
+    return genres;
   },
 };

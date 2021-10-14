@@ -9,9 +9,8 @@ onTrendingMoviesLoad();
 export default function onTrendingMoviesLoad(page) {
   homeApiService
     .fetchArticles(page)
-    .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data.results);
-      console.log(currentPageMovies);
+    .then(({ results, total_results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
@@ -25,8 +24,8 @@ export default function onTrendingMoviesLoad(page) {
 function onTrendingWeekMoviesLoad() {
   homeWeekApiService
     .fetchArticles()
-    .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data.results);
+    .then(({ results, total_results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
@@ -46,11 +45,11 @@ function onFetchError(message) {
 // ==============================================================
 // ВРЕМЕНАЯ показательная функция - cсылка на ТРЕЙЛЕР кинофильма
 // --------------------------------------------------------------
-getOneMovie('643532');
+// getOneMovie('643532');
 
-function getOneMovie(id) {
-  movieApiService
-    .fetchArticles(id)
-    .then(data => console.log('Ссылка на трейлер фильма:', data))
-    .catch(onFetchError);
-}
+// function getOneMovie(id) {
+//   movieApiService
+//     .fetchArticles(id)
+//     .then(data => console.log('Ссылка на трейлер фильма:', data))
+//     .catch(onFetchError);
+// }
