@@ -151,15 +151,15 @@ export default {
 
       return movie;
     });
-    
+
     return movies;
   },
 
   saveGenresToLS() {
     genresApiService
       .fetchArticles()
-      .then(({results, total_results}) => {
-        localStorage.setItem(this.GENRES, JSON.stringify(results));
+      .then(genres => {
+        localStorage.setItem(this.GENRES, JSON.stringify(genres));
       })
       .catch(err => console.log(err));
   },
