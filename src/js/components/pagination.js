@@ -67,13 +67,12 @@ pagination.on('afterMove', function (eventData) {
     homeApiService.page = eventData.page;
     onTrendingMoviesLoad(eventData.page);
   } else {
-    refs.galleryContainer.innerHTML = '';
+    
     refs.pagination.dataset.pagin = 'input';
-
-    // console.log(eventData.page);
+            
     searchApiService.page = eventData.page;
     searchApiService.fetchArticles().then(({ results, total_results }) => {
-      if (searchApiService.page === 1) pagination.setTotalItems(total_results);
+      pagination.setTotalItems(total_results);
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(currentPageMovies));
@@ -83,6 +82,6 @@ pagination.on('afterMove', function (eventData) {
 
 // refs.input.addEventListener('input', movePageOne);
 
-export default function movePageOne() {
+export function movePageOne() {
   pagination.movePageTo(1);
 }

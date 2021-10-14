@@ -14,7 +14,7 @@ refs.menuNav.addEventListener('click', e => {
 });
 
 refs.logo.addEventListener('click', onLogoClick);
-refs.buttonHomeMenu.addEventListener('click', onTrendingMoviesLoad);
+refs.buttonHomeMenu.addEventListener('click', loadTrending);
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
 });
@@ -25,6 +25,7 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
+  loadTrending();
 }
   function loadTrending() {
     refs.input.value = '';

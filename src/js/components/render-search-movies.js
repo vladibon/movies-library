@@ -3,6 +3,8 @@ import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
+import { movePageOne } from './pagination.js';
+  
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -38,6 +40,7 @@ function onSearch(e) {
   e.preventDefault();
   refs.galleryContainer.innerHTML = '';
   refs.pagination.dataset.pagin = 'input';
+  // movePageOne();
   searchApiService.resetPage();
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 

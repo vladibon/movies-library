@@ -137,9 +137,11 @@ export default {
         release_date: el.release_date?.slice(0, 4),
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
-          const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
-          if (arr.length > 3) return `${arr.slice(0, 2).join(', ')}, Other`;
-          return arr.join(', ');
+          if (el.genre_ids.length) {
+            const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
+            if (arr.length > 3) return `${arr.slice(0, 2).join(', ')}, Other`;
+            return arr.join(', ');
+          } else return 'classic';
         })(),
         watched: this.getWatchedPropForMovie(String(el.id)),
         queue: this.getQueuePropForMovie(String(el.id)),
