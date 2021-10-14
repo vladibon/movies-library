@@ -1,9 +1,9 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
+import { Notify, Loading } from 'notiflix';
 import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
-import { Notify, Loading } from 'notiflix';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -40,8 +40,6 @@ function onSearch(e) {
   refs.galleryContainer.innerHTML = '';
   searchApiService.resetPage();
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
-  Loading.circle('Loading...');
-  Loading.remove(100);
 
   if (searchApiService.searchQuery.length < 1) {
     refs.galleryContainer.innerHTML = '';
@@ -49,6 +47,8 @@ function onSearch(e) {
     e.target.value = '';
     return;
   }
+
+  Loading.circle('Loading...');
 
   searchApiService
     .fetchArticles()
@@ -59,7 +59,8 @@ function onSearch(e) {
       createGallery(currentPageMovies);
     })
     .then(setObserver)
-    .catch(onFetchError);
+    .catch(onFetchError)
+    .finally(Loading.remove(200));
 }
 
 function onLoadMore() {
@@ -75,7 +76,8 @@ function onLoadMore() {
       createGallery(currentPageMovies);
     })
     .then(setObserver)
-    .catch(onFetchError);
+    .catch(onFetchError)
+    .finally(Loading.remove(200));
 }
 
 function createGallery(data) {
@@ -84,5 +86,4 @@ function createGallery(data) {
 
 function onFetchError(message) {
   Notify.failure('Search result not successful. Enter the correct movie name');
-  Loading.remove(100);
-} 
+}
