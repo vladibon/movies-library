@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
-// import imageCardTpl from '../../templates/card-markup.hbs';
+import imageCardTpl from '../../templates/card-markup.hbs';
 import { onTrailerPlay } from '../components/trailer';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
@@ -23,6 +23,8 @@ function onOpenModalMovie(e) {
   const btnYouTube = document.querySelector('.modal-movie__youtube');
   const btnCloseModal = document.querySelector('.js-modal-movie__close-btn');
 
+  const onAddToWatchedClick = addToWatched.bind(null, movieObj);
+
   addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
   addToQueueBtn.addEventListener('click', onAddToQueueClick);
   btnYouTube.addEventListener('click', onTrailerPlay);
@@ -37,7 +39,7 @@ function onOpenModalMovie(e) {
   }
 
   function onModalClose() {
-    addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
+    // addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
     addToQueueBtn.removeEventListener('click', onAddToQueueClick);
     btnYouTube.removeEventListener('click', onTrailerPlay);
 
@@ -47,15 +49,18 @@ function onOpenModalMovie(e) {
     // refs.galleryContainer.innerHTML = imageCardTpl(list);
   }
 
-  function onAddToWatchedClick(e) {
-    const id = e.target.getAttribute('data-id');
-
-    dataStorage.toggleWatchedMovieProp(id);
-    dataStorage.getWatchedPropForMovie(id)
+  function addToWatched(movieObj, e) {
+    dataStorage.toggleWatchedMovieProp(movieObj.id);
+    dataStorage.getWatchedPropForMovie(movieObj.id)
       ? (e.target.textContent = 'remove from watched')
       : (e.target.textContent = 'add to watched');
 
-    // dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
+    if (!movieObj.source_list) {
+      return;
+    } else {
+      dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
+      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    }
   }
 
   function onAddToQueueClick(e) {

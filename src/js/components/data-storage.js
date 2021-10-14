@@ -18,8 +18,7 @@ export default {
     localStorage.setItem(this.CURRENT_PAGE_MOVIES, JSON.stringify(array));
   },
 
-  getCurrentMovies(list) {
-    console.log(857566);
+  getCurrentMovies() {
     this.currentList = JSON.parse(localStorage.getItem(this.CURRENT_PAGE_MOVIES));
     return this.currentList;
   },
@@ -29,7 +28,13 @@ export default {
     const list = localStorage.getItem(this.WATCHED);
     if (list) {
       this.watchedList = JSON.parse(list);
-      return this.watchedList;
+
+      return this.watchedList.map(el => {
+        return {
+          ...el,
+          source_list: 'watched',
+        };
+      });
     }
   },
 
@@ -125,6 +130,7 @@ export default {
         })(),
         watched: this.getWatchedPropForMovie(String(el.id)),
         queue: this.getQueuePropForMovie(String(el.id)),
+        source_list: '',
       };
 
       return movie;
