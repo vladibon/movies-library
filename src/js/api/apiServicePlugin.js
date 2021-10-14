@@ -131,7 +131,6 @@ export const movieApiService = {
     return `${URL.TRAILER}${key}?${new URLSearchParams(this.params_2).toString()}`;
   },
 };
-
 // Запрос всех ЖАНРОВ кинофильмов
 export const genresApiService = {
   PATH: `genre/movie/list`,
