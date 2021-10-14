@@ -17,6 +17,10 @@ export default {
   buttonWatched: document.querySelector('[data-action="watched"]'),
   buttonQueue: document.querySelector('[data-action="queue"]'),
 
+// btn scroll
+  rootElement: document.documentElement,
+  scrollBtn: document.querySelector('.btn__scroll-top'),
+  
   // Footer
   footerLink: document.querySelector('.js-footer__link'),
 };

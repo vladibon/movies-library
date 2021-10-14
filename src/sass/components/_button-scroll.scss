@@ -1,0 +1,44 @@
+.btn__scroll-top {
+  position: fixed;
+  display: inline-block;
+  bottom: 40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+  text-align: center;
+  color: $btn-primary-color;
+  border: none;
+  border-radius: 5px;
+  background: $rating-bg-color;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: $btn-accent-bg-color;
+    box-shadow: $btn-primary-accent-shadow;
+  }
+}
+
+.btb__scroll--svg {
+  position: relative;
+  top: 10px;
+  right: -1px;
+  fill: $btn-secondary-color;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    fill: $white-text-color;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.btn__show {
+  @include respond-below($tablet) {
+    opacity: 1;
+    right: calc(5%);
+  }
+}
