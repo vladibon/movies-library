@@ -116,7 +116,9 @@ export default {
         poster_path_W500: `${settingsUrl.W500_IMG_URL}${el.poster_path}`,
         poster_path_W780: `${settingsUrl.W780_IMG_URL}${el.poster_path}`,
         backdrop_path: `${settingsUrl.W780_IMG_URL}${el.backdrop_path}`,
-        release_date: el.release_date.slice(0, 4),
+        release_date: () => {
+          el.release_date ? el.release_date.slice(0, 4) : null;
+        },
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
           const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
