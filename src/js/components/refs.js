@@ -16,8 +16,9 @@ export default {
   buttonWatched: document.querySelector('[data-action="watched"]'),
 
   pagination: document.querySelector('[data-pagin]'),
+  input: document.querySelector('.page-header__search--input'),
+
   // Footer
   footerLink: document.querySelector('.js-footer__link'),
-
-  
+ 
 };

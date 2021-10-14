@@ -1,5 +1,6 @@
 import onTrendingMoviesLoad from '../api/trending-movie-search';
 import refs from '../components/refs.js';
+import movePageOne from './pagination.js';
 
 
 refs.menuNav.addEventListener('click', e => {
@@ -16,6 +17,8 @@ refs.buttonHomeMenu.addEventListener('click', loadTrending);
 
 function loadTrending() {
     refs.galleryContainer.innerHTML = "";
+    refs.input.value = '';
+    movePageOne();
     onTrendingMoviesLoad();
 }
 
