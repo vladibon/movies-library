@@ -34,7 +34,7 @@ function removeObserver(data) {
 // ==============================================================
 
 // --- Функции рендеринга изображений ---
-function onSearch(e, page) {
+function onSearch(e) {
   e.preventDefault();
   refs.galleryContainer.innerHTML = '';
   refs.pagination.dataset.pagin = 'input';
@@ -49,7 +49,7 @@ function onSearch(e, page) {
   }
 
   searchApiService
-    .fetchArticles(page)
+    .fetchArticles()
     .then(({ results, total_results }) => {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);

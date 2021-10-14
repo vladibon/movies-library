@@ -5,7 +5,7 @@ export const homeApiService = {
   PATH: 'trending/movie/day',
   params: {
     api_key: `${URL.KEY}`,
-    page: 10,
+    page: 1,
   },
 
   async fetchArticles() {
@@ -21,6 +21,14 @@ export const homeApiService = {
 
   resetPage() {
     this.params.page = 1;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 
@@ -45,6 +53,14 @@ export const homeWeekApiService = {
 
   resetPage() {
     this.params.page = 1;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 
@@ -80,6 +96,14 @@ export const searchApiService = {
 
   set searchQuery(newQuery) {
     this.params.query = newQuery;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 

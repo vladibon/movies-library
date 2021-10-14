@@ -6,9 +6,9 @@ import refs from '../components/refs.js';
 dataStorage.saveGenresToLS();
 onTrendingMoviesLoad();
 
-export default function onTrendingMoviesLoad(page) {
+export default function onTrendingMoviesLoad() {
   homeApiService
-    .fetchArticles(page)
+    .fetchArticles()
     .then(({ results, total_results }) => {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
