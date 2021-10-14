@@ -131,19 +131,38 @@
     &::placeholder {
       color: $white-text-color;
     }
+
+    &:hover {
+      border-bottom: 0.5px solid $header-accent-page-line;
+    }
   }
 }
 
 .page-header__search--input {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  letter-spacing: 1.17px;
   color: $white-text-color;
 }
 
 .page-header__search--btn {
   position: absolute;
+  top: 6px;
   right: 0;
   background: transparent;
   border: none;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(2);
+    transition: transform $animation;
+  }
+}
+
+.search-img:hover {
+  stroke: $header-accent-page-line;
 }
 
 .page-header__library {
