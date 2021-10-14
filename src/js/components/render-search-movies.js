@@ -38,9 +38,9 @@ function onSearch(e) {
   e.preventDefault();
   refs.galleryContainer.innerHTML = '';
   searchApiService.resetPage();
-  searchApiService.query = e.currentTarget.firstElementChild.value.trim();
+  searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
-  if (searchApiService.query.length < 1) {
+  if (searchApiService.searchQuery.length < 1) {
     refs.galleryContainer.innerHTML = '';
     alert('Too many matches found. Please enter a more specific query!');
     e.target.value = '';
