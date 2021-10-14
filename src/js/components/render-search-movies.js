@@ -4,6 +4,7 @@ import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
+import movePageOne from './pagination.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -38,6 +39,8 @@ function removeObserver(data) {
 function onSearch(e) {
   e.preventDefault();
   refs.galleryContainer.innerHTML = '';
+  refs.pagination.dataset.pagin = 'input';
+  movePageOne();
   searchApiService.resetPage();
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
@@ -52,10 +55,9 @@ function onSearch(e) {
 
   searchApiService
     .fetchArticles()
-    .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data);
+    .then(({ results, total_results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
-
       createGallery(currentPageMovies);
     })
     .then(setObserver)
@@ -72,7 +74,6 @@ function onLoadMore() {
     .then(data => {
       const currentPageMovies = dataStorage.getFilmData(data);
       dataStorage.saveCurrentMovies(currentPageMovies);
-
       createGallery(currentPageMovies);
     })
     .then(setObserver)
