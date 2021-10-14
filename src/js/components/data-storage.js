@@ -75,7 +75,12 @@ export default {
     const list = localStorage.getItem(this.QUEUE);
     if (list) {
       this.queueList = JSON.parse(list);
-      return this.queueList;
+      return this.queueList.map(el => {
+        return {
+          ...el,
+          source_list: 'queue',
+        };
+      });
     }
   },
 
