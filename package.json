@@ -34,6 +34,7 @@
   "dependencies": {
     "@splidejs/splide": "^3.1.5",
     "basiclightbox": "^5.0.4",
+    "notiflix": "^3.1.0",
     "tui-pagination": "^3.4.1"
   }
 }

@@ -3,6 +3,7 @@ import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
+import { Notify, Loading } from 'notiflix';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -39,10 +40,12 @@ function onSearch(e) {
   refs.galleryContainer.innerHTML = '';
   searchApiService.resetPage();
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
+  Loading.circle('Loading...');
+  Loading.remove(100);
 
   if (searchApiService.searchQuery.length < 1) {
     refs.galleryContainer.innerHTML = '';
-    alert('Too many matches found. Please enter a more specific query!');
+    onFetchError();
     e.target.value = '';
     return;
   }
@@ -80,5 +83,6 @@ function createGallery(data) {
 }
 
 function onFetchError(message) {
-  console.log(message);
-}
+  Notify.failure('Search result not successful. Enter the correct movie name');
+  Loading.remove(100);
+} 
