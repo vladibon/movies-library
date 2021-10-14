@@ -190,7 +190,24 @@
 }
 
 .modal-youtube {
-  background-color: white;
-  // width: 100%;
-  // height: 100%;
+  padding-top: 10px;
+  background-color: $white-text-color;
+  min-width: 320px;
+
+  @include respond-above($tablet) {
+    max-width: 618px;
+  }
+
+  @include respond-above($desktop) {
+    max-width: 882px;
+  }
+}
+.modal-youtube__close-btn {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
