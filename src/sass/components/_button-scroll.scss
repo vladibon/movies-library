@@ -37,8 +37,8 @@
 }
 
 .btn__show {
-  @include respond-below($tablet) {
+  @include respond-below($desktop) {
     opacity: 1;
-    right: calc(5%);
+    right: calc(6%);
   }
 }
