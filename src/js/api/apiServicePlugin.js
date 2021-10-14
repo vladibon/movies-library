@@ -1,11 +1,15 @@
 import URL from './settingsURL';
 
-// Запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице
+// Запрос на список самых популярных фильмов НА СЕГОДНЯ для создания коллекции на главной странице
 export const homeApiService = {
   PATH: 'trending/movie/day',
+  params: {
+    api_key: `${URL.KEY}`,
+    page: 1,
+  },
 
-  async fetchArticles(page = 1) {
-    const url = `${URL.BASE}/${this.PATH}?${URL.KEY}&page=${page}`;
+  async fetchArticles() {
+    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
     const movies = await response.json();
@@ -13,21 +17,24 @@ export const homeApiService = {
   },
 
   incrementPage() {
-    this.page += 1;
+    this.params.page += 1;
   },
 
   resetPage() {
-    this.page = 1;
+    this.params.page = 1;
   },
 };
 
-// Запрос кинофильма по ключевому слову на главное странице
-export const searchApiService = {
-  PATH: 'search/movie',
-  query: '',
-  
-  async fetchArticles(page = 1) {
-    const url = `${URL.BASE}/${this.PATH}?${URL.KEY}&language=en-US&query=${this.query}&page=${page}&include_adult=false`;
+// Запрос на список самых популярных фильмов ЗА НЕДЕЛЮ для создания коллекции на главной странице
+export const homeWeekApiService = {
+  PATH: 'trending/movie/week',
+  params: {
+    api_key: `${URL.KEY}`,
+    page: 1,
+  },
+
+  async fetchArticles() {
+    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
     const movies = await response.json();
@@ -35,41 +42,85 @@ export const searchApiService = {
   },
 
   incrementPage() {
-    this.page += 1;
+    this.params.page += 1;
   },
 
   resetPage() {
-    this.page = 1;
+    this.params.page = 1;
+  },
+};
+
+// Запрос кинофильма ПО КЛЮЧЕВОМУ СЛОВУ на главное странице
+export const searchApiService = {
+  PATH: 'search/movie',
+  params: {
+    api_key: `${URL.KEY}`,
+    language: 'en-US',
+    query: '',
+    page: 1,
+    include_adult: false,
+  },
+
+  async fetchArticles() {
+    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
+
+    const response = await fetch(url);
+    const movies = await response.json();
+    return movies.results;
+  },
+
+  incrementPage() {
+    this.params.page += 1;
+  },
+
+  resetPage() {
+    this.params.page = 1;
   },
 
   get searchQuery() {
-    return this.query;
+    return this.params.query;
   },
 
   set searchQuery(newQuery) {
-    this.query = newQuery;
+    this.params.query = newQuery;
   },
 };
 
-// Запрос о полной информации о кинофильме для страницы кинофильма
+// Запрос ТРЕЙЛЕРА кинофильма
 export const movieApiService = {
-  PATH: `movie`,
-  movieId: '',
+  PATH_1: `movie`,
+  PATH_2: `videos`,
+  params_1: {
+    api_key: `${URL.KEY}`,
+    language: 'en-US',
+  },
+  params_2: {
+    autoplay: 1,
+    mute: 1,
+  },
 
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}/${this.movieId}?${URL.KEY}&language=en-US`;
+  async fetchArticles(id) {
+    const url = `${URL.BASE}/${this.PATH_1}/${id}/${this.PATH_2}?${new URLSearchParams(
+      this.params_1,
+    ).toString()}`;
 
     const response = await fetch(url);
-    return await response.json();
+    const trailer = await response.json();
+    const key = trailer.results[0].key;
+    return `${URL.TRAILER}${key}?${new URLSearchParams(this.params_2).toString()}`;
   },
 };
 
-// Запрос всех жанров кинофильмов
+// Запрос всех ЖАНРОВ кинофильмов
 export const genresApiService = {
   PATH: `genre/movie/list`,
+  params: {
+    api_key: `${URL.KEY}`,
+    language: 'en-US',
+  },
 
   async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}?${URL.KEY}&language=en-US`;
+    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
     const movies = await response.json();

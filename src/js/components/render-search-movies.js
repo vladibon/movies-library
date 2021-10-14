@@ -4,9 +4,7 @@ import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
 
-// === ВРЕМЕННО, пока нет кнопки поиска ===
-document.querySelector('.page-header__search--input').addEventListener('input', onSearch);
-// refs.?????????.addEventListener('submit', onSearch);
+refs.sectionHome.addEventListener('submit', onSearch);
 
 // === ВРЕМЕННО, до подключения пагинации - Intersection Observer ===
 const options = {
@@ -36,13 +34,14 @@ function removeObserver(data) {
 // ==============================================================
 
 // --- Функции рендеринга изображений ---
-export default function onSearch(e, page) {
+function onSearch(e, page) {
+  e.preventDefault();
   refs.galleryContainer.innerHTML = '';
   refs.pagination.dataset.pagin = 'input';
   searchApiService.resetPage();
-  searchApiService.query = e.target.value.trim();
+  searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
-  if (searchApiService.query.length < 1) {
+  if (searchApiService.searchQuery.length < 1) {
     refs.galleryContainer.innerHTML = '';
     alert('Too many matches found. Please enter a more specific query!');
     e.target.value = '';
