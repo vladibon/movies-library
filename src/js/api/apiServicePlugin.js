@@ -12,8 +12,7 @@ export const homeApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies.results;
+    return await response.json();
   },
 
   incrementPage() {
@@ -22,6 +21,14 @@ export const homeApiService = {
 
   resetPage() {
     this.params.page = 1;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 
@@ -37,8 +44,7 @@ export const homeWeekApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies.results;
+    return await response.json();
   },
 
   incrementPage() {
@@ -47,6 +53,14 @@ export const homeWeekApiService = {
 
   resetPage() {
     this.params.page = 1;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 
@@ -65,8 +79,7 @@ export const searchApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies.results;
+    return await response.json();
   },
 
   incrementPage() {
@@ -83,6 +96,14 @@ export const searchApiService = {
 
   set searchQuery(newQuery) {
     this.params.query = newQuery;
+  },
+
+  get page() {
+    return this.params.page;
+  },
+
+  set page(newPage) {
+    this.params.page = newPage;
   },
 };
 
@@ -123,7 +144,7 @@ export const genresApiService = {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies.genres;
+    const { genres } = await response.json();
+    return genres;
   },
 };

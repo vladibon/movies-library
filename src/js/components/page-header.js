@@ -2,6 +2,7 @@ import onTrendingMoviesLoad from '../api/trending-movie-search';
 import { renderWatchedMovies } from './render-watched-movies';
 import { renderQueueMovies } from './render-queue-movies';
 import refs from '../components/refs.js';
+import movePageOne from './pagination.js';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {
@@ -13,7 +14,7 @@ refs.menuNav.addEventListener('click', e => {
 });
 
 refs.logo.addEventListener('click', onLogoClick);
-refs.buttonHomeMenu.addEventListener('click', onTrendingMoviesLoad);
+refs.buttonHomeMenu.addEventListener('click', loadTrending);
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
 });
@@ -24,7 +25,13 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
-
+  loadTrending();
+}
+function loadTrending() {
+  refs.input.value = '';
+  refs.galleryContainer.innerHTML = '';
+  movePageOne();
+  refs.pagination.dataset.pagin = 'home';
   refs.sectionHome.classList.remove('page-header--hidden');
   refs.sectionMyLibrary.classList.add('page-header--hidden');
   refs.header.classList.remove('page-header--my-library');
