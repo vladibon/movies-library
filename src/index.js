@@ -1,3 +1,4 @@
+import 'modern-normalize/modern-normalize.css';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 import './sass/main.scss';
