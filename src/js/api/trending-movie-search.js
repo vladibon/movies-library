@@ -10,7 +10,8 @@ export default function onTrendingMoviesLoad(page) {
   homeApiService
     .fetchArticles(page)
     .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data);
+      const currentPageMovies = dataStorage.getFilmData(data.results);
+      console.log(currentPageMovies);
       dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
@@ -25,14 +26,14 @@ function onTrendingWeekMoviesLoad() {
   homeWeekApiService
     .fetchArticles()
     .then(data => {
-      const currentPageMovies = dataStorage.getFilmData(data);
+      const currentPageMovies = dataStorage.getFilmData(data.results);
       dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
     })
     .catch(onFetchError);
 }
-// ==============================================================
+// // ==============================================================
 
 function createGallery(images) {
   refs.galleryContainer.innerHTML = imageCardTpl(images);

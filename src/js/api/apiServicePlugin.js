@@ -5,7 +5,7 @@ export const homeApiService = {
   PATH: 'trending/movie/day',
   params: {
     api_key: `${URL.KEY}`,
-    page: 1,
+    page: 10,
   },
 
   async fetchArticles() {
@@ -13,7 +13,7 @@ export const homeApiService = {
 
     const response = await fetch(url);
     const movies = await response.json();
-    return movies.results;
+    return movies;
   },
 
   incrementPage() {
@@ -38,7 +38,7 @@ export const homeWeekApiService = {
 
     const response = await fetch(url);
     const movies = await response.json();
-    return movies.results;
+    return movies;
   },
 
   incrementPage() {
@@ -66,7 +66,7 @@ export const searchApiService = {
 
     const response = await fetch(url);
     const movies = await response.json();
-    return movies.results;
+    return movies;
   },
 
   incrementPage() {

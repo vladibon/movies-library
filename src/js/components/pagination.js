@@ -1,12 +1,11 @@
 import { homeApiService, movieApiService, genresApiService, searchApiService } from '../api/apiServicePlugin';
-import onSearch from './renderSearchMovies';
+
 import onTrendingMoviesLoad from '../api/trending-movie-search';
 import Pagination from 'tui-pagination';
 import refs from '../components/refs.js';
 import dataStorage from './data-storage';
 
 import imageCardTpl from '../../templates/card-markup.hbs';
-// import 'tui-pagination/dist/tui-pagination.css';
 
 const paginationContainer = document.getElementById('pagination');
 const options = {
@@ -67,8 +66,9 @@ pagination.on('afterMove', function (eventData) {
     
         searchApiService
             .fetchArticles(eventData.page)
-            .then(data => {
-            const currentPageMovies = dataStorage.getFilmData(data);
+            .then(({ results, total_results }) => {
+            if (searchApiService.page === 1) pagination.setTotalItems(total_results);
+            const currentPageMovies = dataStorage.getFilmData(results);
             dataStorage.saveCurrentMovies(currentPageMovies);
             refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(currentPageMovies));
             })  

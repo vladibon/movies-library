@@ -25,29 +25,29 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
-
-function loadTrending() {
+}
+  function loadTrending() {
     refs.input.value = '';
     refs.galleryContainer.innerHTML = "";
     movePageOne();
     refs.pagination.dataset.pagin = 'home';
     onTrendingMoviesLoad();
-  refs.sectionHome.classList.remove('page-header--hidden');
-  refs.sectionMyLibrary.classList.add('page-header--hidden');
-  refs.header.classList.remove('page-header--my-library');
-  onTrendingMoviesLoad();
-}
-
-function toggleNav() {
-  refs.titleHomeMenu.classList.toggle('site-nav__link--active');
-  refs.titleLibraryMenu.classList.toggle('site-nav__link--active');
-  if (refs.titleLibraryMenu.classList.contains('site-nav__link--active')) {
-    renderWatchedMovies();
-    refs.buttonWatched.classList.add('btn--primary--active');
-    refs.buttonQueue.classList.remove('btn--primary--active');
+    refs.sectionHome.classList.remove('page-header--hidden');
+    refs.sectionMyLibrary.classList.add('page-header--hidden');
+    refs.header.classList.remove('page-header--my-library');
+    onTrendingMoviesLoad();
   }
 
-  refs.sectionHome.classList.toggle('page-header--hidden');
-  refs.sectionMyLibrary.classList.toggle('page-header--hidden');
-  refs.header.classList.toggle('page-header--my-library');
-}
+  function toggleNav() {
+    refs.titleHomeMenu.classList.toggle('site-nav__link--active');
+    refs.titleLibraryMenu.classList.toggle('site-nav__link--active');
+    if (refs.titleLibraryMenu.classList.contains('site-nav__link--active')) {
+      renderWatchedMovies();
+      refs.buttonWatched.classList.add('btn--primary--active');
+      refs.buttonQueue.classList.remove('btn--primary--active');
+    }
+
+    refs.sectionHome.classList.toggle('page-header--hidden');
+    refs.sectionMyLibrary.classList.toggle('page-header--hidden');
+    refs.header.classList.toggle('page-header--my-library');
+  }

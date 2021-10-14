@@ -15,6 +15,7 @@ export default {
 
   // current page saves to local storage, so we can render gallery
   saveCurrentMovies(array) {
+    console.log(array);
     localStorage.setItem(this.CURRENT_PAGE_MOVIES, JSON.stringify(array));
   },
 
@@ -118,6 +119,7 @@ export default {
 
   // general get data functions
   getFilmData(data) {
+    console.log(data);
     let movies = data.map(el => {
       let movie = {
         ...el,
@@ -136,6 +138,7 @@ export default {
           : 'https://teleport360.com.ua/wp-content/themes/Teleport/img/pic/pop.png',
         release_date: el.release_date?.slice(0, 4),
         genres: (() => {
+          console.log(localStorage.getItem(this.GENRES));
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
           const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
           if (arr.length > 3) return `${arr.slice(0, 2).join(', ')}, Other`;
@@ -148,14 +151,15 @@ export default {
 
       return movie;
     });
+    
     return movies;
   },
 
   saveGenresToLS() {
     genresApiService
       .fetchArticles()
-      .then(data => {
-        localStorage.setItem(this.GENRES, JSON.stringify(data));
+      .then(({results, total_results}) => {
+        localStorage.setItem(this.GENRES, JSON.stringify(results));
       })
       .catch(err => console.log(err));
   },
