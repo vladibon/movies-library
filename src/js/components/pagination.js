@@ -67,9 +67,8 @@ pagination.on('afterMove', function (eventData) {
     homeApiService.page = eventData.page;
     onTrendingMoviesLoad(eventData.page);
   } else {
-    
     refs.pagination.dataset.pagin = 'input';
-            
+
     searchApiService.page = eventData.page;
     searchApiService.fetchArticles().then(({ results, total_results }) => {
       pagination.setTotalItems(total_results);
@@ -82,6 +81,6 @@ pagination.on('afterMove', function (eventData) {
 
 // refs.input.addEventListener('input', movePageOne);
 
-export function movePageOne() {
+export default function movePageOne() {
   pagination.movePageTo(1);
 }
