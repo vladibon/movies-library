@@ -127,7 +127,7 @@ export const movieApiService = {
 
     const response = await fetch(url);
     const trailer = await response.json();
-    const key = trailer.results[0].key;
+    const key = trailer.results[0]?.key;
     return `${URL.TRAILER}${key}?${new URLSearchParams(this.params_2).toString()}`;
   },
 };
