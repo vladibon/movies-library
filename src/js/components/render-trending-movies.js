@@ -33,8 +33,9 @@ export function preloadTrendingMoviesTotalItems() {
     .catch(console.log);
 }
 
-function createGallery(images) {
-  refs.galleryContainer.innerHTML = imageCardTpl(images);
+function createGallery(movies) {
+  refs.messageContainer.classList.add('visually-hidden');
+  refs.galleryContainer.innerHTML = imageCardTpl(movies);
 }
 
 function onFetchError(message) {

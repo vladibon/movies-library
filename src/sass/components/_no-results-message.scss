@@ -1,27 +1,20 @@
 .message-container {
-  width: 100%;
-  height: auto;
   position: absolute;
   top: 230px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .message {
   width: 100%;
-  padding: 50px 20px;
+  height: 100%;
+  padding: 20px 20px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @include respond-above($tablet) {
-    padding: 60px 20px;
-  }
-
-  @include respond-above($tablet) {
-    padding: 80px 20px;
-  }
+  justify-content: space-evenly;
 }
 
 .message__text {
@@ -29,11 +22,9 @@
   text-align: center;
   font-weight: 500;
   color: $genre-orange-title-color;
-  margin-bottom: 20px;
 
   @include respond-above($tablet) {
     font-size: 24px;
-    margin-bottom: 40px;
   }
 
   @include respond-above($desktop) {
