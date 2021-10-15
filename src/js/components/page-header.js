@@ -1,8 +1,8 @@
-import onTrendingMoviesLoad from '../api/trending-movie-search';
+import onTrendingMoviesLoad from './render-trending-movies';
 import { renderWatchedMovies } from './render-watched-movies';
 import { renderQueueMovies } from './render-queue-movies';
 import refs from '../components/refs.js';
-import movePageOne from './pagination.js';
+import { movePageOne } from './pagination.js';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {

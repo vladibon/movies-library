@@ -3,7 +3,7 @@ import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import { onTrailerPlay } from '../components/trailer';
+import { onTrailerPlay } from './modal-trailer';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
