@@ -15,7 +15,6 @@ export function onSearch(e) {
 
   if (!searchApiService.searchQuery) {
     e.target.value = '';
-    cleanGalleryContainer();
     onFetchError();
     return;
   }
@@ -25,9 +24,8 @@ export function onSearch(e) {
 }
 
 export default function loadSearchedMovies() {
-  refs.galleryContainer.innerHTML = '';
   Loading.circle('Loading...');
-
+  cleanGalleryContainer();
   searchApiService
     .fetchArticles()
     .then(({ results, total_results }) => {
@@ -40,8 +38,8 @@ export default function loadSearchedMovies() {
     .finally(Loading.remove(200));
 }
 
-function createGallery(data) {
-  refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(data));
+function createGallery(images) {
+  refs.galleryContainer.innerHTML = imageCardTpl(images);
 }
 
 function onFetchError() {
