@@ -24,15 +24,14 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
+  refs.sectionHome.classList.remove('page-header--hidden');
+  refs.sectionMyLibrary.classList.add('page-header--hidden');
+  refs.header.classList.remove('page-header--my-library');
   loadTrending();
 }
 function loadTrending() {
   refs.input.value = '';
   preloadTrendingMoviesTotalItems();
-
-  refs.sectionHome.classList.remove('page-header--hidden');
-  refs.sectionMyLibrary.classList.add('page-header--hidden');
-  refs.header.classList.remove('page-header--my-library');
 }
 
 function toggleNav() {
