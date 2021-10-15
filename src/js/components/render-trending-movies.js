@@ -18,6 +18,7 @@ export function loadTrendingMovies() {
       dataStorage.saveCurrentMovies(currentPageMovies);
 
       createGallery(currentPageMovies);
+      refs.pagination.classList.remove('tui-pagination-is-hidden');
     })
     .catch(onFetchError)
     .finally(Loading.remove(200));

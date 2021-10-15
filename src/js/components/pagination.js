@@ -68,3 +68,7 @@ export function resetPaginationPage(mode) {
 export function cleanGalleryContainer() {
   refs.galleryContainer.innerHTML = '';
 }
+
+export function paginationHidden() {
+  refs.pagination.classList.toggle('tui-pagination-is-hidden');
+}

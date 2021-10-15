@@ -35,6 +35,8 @@ function loadTrending() {
 }
 
 function toggleNav() {
+  refs.pagination.classList.add('tui-pagination-is-hidden');
+
   refs.titleHomeMenu.classList.toggle('site-nav__link--active');
   refs.titleLibraryMenu.classList.toggle('site-nav__link--active');
   if (refs.titleLibraryMenu.classList.contains('site-nav__link--active')) {
