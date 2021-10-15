@@ -8,6 +8,7 @@ import {
   resetPaginationPage,
   setPaginationTotalItems,
   cleanGalleryContainer,
+  paginationHidden,
 } from './pagination.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
@@ -46,8 +47,11 @@ function preloadSearchedMoviesTotalItems() {
     .then(({ total_results }) => {
       setPaginationTotalItems(total_results);
       resetPaginationPage('input');
+      total_results ?
+        refs.pagination.classList.remove('tui-pagination-is-hidden')
+        : refs.pagination.classList.add('tui-pagination-is-hidden');
     })
-    .catch(console.log);
+    .catch();
 }
 
 function createGallery(images) {
