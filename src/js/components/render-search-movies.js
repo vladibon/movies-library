@@ -4,26 +4,24 @@ import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
-import { resetPaginationPage, setTotalItems } from './pagination.js';
+import { resetPaginationPage, setTotalItems, cleanGalleryContainer } from './pagination.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
 export function onSearch(e) {
   e.preventDefault();
 
-  refs.pagination.dataset.pagin = 'input';
-  resetPaginationPage();
-  searchApiService.resetPage();
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
-  if (!searchApiService.searchQuery.length) {
-    refs.galleryContainer.innerHTML = '';
+  if (!searchApiService.searchQuery) {
     e.target.value = '';
+    cleanGalleryContainer();
     onFetchError();
     return;
   }
 
-  loadSearchedMovies();
+  searchApiService.resetPage();
+  resetPaginationPage('input');
 }
 
 export default function loadSearchedMovies() {

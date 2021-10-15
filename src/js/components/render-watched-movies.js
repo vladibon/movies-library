@@ -3,7 +3,7 @@ import refs from './refs';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import noResultsTpl from '../../templates/no-results.hbs';
 
-export function renderWatchedMovies() {
+export default function renderWatchedMovies() {
   const watchedListMovies = dataStorage.getWatchedMovies();
 
   refs.buttonWatched.classList.toggle('btn--primary--active');

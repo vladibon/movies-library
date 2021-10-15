@@ -1,5 +1,5 @@
-import { renderWatchedMovies } from './render-watched-movies';
-import { renderQueueMovies } from './render-queue-movies';
+import renderWatchedMovies from './render-watched-movies';
+import renderQueueMovies from './render-queue-movies';
 import refs from '../components/refs.js';
 import { resetPaginationPage } from './pagination.js';
 
@@ -28,9 +28,8 @@ function onLogoClick() {
 }
 function loadTrending() {
   refs.input.value = '';
-  refs.galleryContainer.innerHTML = '';
-  resetPaginationPage();
-  refs.pagination.dataset.pagin = 'home';
+  resetPaginationPage('home');
+
   refs.sectionHome.classList.remove('page-header--hidden');
   refs.sectionMyLibrary.classList.add('page-header--hidden');
   refs.header.classList.remove('page-header--my-library');

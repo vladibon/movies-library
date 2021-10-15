@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import { homeApiService, searchApiService } from '../api/apiServicePlugin';
-import onTrendingMoviesLoad from './render-trending-movies';
+import loadTrendingMovies from './render-trending-movies';
 import loadSearchedMovies from './render-search-movies';
 import refs from './refs';
 
@@ -43,30 +43,28 @@ tuiIcoPrev.textContent = '<';
 tuiIcoNext.textContent = '>';
 
 pagination.on('afterMove', function (eventData) {
-  const tuiIcoFirst = document.querySelector('.tui-ico-first');
-  const tuiIcoLast = document.querySelector('.tui-ico-last');
-  const tuiIcoPrev = document.querySelector('.tui-ico-prev');
-  const tuiIcoNext = document.querySelector('.tui-ico-next');
-  tuiIcoFirst.textContent = '<<';
-  tuiIcoLast.textContent = '>>';
-  tuiIcoPrev.textContent = '<';
-  tuiIcoNext.textContent = '>';
-
-  refs.galleryContainer.innerHTML = '';
+  cleanGalleryContainer();
 
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
-    onTrendingMoviesLoad();
-  } else {
+    loadTrendingMovies();
+  }
+
+  if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
-    if (searchApiService.page !== 1) loadSearchedMovies();
+    loadSearchedMovies();
   }
 });
 
-export function resetPaginationPage() {
+export function resetPaginationPage(mode) {
+  refs.pagination.dataset.pagin = mode;
   pagination.movePageTo(1);
 }
 
 export function setTotalItems(total_results) {
-  pagination.setTotalItems(total_results); //
+  pagination.setTotalItems(total_results);
+}
+
+export function cleanGalleryContainer() {
+  refs.galleryContainer.innerHTML = '';
 }

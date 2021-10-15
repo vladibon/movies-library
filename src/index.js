@@ -4,11 +4,11 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 import './sass/main.scss';
 
-import './js/components/render-trending-movies';
-import './js/components/render-search-movies';
 import './js/components/notiflix-options';
 import './js/components/refs';
 
+import './js/components/render-trending-movies';
+import './js/components/render-search-movies';
 import './js/components/page-header';
 import './js/components/pagination';
 import './js/components/scrollTop';
