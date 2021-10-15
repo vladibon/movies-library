@@ -1,8 +1,7 @@
-import onTrendingMoviesLoad from './render-trending-movies';
 import { renderWatchedMovies } from './render-watched-movies';
 import { renderQueueMovies } from './render-queue-movies';
 import refs from '../components/refs.js';
-import { movePageOne } from './pagination.js';
+import { resetPaginationPage } from './pagination.js';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {
@@ -30,12 +29,11 @@ function onLogoClick() {
 function loadTrending() {
   refs.input.value = '';
   refs.galleryContainer.innerHTML = '';
-  movePageOne();
+  resetPaginationPage();
   refs.pagination.dataset.pagin = 'home';
   refs.sectionHome.classList.remove('page-header--hidden');
   refs.sectionMyLibrary.classList.add('page-header--hidden');
   refs.header.classList.remove('page-header--my-library');
-  onTrendingMoviesLoad();
 }
 
 function toggleNav() {
