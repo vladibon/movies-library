@@ -2,7 +2,7 @@ import { Loading } from 'notiflix';
 import { homeApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
-import { setTotalItems } from './pagination.js';
+import { setPaginationTotalItems } from './pagination.js';
 import refs from './refs.js';
 
 dataStorage.saveGenresToLS();
@@ -13,7 +13,7 @@ export default function loadTrendingMovies() {
   homeApiService
     .fetchArticles()
     .then(({ results, total_results }) => {
-      setTotalItems(total_results);
+      setPaginationTotalItems(total_results);
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
 

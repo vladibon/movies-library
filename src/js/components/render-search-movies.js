@@ -4,7 +4,11 @@ import { searchApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
-import { resetPaginationPage, setTotalItems, cleanGalleryContainer } from './pagination.js';
+import {
+  resetPaginationPage,
+  setPaginationTotalItems,
+  cleanGalleryContainer,
+} from './pagination.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -20,6 +24,8 @@ export function onSearch(e) {
   }
 
   searchApiService.resetPage();
+  // setTotalItems(80);
+
   resetPaginationPage('input');
 }
 
@@ -29,7 +35,8 @@ export default function loadSearchedMovies() {
   searchApiService
     .fetchArticles()
     .then(({ results, total_results }) => {
-      setTotalItems(total_results);
+      setPaginationTotalItems(total_results);
+
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
