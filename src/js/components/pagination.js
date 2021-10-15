@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import { homeApiService, searchApiService } from '../api/apiServicePlugin';
-import loadTrendingMovies from './render-trending-movies';
-import loadSearchedMovies from './render-search-movies';
+import { loadTrendingMovies } from './render-trending-movies';
+import { loadSearchedMovies } from './render-search-movies';
 import refs from './refs';
 
 const paginationContainer = document.getElementById('pagination');
@@ -56,13 +56,13 @@ pagination.on('afterMove', function (eventData) {
   }
 });
 
+export function setPaginationTotalItems(total_results) {
+  pagination.setTotalItems(total_results);
+}
+
 export function resetPaginationPage(mode) {
   refs.pagination.dataset.pagin = mode;
   pagination.movePageTo(1);
-}
-
-export function setPaginationTotalItems(total_results) {
-  pagination.setTotalItems(total_results);
 }
 
 export function cleanGalleryContainer() {

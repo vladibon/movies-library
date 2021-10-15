@@ -18,31 +18,36 @@ export function onSearch(e) {
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
   if (!searchApiService.searchQuery) {
-    e.target.value = '';
+    e.currentTarget.firstElementChild.value = '';
     onFetchError();
     return;
   }
 
-  searchApiService.resetPage();
-  // setTotalItems(80);
-
-  resetPaginationPage('input');
+  preloadSearchedMoviesTotalItems();
 }
 
-export default function loadSearchedMovies() {
+export function loadSearchedMovies() {
   Loading.circle('Loading...');
   cleanGalleryContainer();
   searchApiService
     .fetchArticles()
-    .then(({ results, total_results }) => {
-      setPaginationTotalItems(total_results);
-
+    .then(({ results }) => {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
     })
     .catch(onFetchError)
     .finally(Loading.remove(200));
+}
+
+function preloadSearchedMoviesTotalItems() {
+  searchApiService
+    .fetchArticles()
+    .then(({ total_results }) => {
+      setPaginationTotalItems(total_results);
+      resetPaginationPage('input');
+    })
+    .catch(console.log);
 }
 
 function createGallery(images) {

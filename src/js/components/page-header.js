@@ -1,7 +1,7 @@
 import renderWatchedMovies from './render-watched-movies';
 import renderQueueMovies from './render-queue-movies';
+import { preloadTrendingMoviesTotalItems } from './render-trending-movies';
 import refs from '../components/refs.js';
-import { resetPaginationPage } from './pagination.js';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {
@@ -24,15 +24,14 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
+  refs.sectionHome.classList.remove('page-header--hidden');
+  refs.sectionMyLibrary.classList.add('page-header--hidden');
+  refs.header.classList.remove('page-header--my-library');
   loadTrending();
 }
 function loadTrending() {
   refs.input.value = '';
-  resetPaginationPage('home');
-
-  refs.sectionHome.classList.remove('page-header--hidden');
-  refs.sectionMyLibrary.classList.add('page-header--hidden');
-  refs.header.classList.remove('page-header--my-library');
+  preloadTrendingMoviesTotalItems();
 }
 
 function toggleNav() {
