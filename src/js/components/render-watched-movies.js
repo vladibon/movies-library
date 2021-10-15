@@ -10,9 +10,11 @@ export default function renderWatchedMovies() {
   refs.buttonQueue.classList.toggle('btn--primary--active');
 
   refs.galleryContainer.innerHTML = '';
+  refs.messageContainer.classList.add('visually-hidden');
   if (!watchedListMovies || !watchedListMovies.length) {
     const message = noResultsTpl({ list: 'watched' });
-    // refs.messageContainer.innerHTML = message;
+    refs.messageContainer.innerHTML = message;
+    refs.messageContainer.classList.remove('visually-hidden');
   } else {
     dataStorage.saveCurrentMovies(watchedListMovies);
     refs.galleryContainer.innerHTML = imageCardTpl(watchedListMovies);

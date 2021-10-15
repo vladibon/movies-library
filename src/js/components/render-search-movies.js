@@ -54,8 +54,9 @@ function preloadSearchedMoviesTotalItems() {
     .catch();
 }
 
-function createGallery(images) {
-  refs.galleryContainer.innerHTML = imageCardTpl(images);
+function createGallery(movies) {
+  refs.galleryContainer.innerHTML = imageCardTpl(movies);
+  refs.messageContainer.classList.add('visually-hidden');
 }
 
 function onFetchError() {
