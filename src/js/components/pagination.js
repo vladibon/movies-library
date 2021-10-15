@@ -1,16 +1,8 @@
-import {
-  homeApiService,
-  movieApiService,
-  genresApiService,
-  searchApiService,
-} from '../api/apiServicePlugin';
-
-import onTrendingMoviesLoad from '../api/trending-movie-search';
 import Pagination from 'tui-pagination';
-import refs from '../components/refs.js';
-import dataStorage from './data-storage';
-
-import imageCardTpl from '../../templates/card-markup.hbs';
+import { homeApiService, searchApiService } from '../api/apiServicePlugin';
+import onTrendingMoviesLoad from './render-trending-movies';
+import loadSearchedMovies from './render-search-movies';
+import refs from './refs';
 
 const paginationContainer = document.getElementById('pagination');
 const options = {
@@ -61,26 +53,20 @@ pagination.on('afterMove', function (eventData) {
   tuiIcoNext.textContent = '>';
 
   refs.galleryContainer.innerHTML = '';
-  if (refs.pagination.dataset.pagin === 'home') {
-    refs.pagination.dataset.pagin = 'home';
-    // console.log(eventData.page);
-    homeApiService.page = eventData.page;
-    onTrendingMoviesLoad(eventData.page);
-  } else {
-    refs.pagination.dataset.pagin = 'input';
 
+  if (refs.pagination.dataset.pagin === 'home') {
+    homeApiService.page = eventData.page;
+    onTrendingMoviesLoad();
+  } else {
     searchApiService.page = eventData.page;
-    searchApiService.fetchArticles().then(({ results, total_results }) => {
-      pagination.setTotalItems(total_results);
-      const currentPageMovies = dataStorage.getFilmData(results);
-      dataStorage.saveCurrentMovies(currentPageMovies);
-      refs.galleryContainer.insertAdjacentHTML('beforeend', imageCardTpl(currentPageMovies));
-    });
+    if (searchApiService.page !== 1) loadSearchedMovies();
   }
 });
 
-// refs.input.addEventListener('input', movePageOne);
-
-export default function movePageOne() {
+export function resetPaginationPage() {
   pagination.movePageTo(1);
+}
+
+export function setTotalItems(total_results) {
+  pagination.setTotalItems(total_results); //
 }
