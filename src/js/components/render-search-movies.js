@@ -10,6 +10,7 @@ import {
   showPagination,
   hidePagination,
 } from './pagination.js';
+import { onEmptyLibraryList } from '../common/common.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -47,6 +48,7 @@ function preloadSearchedMoviesTotalItems() {
       if (!total_results) {
         hidePagination();
         clearGalleryContainer();
+        onEmptyLibraryList();
         throw 'Nothing found';
       }
       setPaginationTotalItems(total_results);
@@ -62,6 +64,7 @@ function createGallery(movies) {
 }
 
 function clearGalleryContainer() {
+  refs.messageContainer.classList.add('visually-hidden');
   refs.galleryContainer.innerHTML = '';
 }
 
