@@ -28,13 +28,14 @@ function onOpenModalMovie(e) {
 
   const onAddToWatchedClick = addToWatched.bind(null, movieObj);
   const onAddToQueueClick = addToQueue.bind(null, movieObj);
+  const onTrailerPlayClick = onTrailerPlay.bind(null, onModalCloseEsc);
 
   addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
   addToQueueBtn.addEventListener('click', onAddToQueueClick);
-  btnYouTube.addEventListener('click', onTrailerPlay);
+  btnYouTube.addEventListener('click', onTrailerPlayClick);
 
   btnCloseModal.addEventListener('click', movieLightbox.close);
-  window.addEventListener('keydown', movieLightbox.close);
+  window.addEventListener('keydown', onModalCloseEsc);
 
   function onModalCloseEsc(e) {
     if (e.code === 'Escape') {
@@ -45,7 +46,7 @@ function onOpenModalMovie(e) {
   function onModalClose() {
     addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
     addToQueueBtn.removeEventListener('click', onAddToQueueClick);
-    btnYouTube.removeEventListener('click', onTrailerPlay);
+    btnYouTube.removeEventListener('click', onTrailerPlayClick);
 
     window.removeEventListener('keydown', onModalCloseEsc);
     btnCloseModal.removeEventListener('click', onModalClose);
