@@ -7,8 +7,8 @@ import refs from './refs';
 import {
   resetPaginationPage,
   setPaginationTotalItems,
-  cleanGalleryContainer,
-  paginationHidden,
+  showPagination,
+  hidePagination,
 } from './pagination.js';
 
 refs.sectionHome.addEventListener('submit', onSearch);
@@ -20,7 +20,7 @@ export function onSearch(e) {
 
   if (!searchApiService.searchQuery) {
     e.currentTarget.firstElementChild.value = '';
-    onFetchError();
+    onSearchError();
     return;
   }
 
@@ -29,7 +29,6 @@ export function onSearch(e) {
 
 export function loadSearchedMovies() {
   Loading.circle('Loading...');
-  cleanGalleryContainer();
   searchApiService
     .fetchArticles()
     .then(({ results }) => {
@@ -45,20 +44,31 @@ function preloadSearchedMoviesTotalItems() {
   searchApiService
     .fetchArticles()
     .then(({ total_results }) => {
+      if (!total_results) {
+        hidePagination();
+        clearGalleryContainer();
+        throw 'Nothing found';
+      }
       setPaginationTotalItems(total_results);
       resetPaginationPage('input');
-      total_results ?
-        refs.pagination.classList.remove('tui-pagination-is-hidden')
-        : refs.pagination.classList.add('tui-pagination-is-hidden');
+      showPagination();
     })
-    .catch();
+    .catch(onFetchError);
 }
 
 function createGallery(movies) {
-  refs.galleryContainer.innerHTML = imageCardTpl(movies);
   refs.messageContainer.classList.add('visually-hidden');
+  refs.galleryContainer.innerHTML = imageCardTpl(movies);
 }
 
-function onFetchError() {
+function clearGalleryContainer() {
+  refs.galleryContainer.innerHTML = '';
+}
+
+function onFetchError(message) {
+  Notify.failure(message);
+}
+
+function onSearchError() {
   Notify.failure('Search result not successful. Enter the correct movie name');
 }
