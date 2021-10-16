@@ -2,9 +2,11 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
-import imageCardTpl from '../../templates/card-markup.hbs';
+
 import { onTrailerPlay } from './modal-trailer';
-import { onEmptyLibraryList } from '../common/common';
+
+import { addToWatched } from '../common/common';
+import { addToQueue } from '../common/common';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
@@ -47,49 +49,5 @@ function onOpenModalMovie(e) {
 
     window.removeEventListener('keydown', onModalCloseEsc);
     btnCloseModal.removeEventListener('click', onModalClose);
-  }
-}
-
-function addToWatched(movieObj, e) {
-  dataStorage.toggleWatchedMovieProp(movieObj);
-  if (dataStorage.getWatchedPropForMovie(movieObj.id)) {
-    e.target.textContent = 'remove from watched';
-    dataStorage.saveToWatched(movieObj);
-  } else {
-    e.target.textContent = 'add to watched';
-  }
-
-  if (!movieObj.source_list || movieObj.source_list !== 'watched') {
-    return;
-  } else {
-    const list = dataStorage.getWatchedMovies();
-    dataStorage.saveCurrentMovies(list);
-
-    if (list.length) {
-      refs.messageContainer.classList.add('visually-hidden');
-      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
-    } else onEmptyLibraryList(dataStorage.WATCHED);
-  }
-}
-
-function addToQueue(movieObj, e) {
-  dataStorage.toggleQueueMovieProp(movieObj);
-  if (dataStorage.getQueuePropForMovie(movieObj.id)) {
-    e.target.textContent = 'remove from queue';
-    dataStorage.saveToQueue(movieObj);
-  } else {
-    e.target.textContent = 'add to queue';
-  }
-
-  if (!movieObj.source_list || movieObj.source_list !== 'queue') {
-    return;
-  } else {
-    const list = dataStorage.getQueueMovies();
-    dataStorage.saveCurrentMovies(list);
-
-    if (list.length) {
-      refs.messageContainer.classList.add('visually-hidden');
-      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
-    } else onEmptyLibraryList(dataStorage.QUEUE);
   }
 }
