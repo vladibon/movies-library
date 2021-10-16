@@ -5,7 +5,11 @@ import imageCardTpl from '../../templates/card-markup.hbs';
 
 export function onEmptyLibraryList(listName) {
   refs.galleryContainer.innerHTML = '';
-  const message = noResultsTpl({ list: listName });
+  let messageTxt = '';
+  if (listName) {
+    messageTxt = `Sorry, it seems like you don't have any saved movies in ${listName} list.`;
+  }
+  const message = noResultsTpl({ messageTxt: messageTxt });
   refs.messageContainer.innerHTML = message;
   refs.messageContainer.classList.remove('visually-hidden');
 }

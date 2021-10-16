@@ -4,6 +4,7 @@ import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs.js';
 import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination.js';
+import { onEmptyLibraryList } from '../common/common.js';
 
 dataStorage.saveGenresToLS();
 loadTrendingMovies();
@@ -28,6 +29,7 @@ export function preloadTrendingMoviesTotalItems() {
       if (!total_results) {
         hidePagination();
         clearGalleryContainer();
+        onEmptyLibraryList();
         throw 'Nothing found';
       }
       setPaginationTotalItems(total_results);
@@ -43,6 +45,7 @@ function createGallery(movies) {
 }
 
 function clearGalleryContainer() {
+  refs.messageContainer.classList.add('visually-hidden');
   refs.galleryContainer.innerHTML = '';
 }
 
