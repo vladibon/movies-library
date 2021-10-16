@@ -3,7 +3,7 @@ import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import { onTrailerPlay } from '../components/trailer';
+import { onTrailerPlay } from './modal-trailer';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
@@ -20,7 +20,7 @@ function onOpenModalMovie(e) {
 
   const addToWatchedBtn = document.querySelector('[data-action="add-to-watched"]');
   const addToQueueBtn = document.querySelector('[data-action="add-to-queue"]');
-  const btnYouTube = document.querySelector('.modal-movie__youtube');
+  const btnYouTube = document.querySelector('.youtube-btn');
   const btnCloseModal = document.querySelector('.js-modal-movie__close-btn');
 
   const onAddToWatchedClick = addToWatched.bind(null, movieObj);

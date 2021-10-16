@@ -2,7 +2,7 @@ export default {
   galleryContainer: document.getElementById('js-gallery'),
   messageContainer: document.getElementById('message-container'),
 
-  // Header Ref
+  // Header Refs
   header: document.querySelector('.page-header'),
   menuNav: document.querySelector('.site-nav__list'),
   titleHomeMenu: document.querySelector('[data-nav="home"]'),
@@ -17,10 +17,13 @@ export default {
   buttonWatched: document.querySelector('[data-action="watched"]'),
   buttonQueue: document.querySelector('[data-action="queue"]'),
 
-// btn scroll
+  pagination: document.querySelector('[data-pagin]'),
+  input: document.querySelector('.page-header__search--input'),
+
+  // btn scroll
   rootElement: document.documentElement,
   scrollBtn: document.querySelector('.btn__scroll-top'),
-  
+
   // Footer
   footerLink: document.querySelector('.js-footer__link'),
 };
