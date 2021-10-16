@@ -4,6 +4,7 @@ import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import { onTrailerPlay } from './modal-trailer';
+import { onEmptyLibraryList } from '../common/common';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
@@ -50,32 +51,45 @@ function onOpenModalMovie(e) {
 }
 
 function addToWatched(movieObj, e) {
-  console.log(999);
-  dataStorage.toggleWatchedMovieProp(movieObj.id);
-  dataStorage.getWatchedPropForMovie(movieObj.id)
-    ? (e.target.textContent = 'remove from watched')
-    : (e.target.textContent = 'add to watched');
+  dataStorage.toggleWatchedMovieProp(movieObj);
+  if (dataStorage.getWatchedPropForMovie(movieObj.id)) {
+    e.target.textContent = 'remove from watched';
+    dataStorage.saveToWatched(movieObj);
+  } else {
+    e.target.textContent = 'add to watched';
+  }
 
   if (!movieObj.source_list || movieObj.source_list !== 'watched') {
-    // dataStorage.getWatchedMovies();
     return;
   } else {
-    dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
-    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    const list = dataStorage.getWatchedMovies();
+    dataStorage.saveCurrentMovies(list);
+
+    if (list.length) {
+      refs.messageContainer.classList.add('visually-hidden');
+      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    } else onEmptyLibraryList(dataStorage.WATCHED);
   }
 }
 
 function addToQueue(movieObj, e) {
-  dataStorage.toggleQueueMovieProp(movieObj.id);
-  dataStorage.getQueuePropForMovie(movieObj.id)
-    ? (e.target.textContent = 'remove from queue')
-    : (e.target.textContent = 'add to queue');
+  dataStorage.toggleQueueMovieProp(movieObj);
+  if (dataStorage.getQueuePropForMovie(movieObj.id)) {
+    e.target.textContent = 'remove from queue';
+    dataStorage.saveToQueue(movieObj);
+  } else {
+    e.target.textContent = 'add to queue';
+  }
 
   if (!movieObj.source_list || movieObj.source_list !== 'queue') {
-    // dataStorage.getQueueMovies();
     return;
   } else {
-    dataStorage.saveCurrentMovies(dataStorage.getQueueMovies());
-    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    const list = dataStorage.getQueueMovies();
+    dataStorage.saveCurrentMovies(list);
+
+    if (list.length) {
+      refs.messageContainer.classList.add('visually-hidden');
+      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    } else onEmptyLibraryList(dataStorage.QUEUE);
   }
 }
