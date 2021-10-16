@@ -33,4 +33,9 @@
 .footer__link {
   text-decoration: underline;
   color: $footer-grey-text-color;
+
+  &:focus,
+  &:hover {
+    color: $footer-heart-color;
+  }
 }
