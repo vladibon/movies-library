@@ -47,34 +47,35 @@ function onOpenModalMovie(e) {
     window.removeEventListener('keydown', onModalCloseEsc);
     btnCloseModal.removeEventListener('click', onModalClose);
   }
+}
 
-  function addToWatched(movieObj, e) {
-    dataStorage.toggleWatchedMovieProp(movieObj.id);
-    dataStorage.getWatchedPropForMovie(movieObj.id)
-      ? (e.target.textContent = 'remove from watched')
-      : (e.target.textContent = 'add to watched');
+function addToWatched(movieObj, e) {
+  console.log(999);
+  dataStorage.toggleWatchedMovieProp(movieObj.id);
+  dataStorage.getWatchedPropForMovie(movieObj.id)
+    ? (e.target.textContent = 'remove from watched')
+    : (e.target.textContent = 'add to watched');
 
-    if (!movieObj.source_list || movieObj.source_list !== 'watched') {
-      // dataStorage.getWatchedMovies();
-      return;
-    } else {
-      dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
-      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
-    }
+  if (!movieObj.source_list || movieObj.source_list !== 'watched') {
+    // dataStorage.getWatchedMovies();
+    return;
+  } else {
+    dataStorage.saveCurrentMovies(dataStorage.getWatchedMovies());
+    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
   }
+}
 
-  function addToQueue(movieObj, e) {
-    dataStorage.toggleQueueMovieProp(movieObj.id);
-    dataStorage.getQueuePropForMovie(movieObj.id)
-      ? (e.target.textContent = 'remove from queue')
-      : (e.target.textContent = 'add to queue');
+function addToQueue(movieObj, e) {
+  dataStorage.toggleQueueMovieProp(movieObj.id);
+  dataStorage.getQueuePropForMovie(movieObj.id)
+    ? (e.target.textContent = 'remove from queue')
+    : (e.target.textContent = 'add to queue');
 
-    if (!movieObj.source_list || movieObj.source_list !== 'queue') {
-      // dataStorage.getQueueMovies();
-      return;
-    } else {
-      dataStorage.saveCurrentMovies(dataStorage.getQueueMovies());
-      refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
-    }
+  if (!movieObj.source_list || movieObj.source_list !== 'queue') {
+    // dataStorage.getQueueMovies();
+    return;
+  } else {
+    dataStorage.saveCurrentMovies(dataStorage.getQueueMovies());
+    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
   }
 }

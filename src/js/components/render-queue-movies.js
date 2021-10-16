@@ -12,7 +12,7 @@ export default function renderQueueMovies() {
   refs.galleryContainer.innerHTML = '';
   refs.messageContainer.classList.add('visually-hidden');
   if (!queueListMovies || !queueListMovies.length) {
-    const message = noResultsTpl({ list: 'watched' });
+    const message = noResultsTpl({ list: 'queue' });
     refs.messageContainer.innerHTML = message;
     refs.messageContainer.classList.remove('visually-hidden');
   } else {

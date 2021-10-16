@@ -27,19 +27,20 @@ export default {
   getWatchedMovies() {
     const list = localStorage.getItem(this.WATCHED);
     if (list) {
-      this.watchedList = JSON.parse(list);
-
-      return this.watchedList.map(el => {
+      this.watchedList = JSON.parse(list).map(el => {
         return {
           ...el,
-          source_list: 'watched',
+          source_list: this.WATCHED,
         };
       });
+
+      return this.watchedList;
     }
   },
 
   getWatchedPropForMovie(movieId) {
     this.getWatchedMovies();
+
     if (!this.watchedList.length) {
       return false;
     }
@@ -57,11 +58,10 @@ export default {
 
         if (el.watched) {
           this.watchedList.push(el);
-          localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
         } else if (!el.watched) {
           this.watchedList = this.watchedList.filter(el => el.id !== obj.id);
-          localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
         }
+        localStorage.setItem(this.WATCHED, JSON.stringify(this.watchedList));
       }
       acc.push(el);
       return acc;
@@ -155,11 +155,13 @@ export default {
   },
 
   saveGenresToLS() {
-    genresApiService
-      .fetchArticles()
-      .then(genres => {
-        localStorage.setItem(this.GENRES, JSON.stringify(genres));
-      })
-      .catch(err => console.log(err));
+    if (!localStorage.getItem(this.GENRES)) {
+      genresApiService
+        .fetchArticles()
+        .then(genres => {
+          localStorage.setItem(this.GENRES, JSON.stringify(genres));
+        })
+        .catch(err => console.log(err));
+    }
   },
 };
