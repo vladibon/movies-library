@@ -1,6 +1,6 @@
-import onTrendingMoviesLoad from '../api/trending-movie-search';
-import { renderWatchedMovies } from './render-watched-movies';
-import { renderQueueMovies } from './render-queue-movies';
+import renderWatchedMovies from './render-watched-movies';
+import renderQueueMovies from './render-queue-movies';
+import { preloadTrendingMoviesTotalItems } from './render-trending-movies';
 import refs from '../components/refs.js';
 
 refs.menuNav.addEventListener('click', e => {
@@ -13,7 +13,7 @@ refs.menuNav.addEventListener('click', e => {
 });
 
 refs.logo.addEventListener('click', onLogoClick);
-refs.buttonHomeMenu.addEventListener('click', onTrendingMoviesLoad);
+refs.buttonHomeMenu.addEventListener('click', loadTrending);
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
 });
@@ -24,14 +24,19 @@ refs.buttonQueue.addEventListener('click', e => {
 function onLogoClick() {
   refs.titleHomeMenu.classList.add('site-nav__link--active');
   refs.titleLibraryMenu.classList.remove('site-nav__link--active');
-
   refs.sectionHome.classList.remove('page-header--hidden');
   refs.sectionMyLibrary.classList.add('page-header--hidden');
   refs.header.classList.remove('page-header--my-library');
-  onTrendingMoviesLoad();
+  loadTrending();
+}
+function loadTrending() {
+  refs.input.value = '';
+  preloadTrendingMoviesTotalItems();
 }
 
 function toggleNav() {
+  refs.pagination.classList.add('tui-pagination-is-hidden');
+
   refs.titleHomeMenu.classList.toggle('site-nav__link--active');
   refs.titleLibraryMenu.classList.toggle('site-nav__link--active');
   if (refs.titleLibraryMenu.classList.contains('site-nav__link--active')) {

@@ -154,3 +154,60 @@
     margin-right: 15px;
   }
 }
+.youtube {
+  width: 30px;
+  height: 30px;
+}
+.youtube-btn {
+  border-radius: 7px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  bottom: 125px;
+  box-shadow: $team-card-shadow;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube__btn-icon {
+  pointer-events: none;
+}
+.modal-youtube__close-btn {
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // width: 50px;
+  // height: 50px;
+  // padding: 10px;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  background-color: $white-text-color;
+}
+
+.modal-youtube {
+  padding-top: 10px;
+  background-color: $white-text-color;
+  min-width: 320px;
+
+  @include respond-above($tablet) {
+    max-width: 618px;
+  }
+
+  @include respond-above($desktop) {
+    max-width: 882px;
+  }
+}
+.modal-youtube__close-btn {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
