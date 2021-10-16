@@ -185,8 +185,8 @@
   border: none;
   border-radius: 0 0 6px 6px;
 
-  &:focus,
-  &:hover {
+  &:not([disabled]):focus,
+  &:not([disabled]):hover {
     color: $white-text-color;
     background-color: $page-accent-bg-color;
   }

@@ -14,3 +14,4 @@ import './js/components/pagination';
 import './js/components/scrollTop';
 import './js/components/modal-movie';
 import './js/components/modal-team';
+import './js/components/resetBtn';
