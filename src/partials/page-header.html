@@ -51,5 +51,31 @@
       </button>
       <button class="btn btn--primary js-btn" type="button" data-action="queue">QUEUE</button>
     </div>
+
+    <!-- Theme switch -->
+    <div class="theme-switch">
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          id="themeSwitch"
+          type="checkbox"
+          name="theme"
+          aria-label="theme switch"
+        />
+        <label
+          class="theme-switch__track theme-switch__track--light"
+          for="themeSwitch"
+          aria-hidden="true"
+          >DAYMODE</label
+        >
+        <label
+          class="theme-switch__track theme-switch__track--dark"
+          for="themeSwitch"
+          aria-hidden="true"
+          >NIGHTMODE</label
+        >
+        <div class="theme-switch__marker" aria-hidden="true"></div>
+      </div>
+    </div>
   </div>
 </header>
