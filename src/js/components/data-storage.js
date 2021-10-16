@@ -144,14 +144,14 @@ export default {
             return arr.join(', ');
           } else return 'classic';
         })(),
-        watched: () => {
+        watched: (() => {
           this.getWatchedMovies();
           return this.getWatchedPropForMovie(String(el.id));
-        },
-        queue: () => {
+        })(),
+        queue: (() => {
           this.getQueueMovies();
           return this.getQueuePropForMovie(String(el.id));
-        },
+        })(),
         source_list: '',
       };
 
