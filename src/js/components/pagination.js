@@ -46,16 +46,19 @@ pagination.on('afterMove', function (eventData) {
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
     loadTrendingMovies();
+    scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'week') {
     homeWeekApiService.page = eventData.page;
     loadWeekTrendingMovies();
+    scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
     loadSearchedMovies();
+    scrollTop();
   }
 });
 
@@ -78,4 +81,12 @@ export function paginationHidden() {
 
 export function hidePagination() {
   refs.pagination.classList.add('tui-pagination-is-hidden');
+}
+
+function scrollTop() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
 }

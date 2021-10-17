@@ -22,7 +22,7 @@ export function loadTrendingMovies() {
       createGallery(currentPageMovies);
     })
     .catch(onFetchError)
-    .finally(Loading.remove(200));
+    .finally(Loading.remove(300));
 }
 
 export function preloadTrendingMoviesTotalItems() {
@@ -54,7 +54,7 @@ export function loadWeekTrendingMovies() {
       createGallery(currentPageMovies);
     })
     .catch(onFetchError)
-    .finally(Loading.remove(200));
+    .finally(Loading.remove(300));
 }
 
 export function preloadWeekTrendingMoviesTotalItems() {

@@ -40,7 +40,7 @@ export function loadSearchedMovies() {
       createGallery(currentPageMovies);
     })
     .catch(onFetchError)
-    .finally(Loading.remove(200));
+    .finally(Loading.remove(300));
 }
 
 function preloadSearchedMoviesTotalItems() {
