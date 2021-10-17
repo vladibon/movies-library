@@ -12,14 +12,20 @@ import {
 } from './pagination.js';
 import { onEmptyLibraryList } from '../common/common.js';
 
+const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+
 refs.sectionHome.addEventListener('submit', onSearch);
 
 export function onSearch(e) {
   e.preventDefault();
 
+  refs.buttonWeek.classList.remove('btnFilter--active');
+  refs.buttonToday.classList.remove('btnFilter--active');
+
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
   if (!searchApiService.searchQuery) {
+    refs.buttonToday.classList.add('btnFilter--active');
     e.currentTarget.firstElementChild.value = '';
     onSearchError();
     return;
@@ -38,7 +44,7 @@ export function loadSearchedMovies() {
       createGallery(currentPageMovies);
     })
     .catch(onFetchError)
-    .finally(Loading.remove(200));
+    .finally(Loading.remove(300));
 }
 
 function preloadSearchedMoviesTotalItems() {
@@ -49,7 +55,7 @@ function preloadSearchedMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw 'Nothing found';
+        throw failureMessage;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('input');
@@ -73,5 +79,5 @@ function onFetchError(message) {
 }
 
 function onSearchError() {
-  Notify.failure('Search result not successful. Enter the correct movie name');
+  Notify.failure(failureMessage);
 }

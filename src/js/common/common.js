@@ -24,6 +24,15 @@ export function addToWatched(movieObj, e) {
   }
 
   if (!movieObj.source_list || movieObj.source_list !== 'watched') {
+    const list = dataStorage.getCurrentMovies().map(el => {
+      if (el.id === movieObj.id) {
+        el.watched = !el.watched;
+      }
+      return el;
+    });
+
+    dataStorage.saveCurrentMovies(list);
+    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
     return;
   } else {
     const list = dataStorage.getWatchedMovies();
@@ -46,6 +55,15 @@ export function addToQueue(movieObj, e) {
   }
 
   if (!movieObj.source_list || movieObj.source_list !== 'queue') {
+    const list = dataStorage.getCurrentMovies().map(el => {
+      if (el.id === movieObj.id) {
+        el.queue = !el.queue;
+      }
+      return el;
+    });
+
+    dataStorage.saveCurrentMovies(list);
+    refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
     return;
   } else {
     const list = dataStorage.getQueueMovies();

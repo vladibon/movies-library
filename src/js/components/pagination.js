@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
-import { homeApiService, searchApiService } from '../api/apiServicePlugin';
-import { loadTrendingMovies } from './render-trending-movies';
+import { homeApiService, homeWeekApiService, searchApiService } from '../api/apiServicePlugin';
+import { loadTrendingMovies, loadWeekTrendingMovies } from './render-trending-movies';
 import { loadSearchedMovies } from './render-search-movies';
 import refs from './refs';
 
@@ -46,11 +46,19 @@ pagination.on('afterMove', function (eventData) {
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
     loadTrendingMovies();
+    scrollTop();
+  }
+
+  if (refs.pagination.dataset.pagin === 'week') {
+    homeWeekApiService.page = eventData.page;
+    loadWeekTrendingMovies();
+    scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
     loadSearchedMovies();
+    scrollTop();
   }
 });
 
@@ -69,4 +77,12 @@ export function showPagination() {
 
 export function hidePagination() {
   refs.pagination.classList.add('tui-pagination-is-hidden');
+}
+
+function scrollTop() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
 }

@@ -9,6 +9,20 @@
         alt='{{title}}'
       />
     </div>
+    <div class='gallery__card-nav'>
+      <span class='gallery__btn-helper watched-helper'>add to watched</span>
+      <button class='gallery__btn' type='button' data-action='add-watched'>
+        <svg class='gallery__icon' width='34' height='34'>
+          <use href='sprite.svg#icon-eye'></use>
+        </svg>
+      </button>
+      <span class='gallery__btn-helper queue-helper'>add to queue</span>
+      <button class='gallery__btn activated' type='button'>
+        <svg class='gallery__icon' width='32' height='32'>
+          <use href='sprite.svg#icon-queue'></use>
+        </svg>
+      </button>
+    </div>
     <div class='gallery__info'>
       <h2 class='gallery__title'>{{title}}</h2>
       <div class='gallery__help-wrapper'>
