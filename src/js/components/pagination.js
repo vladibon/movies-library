@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
-import { homeApiService, searchApiService } from '../api/apiServicePlugin';
-import { loadTrendingMovies } from './render-trending-movies';
+import { homeApiService, homeWeekApiService, searchApiService } from '../api/apiServicePlugin';
+import { loadTrendingMovies, loadWeekTrendingMovies } from './render-trending-movies';
 import { loadSearchedMovies } from './render-search-movies';
 import refs from './refs';
 
@@ -48,6 +48,11 @@ pagination.on('afterMove', function (eventData) {
     loadTrendingMovies();
   }
 
+  if (refs.pagination.dataset.pagin === 'week') {
+    homeWeekApiService.page = eventData.page;
+    loadWeekTrendingMovies();
+  }
+
   if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
     loadSearchedMovies();
@@ -65,6 +70,10 @@ export function resetPaginationPage(mode) {
 
 export function showPagination() {
   refs.pagination.classList.remove('tui-pagination-is-hidden');
+}
+
+export function paginationHidden() {
+  refs.pagination.classList.toggle('tui-pagination-is-hidden');
 }
 
 export function hidePagination() {

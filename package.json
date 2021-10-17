@@ -19,7 +19,11 @@
   },
   "homepage": "https://vladibon.github.io/movies-library/",
   "staticFiles": {
-    "staticPath": "src/images/team"
+    "staticPath": [
+      "src/images/team",
+      "src/images/sprite.svg",
+      "src/images/empty-card.png"
+    ]
   },
   "devDependencies": {
     "axios": "^0.22.0",
