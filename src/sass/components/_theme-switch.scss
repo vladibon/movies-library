@@ -2,8 +2,8 @@
 .theme-switch {
   display: flex;
   justify-content: flex-end;
-  margin-right: 5px;
-  margin-top: 50px;
+  // margin-right: 5px;
+  // margin-top: 50px;
 }
 
 .theme-switch__control {
@@ -14,7 +14,7 @@
   position: relative;
   width: 60px;
   height: 20px;
-  border: 1px solid tomato;
+  border: 2px solid tomato;
   border-radius: 50em;
 }
 
