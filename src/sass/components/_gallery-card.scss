@@ -1,4 +1,5 @@
 .gallery__item {
+  position: relative;
   @include grid-item(1);
 
   border-radius: 5px;
@@ -32,7 +33,7 @@
     box-shadow: 6px 15px 7px rgba(0, 0, 0, 0.14);
   }
 
-  65% {
+  70% {
     transform: translateY(-12px);
     box-shadow: 6px 15px 7px rgba(0, 0, 0, 0.14);
   }
@@ -61,6 +62,23 @@
   object-fit: cover;
 }
 
+.gallery__card-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  height: 90px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.363);
+  border-radius: 5px;
+}
+
+.gallery__btn {
+}
+
+.gallery__icon {
+  background-size: contain;
+}
 .gallery__info {
   width: 100%;
   padding: 10px 4px 6px;
