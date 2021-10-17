@@ -12,6 +12,8 @@ import {
 } from './pagination.js';
 import { onEmptyLibraryList } from '../common/common.js';
 
+const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+
 refs.sectionHome.addEventListener('submit', onSearch);
 
 export function onSearch(e) {
@@ -49,7 +51,7 @@ function preloadSearchedMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw 'Nothing found';
+        throw failureMessage;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('input');
@@ -73,5 +75,5 @@ function onFetchError(message) {
 }
 
 function onSearchError() {
-  Notify.failure('Search result not successful. Enter the correct movie name');
+  Notify.failure(failureMessage);
 }
