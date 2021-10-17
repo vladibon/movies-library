@@ -18,10 +18,10 @@ refs.menuNav.addEventListener('click', e => {
 refs.logo.addEventListener('click', onLogoClick);
 refs.buttonHomeMenu.addEventListener('click', loadTrending);
 refs.buttonToday.addEventListener('click', e => {
-  !e.target.classList.contains('btn--primary--active') ? loadTrending() : null;
+  !e.target.classList.contains('btnFilter--active') ? loadTrending() : null;
 });
 refs.buttonWeek.addEventListener('click', e => {
-  !e.target.classList.contains('btn--primary--active') ? loadWeekTrending() : null;
+  !e.target.classList.contains('btnFilter--active') ? loadWeekTrending() : null;
 });
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
@@ -70,6 +70,6 @@ function toggleNav() {
 }
 
 function toggleFilter() {
-  refs.buttonToday.classList.toggle('btn--primary--active');
-  refs.buttonWeek.classList.toggle('btn--primary--active');
+  refs.buttonToday.classList.toggle('btnFilter--active');
+  refs.buttonWeek.classList.toggle('btnFilter--active');
 }

@@ -1,9 +1,5 @@
 .btn {
-  position: relative;
-  z-index: 1;
   height: 44px;
-  padding-top: 6px;
-  padding-bottom: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +28,7 @@
   &:hover,
   &:focus,
   &--active {
-    z-index: 22;
+    z-index: 2;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
     box-shadow: $btn-primary-accent-shadow;
@@ -69,26 +65,48 @@
   }
 }
 
-.btn--filter {
+.btnFilter {
+  position: relative;
   justify-content: flex-end;
   width: 118px;
-  height: 37px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #8c8c8c;
+  border: $btn-border;
+  background-color: rgba(255, 255, 255, 0.7);
   border-bottom-style: none;
-  border-radius: 0;
   border-top-left-radius: 70%;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   padding: 0 10px 0 0;
+
   font-size: 14px;
   line-height: 1.14;
+  font-weight: 500;
   text-align: right;
+  cursor: pointer;
 
   @include respond-above($tablet) {
     padding: 0 15px 0 0;
   }
-}
 
-.btn--today {
-  left: 10px;
+  &--today {
+    left: 10px;
+  }
+
+  &--active {
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus,
+  &--active {
+    background-color: $btn-accent-bg-color;
+    border: 1px solid $btn-accent-bg-color;
+    box-shadow: -4px -1px 4px rgba(0, 0, 0, 0.25), 4px -1px 4px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+  }
 }
