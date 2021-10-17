@@ -112,7 +112,12 @@
 }
 
 .votes {
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
   min-width: 36px;
+  font-size: 12px;
+  line-height: 1.7;
   background-color: $footer-bg-color;
 }
 
