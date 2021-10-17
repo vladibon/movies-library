@@ -1,14 +1,17 @@
-import { Loading } from 'notiflix';
-import { homeApiService } from '../api/apiServicePlugin';
+import { Notify, Loading } from 'notiflix';
+import { homeApiService, homeWeekApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs.js';
 import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination.js';
 import { onEmptyLibraryList } from '../common/common.js';
 
+const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+
 dataStorage.saveGenresToLS();
 loadTrendingMovies();
 
+// Rendering popular movies TODAY --------------------------------
 export function loadTrendingMovies() {
   Loading.circle('Loading...');
   homeApiService
@@ -30,7 +33,7 @@ export function preloadTrendingMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw 'Nothing found';
+        throw failureMessage;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('home');
@@ -38,6 +41,39 @@ export function preloadTrendingMoviesTotalItems() {
     })
     .catch(onFetchError);
 }
+// ---------------------------------------------------------------
+
+// Rendering popular movies THIS WEEK ----------------------------
+export function loadWeekTrendingMovies() {
+  Loading.circle('Loading...');
+  homeWeekApiService
+    .fetchArticles()
+    .then(({ results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+      createGallery(currentPageMovies);
+    })
+    .catch(onFetchError)
+    .finally(Loading.remove(200));
+}
+
+export function preloadWeekTrendingMoviesTotalItems() {
+  homeWeekApiService
+    .fetchArticles()
+    .then(({ total_results }) => {
+      if (!total_results) {
+        hidePagination();
+        clearGalleryContainer();
+        onEmptyLibraryList();
+        throw 'Nothing found';
+      }
+      setPaginationTotalItems(total_results);
+      resetPaginationPage('week');
+      showPagination();
+    })
+    .catch(onFetchError);
+}
+// ---------------------------------------------------------------
 
 function createGallery(movies) {
   refs.messageContainer.classList.add('visually-hidden');
