@@ -45,9 +45,21 @@
       </button>
     </form>
 
-    <!-- Header Buttons -->
+    <!-- Filter -->
+    <div class="page-header__filter">
+      <p class="page-header__filter--title">Popular movies:</p>
+      <button
+        class="btnFilter btnFilter--today btnFilter--active"
+        type="button"
+        data-action="today"
+      >
+        TODAY
+      </button>
+      <button class="btnFilter" type="button" data-action="week">THIS WEEK</button>
+    </div>
+
+    <!-- Site Nav Buttons -->
     <div class="page-header__library page-header--hidden">
-      <!-- Site Nav Button -->
       <button
         class="btn btn--primary btn--primary--active btn--margin js-btn"
         type="button"
