@@ -43,8 +43,6 @@ tuiIcoPrev.textContent = '<';
 tuiIcoNext.textContent = '>';
 
 pagination.on('afterMove', function (eventData) {
-  cleanGalleryContainer();
-
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
     loadTrendingMovies();
@@ -65,6 +63,10 @@ export function resetPaginationPage(mode) {
   pagination.movePageTo(1);
 }
 
-export function cleanGalleryContainer() {
-  refs.galleryContainer.innerHTML = '';
+export function showPagination() {
+  refs.pagination.classList.remove('tui-pagination-is-hidden');
+}
+
+export function hidePagination() {
+  refs.pagination.classList.add('tui-pagination-is-hidden');
 }

@@ -22,9 +22,6 @@
   }
 
   @include respond-above($big-desktop) {
-    width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
     background-image: url(../images/backgraund/header-home1920.jpg);
   }
 
@@ -131,19 +128,89 @@
     &::placeholder {
       color: $white-text-color;
     }
+
+    &:hover {
+      border-bottom: 0.5px solid $header-accent-page-line;
+    }
   }
 }
 
 .page-header__search--input {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  letter-spacing: 1.17px;
   color: $white-text-color;
 }
 
 .page-header__search--btn {
   position: absolute;
-  right: 0;
+  top: 4px;
+  right: -5px;
   background: transparent;
   border: none;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-5px) scale(1.8);
+    transition: transform $animation;
+  }
+
+  &:hover .search-img,
+  &:focus .search-img {
+    stroke: $header-accent-page-line;
+  }
+}
+
+.search-img {
+  stroke: $white-text-color;
+}
+
+// button reset
+.page-header__reset--btn {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  width: 80px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 2px;
+  padding-bottom: 6px;
+  font-size: 14px;
+  line-height: 1;
+  border: none;
+  border-radius: 0 0 6px 6px;
+
+  &:not([disabled]):focus,
+  &:not([disabled]):hover {
+    color: $white-text-color;
+    background-color: $page-accent-bg-color;
+  }
+
+  &:focus .page-header__reset--img,
+  &:hover .page-header__reset--img {
+    stroke: $white-text-color;
+  }
+}
+
+.page-header__reset--btn:disabled {
+  opacity: 0.7;
+  color: $modal-grey-title-color;
+}
+
+.page-header__reset--btn:disabled .page-header__reset--img {
+  stroke: $modal-grey-title-color;
+}
+
+.page-header__reset--img {
+  position: relative;
+  top: 1px;
+  right: -10px;
+  stroke: $movie-title-black-color;
 }
 
 .page-header__library {

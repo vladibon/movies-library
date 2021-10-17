@@ -15,3 +15,4 @@ import './js/components/scrollTop';
 import './js/components/modal-movie';
 import './js/components/modal-team';
 import './js/components/theme-switch';
+import './js/components/resetBtn';
