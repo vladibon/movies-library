@@ -1,4 +1,4 @@
-import { Loading } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
 import { homeApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
