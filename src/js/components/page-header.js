@@ -87,4 +87,5 @@ function toggleFilter() {
     refs.buttonToday.classList.toggle('btnFilter--active');
     refs.buttonWeek.classList.toggle('btnFilter--active');
   }
+  refs.buttonToday.classList.add('btnFilter--active');
 }
