@@ -20,6 +20,11 @@
 
 .gallery__item:hover {
   animation: card-hover 250ms ease-out;
+
+  & .gallery__card-nav {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes card-hover {
@@ -66,19 +71,92 @@
   position: absolute;
   right: 0;
   top: 0;
+
+  transform: translateX(100%);
   opacity: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
   height: 90px;
   width: 50px;
-  background-color: rgba(255, 255, 255, 0.363);
+  background-color: rgba(255, 255, 255, 0.603);
   border-radius: 5px;
+
+  transition: transform 250ms ease-out 270ms, opacity 200ms ease-out 320ms;
 }
 
 .gallery__btn {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: $btn-primary-color;
+  opacity: 0.6;
+  transform: scale(1);
+  transition: transform $animation, color $animation, opacity $animation;
+}
+
+.gallery__btn:hover {
+  color: $btn-accent-bg-color;
+  opacity: 1;
+  transform: scale(1.15);
+
+  & .gallery__icon {
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.205));
+  }
+}
+
+.gallery__btn.activated {
+  opacity: 1;
+  color: #2e2e2e;
+}
+
+.gallery__btn.activated:hover {
+  color: $btn-accent-bg-color;
 }
 
 .gallery__icon {
   background-size: contain;
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.377));
+
+  transition: filter $animation;
 }
+
+.gallery__btn-helper {
+  position: absolute;
+  right: 50px;
+  display: inline-flex;
+  justify-content: center;
+  width: 120px;
+
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: rgba(255, 255, 255, 0.603);
+  border-radius: 5px 0 0 5px;
+
+  font-size: 13px;
+  color: $movie-title-black-color;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.377);
+
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform $animation, opacity $animation;
+}
+
+.watched-helper {
+  top: 8px;
+}
+
+.queue-helper {
+  top: 52px;
+}
+
+.gallery__btn-helper.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .gallery__info {
   width: 100%;
   padding: 10px 4px 6px;
