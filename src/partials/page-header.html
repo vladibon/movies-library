@@ -68,18 +68,12 @@
           name="theme"
           aria-label="theme switch"
         />
-        <label
-          class="theme-switch__track theme-switch__track--light"
-          for="themeSwitch"
-          aria-hidden="true"
-          >DAYMODE</label
-        >
-        <label
-          class="theme-switch__track theme-switch__track--dark"
-          for="themeSwitch"
-          aria-hidden="true"
-          >NIGHTMODE</label
-        >
+
+        <label class="theme-switch__track" for="themeSwitch" aria-hidden="true"
+          ><div class="theme-switch__track--dark">NIGHTMODE</div>
+          <div class="theme-switch__track--light">DAYMODE</div>
+        </label>
+
         <div class="theme-switch__marker" aria-hidden="true"></div>
       </div>
     </div>
