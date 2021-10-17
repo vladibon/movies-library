@@ -1,6 +1,5 @@
 .page-header {
   height: 230px;
-  padding-top: 46px;
 
   font-style: normal;
   font-weight: 500;
@@ -45,7 +44,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 40px;
   }
+}
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 230px;
+  padding-top: 6px;
 }
 
 .logo {
@@ -101,7 +109,7 @@
 
 .page-header__search {
   position: relative;
-  margin-top: 38px;
+  margin-bottom: 40px;
 
   @include respond-above($tablet) {
     width: 336px;
@@ -213,7 +221,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 46px;
+  // margin-top: 47px;
 
   @include respond-above($tablet) {
     justify-content: center;
