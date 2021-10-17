@@ -1,10 +1,12 @@
-import { Loading } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
 import { homeApiService, homeWeekApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs.js';
 import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination.js';
 import { onEmptyLibraryList } from '../common/common.js';
+
+const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
 
 dataStorage.saveGenresToLS();
 loadTrendingMovies();
@@ -31,7 +33,7 @@ export function preloadTrendingMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw 'Nothing found';
+        throw failureMessage;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('home');
