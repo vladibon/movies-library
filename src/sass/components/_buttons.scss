@@ -75,13 +75,18 @@
   height: 37px;
   border-bottom-style: none;
   border-radius: 0;
-  border-top-left-radius: 75%;
+  border-top-left-radius: 70%;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  padding: 0 15px 0 0;
+  padding: 0 10px 0 0;
   font-size: 14px;
   line-height: 1.14;
+  text-align: right;
+
+  @include respond-above($tablet) {
+    padding: 0 15px 0 0;
+  }
 }
 
 .btn--today {
