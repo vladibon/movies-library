@@ -16,12 +16,12 @@ refs.menuNav.addEventListener('click', e => {
 });
 
 refs.logo.addEventListener('click', onLogoClick);
-refs.buttonHomeMenu.addEventListener('click', loadTrending);
+refs.buttonHomeMenu.addEventListener('click', onStartMenu);
 refs.buttonToday.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? loadTrending() : null;
+  !e.target.classList.contains('btnFilter--active') ? (loadTrending(), toTodayActive()) : null;
 });
 refs.buttonWeek.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? loadWeekTrending() : null;
+  !e.target.classList.contains('btnFilter--active') ? (loadWeekTrending(), toWeekActive()) : null;
 });
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
@@ -37,21 +37,22 @@ function onLogoClick() {
   refs.sectionSearchFilter.classList.remove('page-header--hidden');
   refs.sectionMyLibrary.classList.add('page-header--hidden');
   refs.header.classList.remove('page-header--my-library');
+  onStartMenu();
+}
+
+function onStartMenu() {
   loadTrending();
+  toggleFilter();
 }
 
 function loadTrending() {
   refs.input.value = '';
   preloadTrendingMoviesTotalItems();
-  if (refs.buttonWeek.classList.contains('btnFilter--active')) {
-    toggleFilter();
-  }
 }
 
 function loadWeekTrending() {
   refs.input.value = '';
   preloadWeekTrendingMoviesTotalItems();
-  toggleFilter();
 }
 
 function toggleNav() {
@@ -71,7 +72,19 @@ function toggleNav() {
   refs.header.classList.toggle('page-header--my-library');
 }
 
+function toTodayActive() {
+  refs.buttonWeek.classList.remove('btnFilter--active');
+  refs.buttonToday.classList.add('btnFilter--active');
+}
+
+function toWeekActive() {
+  refs.buttonToday.classList.remove('btnFilter--active');
+  refs.buttonWeek.classList.add('btnFilter--active');
+}
+
 function toggleFilter() {
-  refs.buttonToday.classList.toggle('btnFilter--active');
-  refs.buttonWeek.classList.toggle('btnFilter--active');
+  if (refs.buttonWeek.classList.contains('btnFilter--active')) {
+    refs.buttonToday.classList.toggle('btnFilter--active');
+    refs.buttonWeek.classList.toggle('btnFilter--active');
+  }
 }

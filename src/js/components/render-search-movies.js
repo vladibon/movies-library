@@ -19,6 +19,9 @@ refs.sectionHome.addEventListener('submit', onSearch);
 export function onSearch(e) {
   e.preventDefault();
 
+  refs.buttonWeek.classList.remove('btnFilter--active');
+  refs.buttonToday.classList.remove('btnFilter--active');
+
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
   if (!searchApiService.searchQuery) {
