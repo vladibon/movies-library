@@ -21,7 +21,8 @@
   "staticFiles": {
     "staticPath": [
       "src/images/team",
-      "src/images/sprite.svg"
+      "src/images/sprite.svg",
+      "src/images/empty-card.png"
     ]
   },
   "devDependencies": {
