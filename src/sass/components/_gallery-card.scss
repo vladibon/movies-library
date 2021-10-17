@@ -29,17 +29,22 @@
 
   60% {
     transform: translateY(-12px);
-    box-shadow: 5px 15px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 15px 7px rgba(0, 0, 0, 0.14);
   }
 
-  80% {
+  65% {
+    transform: translateY(-12px);
+    box-shadow: 6px 15px 7px rgba(0, 0, 0, 0.14);
+  }
+
+  85% {
     transform: translateY(-3px);
-    box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.24);
+    box-shadow: 4px 8px 5px rgba(0, 0, 0, 0.26);
   }
 
   100% {
     transform: translateY(-4px);
-    box-shadow: 3px 10px 4px rgba(133, 93, 93, 0.1);
+    box-shadow: 5px 10px 4px rgba(133, 93, 93, 0.1);
   }
 }
 
@@ -58,7 +63,7 @@
 
 .gallery__info {
   width: 100%;
-  padding: 10px 2px 4px;
+  padding: 10px 4px 6px;
 
   pointer-events: none;
   border-radius: 0 0 5px 5px;
