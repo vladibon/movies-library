@@ -1,9 +1,9 @@
 import refs from './refs';
 
-refs.input.addEventListener('input', inputIsActive, {once: true});
+refs.input.addEventListener('input', inputIsActive);
 
 function inputIsActive() {
-  refs.resetBtn.addEventListener('click', onReset);
+  refs.resetBtn.addEventListener('click', onReset, {once: true});
 
  if (refs.input.value.trim()) {
     refs.resetBtn.classList.remove('reset__btn--hide');
