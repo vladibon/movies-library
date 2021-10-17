@@ -21,10 +21,10 @@
 .gallery__item:hover {
   animation: card-hover 250ms ease-out;
 
-  & .gallery__card-nav {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  // & .gallery__card-nav {
+  //   transform: translateY(0);
+  //   opacity: 1;
+  // }
 }
 
 @keyframes card-hover {
