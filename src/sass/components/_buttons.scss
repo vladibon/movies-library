@@ -65,3 +65,12 @@
     transform: scale(1.1);
   }
 }
+
+.btn--filter {
+  position: relative;
+  width: 120px;
+  border-top-left-radius: 70%;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 1.14;
+}
