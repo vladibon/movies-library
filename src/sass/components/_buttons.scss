@@ -1,4 +1,6 @@
 .btn {
+  position: relative;
+  z-index: 1;
   height: 44px;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -30,6 +32,7 @@
   &:hover,
   &:focus,
   &--active {
+    z-index: 22;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
     box-shadow: $btn-primary-accent-shadow;
@@ -67,10 +70,20 @@
 }
 
 .btn--filter {
-  position: relative;
-  width: 120px;
-  border-top-left-radius: 70%;
-  padding: 0px;
+  justify-content: flex-end;
+  width: 118px;
+  height: 37px;
+  border-bottom-style: none;
+  border-radius: 0;
+  border-top-left-radius: 75%;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0 15px 0 0;
   font-size: 14px;
   line-height: 1.14;
+}
+
+.btn--today {
+  left: 10px;
 }
