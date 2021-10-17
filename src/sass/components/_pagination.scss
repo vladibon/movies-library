@@ -16,14 +16,17 @@
 
 .tui-pagination {
   height: 40px;
+  margin-bottom: 40px;
 
   line-height: normal;
   text-align: center;
-  // font-size: 0;
+
+  @include respond-above($tablet) {
+    margin-bottom: 60px;
+  }
 }
 
 .tui-pagination .tui-page-btn {
-  // display: inline-block;
   position: relative;
   width: 40px;
   padding: 13px 13px;
@@ -35,8 +38,6 @@
   text-decoration: none;
   vertical-align: middle;
   border-radius: 5px;
-  // border: 1px solid #ddd;
-  // border-width: 1px 0;
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -48,7 +49,6 @@
 .tui-pagination strong {
   color: $white-text-color;
   background: $page-accent-bg-color;
-  // border-color: #4b96e6;
   cursor: default;
 }
 
@@ -61,24 +61,6 @@
   margin-left: 0;
 }
 
-.tui-pagination .tui-first-child,
-.tui-pagination .tui-prev-is-ellip {
-  // border-left: 1px solid #ddd;
-}
-
-.tui-pagination .tui-last-child,
-.tui-pagination .tui-next-is-ellip {
-  // border-right: 1px solid #ddd;
-}
-
-.tui-pagination .tui-first-child.tui-is-selected {
-  // border-left: 1px solid #4b96e6;
-}
-
-.tui-pagination .tui-last-child.tui-is-selected {
-  // border-right: 1px solid #4b96e6;
-}
-
 .tui-pagination .tui-first,
 .tui-pagination .tui-prev,
 .tui-pagination .tui-next,
@@ -87,26 +69,9 @@
 .tui-pagination .tui-next-is-ellip {
   overflow: hidden;
   height: 40px;
-  // padding: 0;
-  // font-size: 0;
-  line-height: 26px;
   white-space: nowrap;
   background-color: $arrow-bg-color;
   font-weight: normal;
-  // border: 1px solid #ddd;
-}
-
-.tui-pagination .tui-prev-is-ellip {
-  // border-right: 0;
-}
-
-.tui-pagination .tui-next-is-ellip {
-  // border-left: 0;
-}
-
-.tui-pagination .tui-first + .tui-prev,
-.tui-pagination .tui-next + .tui-last {
-  // border-left: 0;
 }
 
 .tui-pagination .tui-ico-first,
@@ -126,14 +91,6 @@
   padding: 5px;
   background-color: transparent;
   line-height: 1;
-}
-
-.tui-pagination .tui-prev {
-  // margin-right: 10px;
-}
-
-.tui-pagination .tui-next {
-  // margin-left: 10px;
 }
 
 .tui-pagination .tui-ico-first {
@@ -162,8 +119,8 @@
 
 .tui-pagination .tui-ico-ellip {
   width: 10px;
-  height: 10px;
-  margin-top: 16px;
+  height: 5px;
+  margin-top: 23px;
   vertical-align: bottom;
   background-position: 0px -24px;
 }

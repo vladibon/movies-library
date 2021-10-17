@@ -2,7 +2,7 @@ export default {
   galleryContainer: document.getElementById('js-gallery'),
   messageContainer: document.getElementById('message-container'),
 
-  // Header Refs
+  // Header
   header: document.querySelector('.page-header'),
   menuNav: document.querySelector('.site-nav__list'),
   titleHomeMenu: document.querySelector('[data-nav="home"]'),
@@ -12,8 +12,11 @@ export default {
   buttonHomeMenu: document.querySelector('[data-link="home"]'),
 
   sectionHome: document.querySelector('.page-header__search'),
+  sectionSearchFilter: document.querySelector('.page-header__filter'),
   sectionMyLibrary: document.querySelector('.page-header__library'),
 
+  buttonToday: document.querySelector('[data-action="today"]'),
+  buttonWeek: document.querySelector('[data-action="week"]'),
   buttonWatched: document.querySelector('[data-action="watched"]'),
   buttonQueue: document.querySelector('[data-action="queue"]'),
 
