@@ -46,16 +46,19 @@ pagination.on('afterMove', function (eventData) {
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
     loadTrendingMovies();
+    window.scroll(0, 0);
   }
 
   if (refs.pagination.dataset.pagin === 'week') {
     homeWeekApiService.page = eventData.page;
     loadWeekTrendingMovies();
+    window.scroll(0, 0);
   }
 
   if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
     loadSearchedMovies();
+    window.scroll(0, 0);
   }
 });
 
