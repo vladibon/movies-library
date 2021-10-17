@@ -43,7 +43,9 @@ function onLogoClick() {
 function loadTrending() {
   refs.input.value = '';
   preloadTrendingMoviesTotalItems();
-  toggleFilter();
+  if (refs.buttonWeek.classList.contains('btnFilter--active')) {
+    toggleFilter();
+  }
 }
 
 function loadWeekTrending() {
