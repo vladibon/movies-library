@@ -75,9 +75,9 @@ export function showPagination() {
   refs.pagination.classList.remove('tui-pagination-is-hidden');
 }
 
-export function paginationHidden() {
-  refs.pagination.classList.toggle('tui-pagination-is-hidden');
-}
+// export function paginationHidden() {
+//   refs.pagination.classList.toggle('tui-pagination-is-hidden');
+// }
 
 export function hidePagination() {
   refs.pagination.classList.add('tui-pagination-is-hidden');

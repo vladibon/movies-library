@@ -19,9 +19,13 @@ refs.sectionHome.addEventListener('submit', onSearch);
 export function onSearch(e) {
   e.preventDefault();
 
+  refs.buttonWeek.classList.remove('btnFilter--active');
+  refs.buttonToday.classList.remove('btnFilter--active');
+
   searchApiService.searchQuery = e.currentTarget.firstElementChild.value.trim();
 
   if (!searchApiService.searchQuery) {
+    refs.buttonToday.classList.add('btnFilter--active');
     e.currentTarget.firstElementChild.value = '';
     onSearchError();
     return;
