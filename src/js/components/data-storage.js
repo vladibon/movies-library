@@ -1,6 +1,8 @@
 import { genresApiService } from '../api/apiServicePlugin';
 import settingsUrl from '../api/settingsURL';
 
+const emptyCardPath = 'empty-card.png';
+
 export default {
   // local storage keys names
   CURRENT_PAGE_MOVIES: 'currentPageMovies',
@@ -125,16 +127,16 @@ export default {
         id: String(el.id),
         poster_path_W342: el.poster_path
           ? `${settingsUrl.W342_IMG_URL}${el.poster_path}`
-          : 'https://teleport360.com.ua/wp-content/themes/Teleport/img/pic/pop.png',
+          : emptyCardPath,
         poster_path_W500: el.poster_path
           ? `${settingsUrl.W500_IMG_URL}${el.poster_path}`
-          : 'https://teleport360.com.ua/wp-content/themes/Teleport/img/pic/pop.png',
+          : emptyCardPath,
         poster_path_W780: el.poster_path
           ? `${settingsUrl.W780_IMG_URL}${el.poster_path}`
-          : 'https://teleport360.com.ua/wp-content/themes/Teleport/img/pic/pop.png',
+          : emptyCardPath,
         backdrop_path: el.backdrop_path
           ? `${settingsUrl.W780_IMG_URL}${el.backdrop_path}`
-          : 'https://teleport360.com.ua/wp-content/themes/Teleport/img/pic/pop.png',
+          : emptyCardPath,
         release_date: el.release_date?.slice(0, 4),
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
