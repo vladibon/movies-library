@@ -15,7 +15,7 @@
   @include respond-above($desktop) {
     padding: 50px 30px 40px;
     max-width: 900px;
-    height: 570px;
+    min-height: 565px;
   }
 }
 
@@ -71,8 +71,8 @@
     margin-left: 30px;
   }
   @include respond-above($desktop) {
-    max-width: 400px;
-    max-height: 480px;
+    min-width: 400px;
+    min-height: 480px;
   }
 }
 
@@ -147,11 +147,13 @@
   line-height: 1.3;
   text-transform: uppercase;
 }
+
 .modal-movie__youtube {
   border: none;
   cursor: pointer;
   background-color: $white-text-color;
 }
+
 .modal-movie__overview {
   margin-top: 10px;
   font-size: 12px;
@@ -178,7 +180,6 @@
   color: $movie-title-black-color;
   line-height: 1.33;
   font-weight: 500;
-
   margin-top: 10px;
   border-radius: 5px;
   width: 135px;
@@ -222,49 +223,35 @@
   }
 }
 .modal-youtube__close-btn {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // width: 50px;
-  // height: 50px;
-  // padding: 10px;
-  // display: flex;
+  position: absolute;
+  top: -3px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  background-color: $white-text-color;
+  background-color: transparent;
 }
 
 .modal-youtube {
-  padding-top: 10px;
   background-color: $white-text-color;
-  min-width: 320px;
-
-  @include respond-above($tablet) {
-    max-width: 700px;
-  }
-
-  @include respond-above($desktop) {
-    max-width: 1000px;
-  }
+  padding-top: 35px;
 }
+
+.modal-youtube__iframe-container {
+  display: flex;
+  width: 100%;
+}
+
 .modal-youtube__iframe {
-  width: 320px;
+  max-width: 516px;
+  max-height: 316px;
   @include respond-above($tablet) {
-    max-width: 700px;
+    width: 900px;
+    height: 700px;
   }
-
-  @include respond-above($desktop) {
-    max-width: 1000px;
-  }
-}
-.modal-youtube__close-btn {
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  cursor: pointer;
-  position: fixed;
-  top: 10px;
-  right: 10px;
 }
