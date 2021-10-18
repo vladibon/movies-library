@@ -8,7 +8,7 @@ const paginationContainer = document.getElementById('pagination');
 const options = {
   totalItems: 10000,
   itemsPerPage: 20,
-  visiblePages: 7,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
