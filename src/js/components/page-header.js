@@ -4,6 +4,7 @@ import {
   preloadTrendingMoviesTotalItems,
   preloadWeekTrendingMoviesTotalItems,
 } from './render-trending-movies';
+import hideResetBtn from './resetBtn';
 import refs from '../components/refs.js';
 
 refs.menuNav.addEventListener('click', e => {
@@ -48,11 +49,13 @@ function onStartMenu() {
 function loadTrending() {
   refs.input.value = '';
   preloadTrendingMoviesTotalItems();
+  hideResetBtn();
 }
 
 function loadWeekTrending() {
   refs.input.value = '';
   preloadWeekTrendingMoviesTotalItems();
+  hideResetBtn();
 }
 
 function toggleNav() {
@@ -87,4 +90,5 @@ function toggleFilter() {
     refs.buttonToday.classList.toggle('btnFilter--active');
     refs.buttonWeek.classList.toggle('btnFilter--active');
   }
+  refs.buttonToday.classList.add('btnFilter--active');
 }
