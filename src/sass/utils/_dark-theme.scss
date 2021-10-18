@@ -1,65 +1,62 @@
 .dark-theme {
   // Main page
-  background-color: $footer-grey-text-color;
+  background-color: $dark-primary-bg-color;
 
   // Name movie
   & .gallery__title {
-    color: #ffffff;
+    color: $white-text-color;
   }
 
   // Background card movie
-  & .gallery__info {
+  & li .gallery__info {
     background-color: transparent;
+    border-color: white;
   }
 
   // Page namber pagination
   & a.tui-page-btn {
-    color: #ffffff;
+    color: $white-text-color;
   }
 
   // Background footer
   & .footer {
-    background-color: #212121;
+    background-color: $dark-footer-bg-color;
   }
 
   // Backdrope modal
   & .basicLightbox {
-    background: #000000;
-    // opacity: 0.8;
+    background: $backdrop-bg-color;
+    // sopacity: 0.8;
   }
 
   // Background modal
   & .modal-movie {
-    background-color: #2e2e2e;
+    background-color: $dark-primary-bg-color;
   }
 
   // Backgroud button close
   & .modal-movie__close-btn {
-    background-color: #2e2e2e;
-  }
-
-  //Name movie modal
-  & .modal-movie_name {
-    color: #000000;
+    background-color: $dark-primary-bg-color;
   }
 
   //Vote modal
   & .vote {
-    color: #000000;
+    color: $movie-title-black-color;
   }
 
   //Votes modal
   & .votes {
-    color: #000000;
+    color: $movie-title-black-color;
   }
 
   // Text modal
   & .modal-movie__description {
-    color: #ffffff;
+    color: $white-text-color;
   }
 
+  // Button modal
   & .modal-movie__btn-item {
-    background-color: #2e2e2e;
-    color: #ffffff;
+    background-color: $dark-primary-bg-color;
+    color: $btn-primary-color;
   }
 }
