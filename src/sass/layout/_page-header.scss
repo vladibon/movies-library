@@ -109,7 +109,7 @@
 
 .page-header__search {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 
   @include respond-above($tablet) {
     width: 336px;
@@ -226,7 +226,7 @@
 }
 
 .page-header__library {
-  margin-bottom: 60px;
+  margin-bottom: 61px;
   justify-content: space-between;
 
   @include respond-above($tablet) {
