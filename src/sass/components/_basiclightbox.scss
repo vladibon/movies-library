@@ -10,4 +10,8 @@ $basicLightbox__timing: ease-out; // Transition timing
     align-items: flex-start;
     overflow-y: scroll;
   }
+
+  &.trailer {
+    align-items: center;
+  }
 }
