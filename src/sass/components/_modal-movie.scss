@@ -28,6 +28,13 @@
   border: none;
   cursor: pointer;
   background-color: $white-text-color;
+  color: $btn-secondary-color;
+
+  transition: color $animation;
+}
+
+.modal-movie__close-btn:hover {
+  color: $btn-accent-bg-color;
 }
 
 .modal-movie__poster {
