@@ -1,6 +1,7 @@
 # Movie library
 
-Team project, developed by students while studying JavaScript
+An excellent resourse for anyone interested in movies. Team project, developed by GO-It students
+while studying JavaScript
 
 ## Task
 
@@ -52,7 +53,7 @@ Lately every web site must have theme toggl, because after the whole day of scre
 are exhausted and need rest. Of course you can switch page theme to dark or back to light if you
 want.
 
-On smaller screen devisev there is a helping button, which appears after you have scrolled down the
+On smaller screen devises there is a helping button, which appears after you have scrolled down the
 library a bit, so you can quickly go to the page top. Also if you are using the site on retina
 display, you will get the best quality images, while other devices save traffic and get optimal
 resolution images.
