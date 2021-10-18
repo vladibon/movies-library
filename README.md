@@ -1,42 +1,74 @@
-# Parcel boilerplate
+# Movie library
 
-## Скрытые файлы
+Team project, developed by students while studying JavaScript
 
-Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не
-сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.
+## Task
 
-## Зависимости
+Create single-page application with adaptive to different display sizes, using giving design and
+technical requires, also improving it by providing additional features. Render page markup
+dynamically after fetching needed movies data and handling it in user browser.
 
-На компьютере должена быть установлена LTS-версия [Node.js](https://nodejs.org/en/).
+## Tools used:
 
-## Перед началом работы
+### Basic
 
-Один раз на проект установить все зависимости.
+- HTML5 / CSS3;
+- SASS;
+- Vanilla JavaScript;
 
-```shell
-npm ci
-```
+### Service
 
-### Разработка
+- VS Code;
+- Figma;
+- Git / github;
+- Parcel bundler;
 
-Запустить режим разработки.
+### Advanced
 
-```shell
-npm start
-```
+- Fetch API;
+- Handlebars;
+- BasicLightBox;
+- Notiflix;
+- Tui pagination;
+- Splide;
+- Web Storage API;
 
-Во вкладке браузера перейти по адресу [http://localhost:1234](http://localhost:1234).
+## About our project
 
-### Деплой
+What is ideal option to spend dark and cold autumn evening? Of course by watching great movie! Using
+our web page you can easily find your favourite movie by entering it's name into search form. Also
+if you haven't decided yet what do you want to watch, you can check our Popular movies sections,
+which are two: sorted by current day and last week. Active page pagination will help you to monitor
+where exactly in your search you are right now and return to something interesting you saw on other
+page.
 
-Сборка будет автоматически собирать и деплоить продакшен версию проекта на GitHub Pages, в ветку
-`gh-pages`, каждый раз когда обновляется ветка `main`. Например, после прямого пуша или принятого
-пул-реквеста.
+After you found something for you, you can read basic info about the movie by clicking on movie card
+and opening modal window. Also there is an option to watch trailer, so it is easier to decide if you
+like the movie or not. And if you do, you can save it for later to your library under the list
+Queue, and if you already have watched the film there is Watched list for it too. You can easily
+toggl those buttons and movie will stay in your library with the correct watched/queue state.
 
-## Файлы и папки
+Lately every web site must have theme toggl, because after the whole day of screen time your eyes
+are exhausted and need rest. Of course you can switch page theme to dark or back to light if you
+want.
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  `src/sass/main.scss`
-- Изображения добавляйте в папку `src/images`, заранее оптимизировав их. Сборщик просто копирует
-  используемые изображения чтобы не нагружать систему оптимизацией картинок, так как на слабых
-  компьютерах это может занять много времени.
+On smaller screen devisev there is a helping button, which appears after you have scrolled down the
+library a bit, so you can quickly go to the page top. Also if you are using the site on retina
+display, you will get the best quality images, while other devices save traffic and get optimal
+resolution images.
+
+If you are interested about developers team, you can find an info about them in cute slider modal by
+clicking on link in footer.
+
+## Developers team
+
+- Team leader, developer and crisis manager [Vladimir Bondar](https://github.com/vladibon);
+- Scrum muster, developer and designer [Olena Horobets](https://github.com/Olena-Horobets);
+- Front end developer, tester and bug-fixer [Valeriy Fedulov](https://github.com/Valeriy-Fedulov);
+- Front end developer, modals champion [Iryna Grabovska](https://github.com/Iryna-Grabovska);
+- Back end / Front end developer, project core logic
+  [Eduard Konovka](https://github.com/Eduard-Konovka);
+- Front end developer, bug-fixer
+  [Konstantin Zakrzhevskyi](https://github.com/KonstantinZakrzhevskyi);
+- Front end developer, styles and libraries handling
+  [Anna Holub](https://github.com/Anna-Sergeevna);
