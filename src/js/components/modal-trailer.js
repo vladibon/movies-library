@@ -12,7 +12,7 @@ export function onTrailerPlay(cb, e) {
       const trailerLightbox = basicLightbox.create(trailerTemplate({ trailer_link: link }), {
         onClose: onTrailerClose,
       });
-
+      
       trailerLightbox.show();
 
       const btnYouTubeClose = document.querySelector('.modal-youtube__close-btn');
