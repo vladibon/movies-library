@@ -10,7 +10,7 @@ export default {
   },
   focus: 'left',
   gap: '30px',
-  speed: 700,
+  speed: 600,
   // type: 'loop',
   // autoplay: true,
   // interval: 3000,

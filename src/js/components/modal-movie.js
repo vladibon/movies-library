@@ -5,19 +5,23 @@ import dataStorage from '../components/data-storage';
 
 import { onTrailerPlay } from './modal-trailer';
 
-import { addToWatched } from '../common/common';
-import { addToQueue } from '../common/common';
+import { addToWatched, addToQueue, preventPageScroll, setPageScroll } from '../common/common';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
 function onOpenModalMovie(e) {
+  preventPageScroll();
+
   if (!e.target.classList.contains('gallery__item')) return;
 
   const currentMovies = dataStorage.getCurrentMovies();
   const movieId = e.target.getAttribute('id');
   const movieObj = currentMovies.find(el => el.id === movieId);
   const movieLightbox = basicLightbox.create(modalMovieTemplate(movieObj), {
-    onClose: onModalClose,
+    onClose: () => {
+      onModalClose();
+      setPageScroll();
+    },
   });
   movieLightbox.show();
 

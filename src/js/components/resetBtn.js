@@ -1,15 +1,18 @@
 import refs from './refs';
-import { preloadTrendingMoviesTotalItems } from './render-trending-movies';
 
 refs.input.addEventListener('input', inputIsActive);
 
 function inputIsActive() {
-  refs.resetBtn.addEventListener('click', onReset, { once: true });
-  refs.resetBtn.disabled = !refs.input.value;
+  refs.resetBtn.addEventListener('click', hideResetBtn, { once: true });
+
+  if (refs.input.value.trim()) {
+    refs.resetBtn.classList.remove('reset__btn--hide');
+  } else {
+    refs.resetBtn.classList.add('reset__btn--hide');
+  }
 }
 
-function onReset() {
+export default function hideResetBtn() {
   refs.input.value = '';
-  refs.resetBtn.disabled = true;
-  // preloadTrendingMoviesTotalItems();
+  refs.resetBtn.classList.add('reset__btn--hide');
 }

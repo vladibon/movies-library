@@ -1,4 +1,4 @@
-$basicLightbox__background: rgba(0, 0, 0, 0.3); // Background color
+$basicLightbox__background: rgba(0, 0, 0, 0.7); // Background color
 $basicLightbox__zIndex: 1000; // Stack order
 $basicLightbox__duration: 450ms; // Transition duration
 $basicLightbox__timing: ease-out; // Transition timing
@@ -9,5 +9,9 @@ $basicLightbox__timing: ease-out; // Transition timing
   @include respond-below($tablet) {
     align-items: flex-start;
     overflow-y: scroll;
+  }
+
+  &.trailer {
+    align-items: center;
   }
 }

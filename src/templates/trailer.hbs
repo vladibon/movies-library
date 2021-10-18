@@ -1,20 +1,19 @@
 <div class="modal-youtube">
   <button class='modal-youtube__close-btn' type='button'>
-    <svg class="modal-youtube__clo" width='20' height='20'>
-      <path d='M8 8L22 22' stroke='red' stroke-width='2'></path>
-      <path d='M8 22L22 8' stroke='red' stroke-width='2'></path>
+    <svg class="modal-youtube__clo" width='30' height='30'>
+      <path d='M8 8L22 22' stroke='black' stroke-width='2'></path>
+      <path d='M8 22L22 8' stroke='black' stroke-width='2'></path>
     </svg>
   </button>
   <div>
-    <iframe
-      src={{trailer_link}}
- frameborder='0'
-      min-width='320'
-     min-height='200'
-      title='YouTube video player'
+    <div class="modal-youtube__iframe-container">
+    <iframe class="modal-youtube__iframe"
       frameborder='0'
-      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+      src={{trailer_link}}
+      title='YouTube video player'
+      allow='accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       allowfullscreen
     ></iframe>
+    </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ const paginationContainer = document.getElementById('pagination');
 const options = {
   totalItems: 10000,
   itemsPerPage: 20,
-  visiblePages: 7,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -46,19 +46,19 @@ pagination.on('afterMove', function (eventData) {
   if (refs.pagination.dataset.pagin === 'home') {
     homeApiService.page = eventData.page;
     loadTrendingMovies();
-    window.scroll(0, 0);
+    scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'week') {
     homeWeekApiService.page = eventData.page;
     loadWeekTrendingMovies();
-    window.scroll(0, 0);
+    scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'input') {
     searchApiService.page = eventData.page;
     loadSearchedMovies();
-    window.scroll(0, 0);
+    scrollTop();
   }
 });
 
@@ -75,10 +75,14 @@ export function showPagination() {
   refs.pagination.classList.remove('tui-pagination-is-hidden');
 }
 
-export function paginationHidden() {
-  refs.pagination.classList.toggle('tui-pagination-is-hidden');
-}
-
 export function hidePagination() {
   refs.pagination.classList.add('tui-pagination-is-hidden');
+}
+
+function scrollTop() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
 }
