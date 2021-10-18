@@ -30,10 +30,9 @@ $input-line-color: #ffffff;
 
 // Btn Color
 $btn-primary-color: #ffffff;
-$btn-primary-bg-color: transparent;
+$btn-bg-color: transparent;
 $btn-accent-bg-color: #ff6b01;
 $btn-secondary-color: #000000;
-$btn-secondary-bg-color: #ffffff;
 
 // Border
 $btn-border: 1px solid currentColor;
@@ -47,6 +46,7 @@ $team-img-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 // Animations
 $animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 $modal-animation: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+$btn-animation: color 250ms ease-out, background-color 250ms ease-out, transform 250ms ease-out;
 
 // Breakpoints
 $mobile: 320px;

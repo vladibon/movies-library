@@ -53,6 +53,14 @@
   align-items: center;
   cursor: pointer;
 
+  transform: scale(1);
+
+  transition: $btn-animation;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   &-title {
     margin-left: 10px;
 
@@ -85,8 +93,13 @@
     background-color: transparent;
     border: none;
 
+    transform: scale(1);
+
+    transition: $btn-animation;
+
     &:hover {
       cursor: pointer;
+      transform: scale(1.1);
     }
 
     &--active[data-nav='home'] {
@@ -146,6 +159,8 @@
   background: transparent;
   border: none;
   cursor: pointer;
+
+  transition: $btn-animation;
 
   &:hover,
   &:focus {
