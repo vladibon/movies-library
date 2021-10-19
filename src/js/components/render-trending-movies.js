@@ -1,17 +1,14 @@
 import { Loading } from 'notiflix';
+import messages from '../utils/messages';
 import { homeApiService, homeWeekApiService } from '../api/apiServicePlugin';
-
 import dataStorage from './data-storage';
-
-import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination.js';
+import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination';
 import {
   onEmptyLibraryList,
   createGallery,
   clearGalleryContainer,
   onFetchError,
-} from '../common/common.js';
-
-const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+} from '../common/common';
 
 dataStorage.saveGenresToLS();
 loadTrendingMovies();
@@ -38,7 +35,7 @@ export function preloadTrendingMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw failureMessage;
+        throw messages.failure;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('home');
@@ -70,7 +67,7 @@ export function preloadWeekTrendingMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw 'Nothing found';
+        throw messages.failure;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('week');

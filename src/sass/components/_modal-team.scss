@@ -116,18 +116,19 @@
   & svg {
     fill: $btn-arrow-bg-color;
     transform: scaleX(1);
-    transition: transform 0.2s;
+    transition: $animation;
   }
 
   &:hover svg {
     fill: $btn-accent-bg-color;
-    transform: scaleX(1.15);
+    transform: scaleX(1.2);
   }
 }
 
 .splide__arrow--prev {
   & svg {
     transform: scaleX(-1);
+    transition: $animation;
   }
 
   &:hover svg {

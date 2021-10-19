@@ -1,5 +1,6 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { Notify, Loading } from 'notiflix';
+import messages from '../utils/messages';
 import { searchApiService } from '../api/apiServicePlugin';
 import dataStorage from './data-storage';
 import refs from './refs';
@@ -8,15 +9,13 @@ import {
   setPaginationTotalItems,
   showPagination,
   hidePagination,
-} from './pagination.js';
+} from './pagination';
 import {
   onEmptyLibraryList,
   createGallery,
   clearGalleryContainer,
   onFetchError,
-} from '../common/common.js';
-
-const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+} from '../common/common';
 
 refs.sectionHome.addEventListener('submit', onSearch);
 
@@ -31,7 +30,7 @@ export function onSearch(e) {
   if (!searchApiService.searchQuery) {
     refs.buttonToday.classList.add('btnFilter--active');
     e.currentTarget.firstElementChild.value = '';
-    Notify.failure(failureMessage);
+    Notify.failure(messages.searchFailure);
     return;
   }
 
@@ -59,7 +58,7 @@ function preloadSearchedMoviesTotalItems() {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw failureMessage;
+        throw messages.searchFailure;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage('input');
