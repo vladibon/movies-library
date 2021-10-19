@@ -1,7 +1,6 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { Notify, Loading } from 'notiflix';
 import { searchApiService } from '../api/apiServicePlugin';
-import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs';
 import {
@@ -10,7 +9,12 @@ import {
   showPagination,
   hidePagination,
 } from './pagination.js';
-import { onEmptyLibraryList } from '../common/common.js';
+import {
+  onEmptyLibraryList,
+  createGallery,
+  clearGalleryContainer,
+  onFetchError,
+} from '../common/common.js';
 
 const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
 
@@ -27,7 +31,7 @@ export function onSearch(e) {
   if (!searchApiService.searchQuery) {
     refs.buttonToday.classList.add('btnFilter--active');
     e.currentTarget.firstElementChild.value = '';
-    onSearchError();
+    Notify.failure(failureMessage);
     return;
   }
 
@@ -62,22 +66,4 @@ function preloadSearchedMoviesTotalItems() {
       showPagination();
     })
     .catch(onFetchError);
-}
-
-function createGallery(movies) {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = imageCardTpl(movies);
-}
-
-function clearGalleryContainer() {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = '';
-}
-
-function onFetchError(message) {
-  Notify.failure(message);
-}
-
-function onSearchError() {
-  Notify.failure(failureMessage);
 }

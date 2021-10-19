@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 import refs from '../components/refs';
 import dataStorage from '../components/data-storage';
 import noResultsTpl from '../../templates/no-results.hbs';
@@ -82,4 +83,18 @@ export function preventPageScroll() {
 
 export function setPageScroll() {
   document.body.classList.remove('modal-open');
+}
+
+export function createGallery(movies) {
+  refs.messageContainer.classList.add('visually-hidden');
+  refs.galleryContainer.innerHTML = imageCardTpl(movies);
+}
+
+export function clearGalleryContainer() {
+  refs.messageContainer.classList.add('visually-hidden');
+  refs.galleryContainer.innerHTML = '';
+}
+
+export function onFetchError(message) {
+  Notify.failure(message);
 }

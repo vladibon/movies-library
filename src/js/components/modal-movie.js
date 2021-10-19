@@ -3,9 +3,7 @@ import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
 import { movieApiService } from '../api/apiServicePlugin';
-
 import { onTrailerPlay } from './modal-trailer';
-
 import { addToWatched, addToQueue, preventPageScroll, setPageScroll } from '../common/common';
 
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);

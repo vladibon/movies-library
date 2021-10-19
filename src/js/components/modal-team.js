@@ -6,33 +6,24 @@ import team from '../db/team.json';
 import teamSplideOptions from './splide-options';
 import teamCardsTemplate from '../../templates/team-markup.hbs';
 
-let teamLightbox = null;
-
-refs.footerLink.addEventListener('click', openTeamLightbox);
-
-function openTeamLightbox(e) {
+refs.footerLink.addEventListener('click', e => {
   e.preventDefault();
   preventPageScroll();
 
   window.addEventListener('keydown', onKeydown);
 
-  teamLightbox = basicLightbox.create(teamCardsTemplate(team), {
+  const teamLightbox = basicLightbox.create(teamCardsTemplate(team), {
     onClose: () => {
-      removeListener();
+      window.removeEventListener('keydown', onKeydown);
       setPageScroll();
     },
   });
   teamLightbox.show();
 
-  const teamSplide = new Splide('.splide', teamSplideOptions);
-  teamSplide.mount();
-}
+  new Splide('.splide', teamSplideOptions).mount();
 
-function onKeydown(e) {
-  if (e.code !== 'Escape') return;
-  teamLightbox.close();
-}
-
-function removeListener() {
-  window.removeEventListener('keydown', onKeydown);
-}
+  function onKeydown(e) {
+    if (e.code !== 'Escape') return;
+    teamLightbox.close();
+  }
+});

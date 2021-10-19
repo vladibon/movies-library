@@ -1,10 +1,15 @@
-import { Notify, Loading } from 'notiflix';
+import { Loading } from 'notiflix';
 import { homeApiService, homeWeekApiService } from '../api/apiServicePlugin';
-import imageCardTpl from '../../templates/card-markup.hbs';
+
 import dataStorage from './data-storage';
-import refs from './refs.js';
+
 import { setPaginationTotalItems, resetPaginationPage, showPagination } from './pagination.js';
-import { onEmptyLibraryList } from '../common/common.js';
+import {
+  onEmptyLibraryList,
+  createGallery,
+  clearGalleryContainer,
+  onFetchError,
+} from '../common/common.js';
 
 const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
 
@@ -74,17 +79,3 @@ export function preloadWeekTrendingMoviesTotalItems() {
     .catch(onFetchError);
 }
 // ---------------------------------------------------------------
-
-function createGallery(movies) {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = imageCardTpl(movies);
-}
-
-function clearGalleryContainer() {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = '';
-}
-
-function onFetchError(message) {
-  Notify.failure(message);
-}
