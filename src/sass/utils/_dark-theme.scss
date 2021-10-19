@@ -2,6 +2,17 @@
   // Main page
   background-color: $dark-primary-bg-color;
 
+  // Header
+  & .btnFilter {
+    background-color: #2e2e2ee1;
+    // color: $btn-secondary-color;
+
+    &--active {
+      background-color: $btn-accent-bg-color;
+      box-shadow: -4px -1px 4px rgba(0, 0, 0, 0.404), 4px -1px 4px rgba(0, 0, 0, 0.404);
+    }
+  }
+
   // Shadow cards
   & .gallery__item {
     box-shadow: $dark-gallery-shadow;
@@ -23,7 +34,7 @@
 
   // Pagination btn
   & .tui-page-btn.tui-btn {
-    background-color: $modal-grey-title-color;
+    background-color: $dark-footer-bg-color;
 
     &:hover {
       background-color: $page-accent-bg-color;
@@ -64,6 +75,7 @@
   // Backgroud button close
   & .modal-movie__close-btn {
     background-color: $dark-primary-bg-color;
+    color: $btn-primary-color;
   }
 
   //Vote modal
