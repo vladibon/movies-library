@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
-import { movieApiService } from '../api/apiServicePlugin';
+import { movieApiService } from '../api/api-service';
 
 import { onTrailerPlay } from './modal-trailer';
 

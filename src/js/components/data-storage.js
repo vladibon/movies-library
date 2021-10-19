@@ -1,5 +1,5 @@
-import { genresApiService } from '../api/apiServicePlugin';
-import settingsUrl from '../api/settingsURL';
+import { genresApiService } from '../api/api-service';
+import settingsUrl from '../api/settings-url';
 
 const emptyCardPath = 'empty-card.png';
 

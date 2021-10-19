@@ -1,54 +1,32 @@
-import URL from './settingsURL';
+import URL from './settings-url';
 
-// Запрос на список самых популярных фильмов НА СЕГОДНЯ или ЗА НЕДЕЛЮ для создания коллекции на главной странице
-export const homeApiService = {
-  PATH: 'trending/movie',
+// Запросы на списки популярных фильмов НА СЕГОДНЯ, ЗА НЕДЕЛЮ или ПО КЛЮЧЕВОМУ СЛОВУ для создания коллекции на главной странице
+export const apiService = {
+  url: '',
+  PATH_HOME: 'trending/movie',
+  PATH_SEARCH: 'search/movie',
   params: {
     api_key: `${URL.KEY}`,
     page: 1,
   },
-
-  async fetchArticles(timeUnits) {
-    const url = `${URL.BASE}/${this.PATH}/${timeUnits}?${new URLSearchParams(
-      this.params,
-    ).toString()}`;
-
-    const response = await fetch(url);
-    return await response.json();
-  },
-
-  incrementPage() {
-    this.params.page += 1;
-  },
-
-  resetPage() {
-    this.params.page = 1;
-  },
-
-  get page() {
-    return this.params.page;
-  },
-
-  set page(newPage) {
-    this.params.page = newPage;
-  },
-};
-
-// Запрос кинофильма ПО КЛЮЧЕВОМУ СЛОВУ на главное странице
-export const searchApiService = {
-  PATH: 'search/movie',
-  params: {
-    api_key: `${URL.KEY}`,
+  params_search: {
     language: 'en-US',
     query: '',
-    page: 1,
     include_adult: false,
   },
 
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
+  async fetchArticles(request) {
+    if (request === 'search') {
+      this.url = `${URL.BASE}/${this.PATH_SEARCH}?${new URLSearchParams(
+        this.params,
+      ).toString()}&${new URLSearchParams(this.params_search).toString()}`;
+    } else {
+      this.url = `${URL.BASE}/${this.PATH_HOME}/${request}?${new URLSearchParams(
+        this.params,
+      ).toString()}`;
+    }
 
-    const response = await fetch(url);
+    const response = await fetch(this.url);
     return await response.json();
   },
 
@@ -60,20 +38,20 @@ export const searchApiService = {
     this.params.page = 1;
   },
 
-  get searchQuery() {
-    return this.params.query;
-  },
-
-  set searchQuery(newQuery) {
-    this.params.query = newQuery;
-  },
-
   get page() {
     return this.params.page;
   },
 
   set page(newPage) {
     this.params.page = newPage;
+  },
+
+  get searchQuery() {
+    return this.params_search.query;
+  },
+
+  set searchQuery(newQuery) {
+    this.params_search.query = newQuery;
   },
 };
 
