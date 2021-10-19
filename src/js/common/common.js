@@ -75,3 +75,11 @@ export function addToQueue(movieObj, e) {
     } else onEmptyLibraryList(dataStorage.QUEUE);
   }
 }
+
+export function preventPageScroll() {
+  document.body.classList.add('modal-open');
+}
+
+export function setPageScroll() {
+  document.body.classList.remove('modal-open');
+}

@@ -1,6 +1,5 @@
 .page-header {
   height: 230px;
-  padding-top: 46px;
 
   font-style: normal;
   font-weight: 500;
@@ -48,10 +47,26 @@
   }
 }
 
+.section__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75px;
+  padding-top: 15px;
+}
+
 .logo {
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  transform: scale(1);
+
+  transition: $btn-animation;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &-title {
     margin-left: 10px;
@@ -85,8 +100,13 @@
     background-color: transparent;
     border: none;
 
+    transform: scale(1);
+
+    transition: $btn-animation;
+
     &:hover {
       cursor: pointer;
+      transform: scale(1.1);
     }
 
     &--active[data-nav='home'] {
@@ -99,9 +119,16 @@
   }
 }
 
+.section__search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 155px;
+}
+
 .page-header__search {
   position: relative;
-  margin-top: 38px;
+  margin-top: 30px;
 
   @include respond-above($tablet) {
     width: 336px;
@@ -146,6 +173,8 @@
   background: transparent;
   border: none;
   cursor: pointer;
+
+  transition: $btn-animation;
 
   &:hover,
   &:focus {
@@ -208,7 +237,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 46px;
 
   @include respond-above($tablet) {
     justify-content: center;
@@ -225,8 +253,10 @@
 }
 
 .page-header__library {
-  margin-top: 46px;
+  height: 100%;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 
   @include respond-above($tablet) {
     justify-content: center;

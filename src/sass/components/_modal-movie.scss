@@ -1,17 +1,25 @@
+.basicLightbox.basicLightbox--visible {
+  background: rgba(127, 127, 127, 0.8);
+}
+
 .modal-movie {
   background-color: $white-text-color;
   padding: 50px 20px;
+  width: 100%;
   max-width: 280px;
+  @include respond-below($tablet) {
+    padding-bottom: 80px;
+  }
   @include respond-above($tablet) {
-    padding: 40px, 30px;
-    max-width: 620px;
-    min-height: 562px;
+    padding: 40px 30px;
+    min-width: 618px;
+    max-width: 618px;
     display: flex;
   }
   @include respond-above($desktop) {
-    padding: 50px 30px 40px;
-    max-width: 900px;
-    height: 570px;
+    padding: 50px 32px 40px;
+    min-width: 882px;
+    max-width: 882px;
   }
 }
 
@@ -20,8 +28,8 @@
   top: 0;
   right: 0;
   width: 50px;
-  height: 50px;
-  padding: 10px;
+  height: 40px;
+  padding: 10px 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,28 +39,28 @@
   color: $btn-secondary-color;
 
   transition: color $animation;
-}
 
-.modal-movie__close-btn:hover {
-  color: $btn-accent-bg-color;
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-movie__poster {
   margin-right: 0px;
   border-radius: 5px;
   overflow: hidden;
-
-  width: 240px;
+  width: 100%;
+  max-width: 240px;
   height: 356px;
 
   @include respond-above($tablet) {
-    width: 264px;
+    max-width: 264px;
     height: 374px;
   }
 
   @include respond-above($desktop) {
-    width: 350px;
-    height: 480px;
+    max-width: 386px;
+    height: 500px;
   }
 }
 
@@ -67,8 +75,9 @@
     margin-left: 30px;
   }
   @include respond-above($desktop) {
-    max-width: 400px;
-    max-height: 480px;
+    min-width: 400px;
+    min-height: 480px;
+    margin-left: 32px;
   }
 }
 
@@ -119,7 +128,12 @@
 }
 
 .votes {
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
   min-width: 36px;
+  font-size: 12px;
+  line-height: 1.7;
   background-color: $footer-bg-color;
 }
 
@@ -138,13 +152,16 @@
   line-height: 1.3;
   text-transform: uppercase;
 }
+
 .modal-movie__youtube {
   border: none;
   cursor: pointer;
   background-color: $white-text-color;
 }
+
 .modal-movie__overview {
   margin-top: 10px;
+  margin-bottom: 20px;
   font-size: 12px;
   line-height: 1.67;
 }
@@ -169,28 +186,33 @@
   color: $movie-title-black-color;
   line-height: 1.33;
   font-weight: 500;
-
-  margin-top: 10px;
+  margin-top: auto;
   border-radius: 5px;
   width: 135px;
-  height: 40px;
+  height: 44px;
   border: $btn-border;
   border-color: $movie-title-black-color;
   cursor: pointer;
-  background-color: transparent;
+  background-color: $btn-bg-color;
   align-items: center;
   justify-content: space-around;
   display: flex;
-  transform: scale(1);
 
-  transition: color 250ms ease-out, background-color 250ms ease-out, transform 250ms ease-out;
+  transition: $btn-animation;
+
+  @include respond-below($desktop) {
+    width: 122px;
+  }
+
+  @include respond-below($tablet) {
+    width: 112px;
+  }
 
   &:hover,
   &:focus {
     color: $btn-primary-color;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
-    transform: scale(1.05);
   }
 }
 
@@ -198,6 +220,10 @@
   width: 33px;
   height: 30px;
   pointer-events: none;
+
+  @include respond-below($desktop) {
+    width: 44px;
+  }
 
   animation: pulsing 2s infinite;
   @keyframes pulsing {
@@ -213,49 +239,52 @@
   }
 }
 .modal-youtube__close-btn {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // width: 50px;
-  // height: 50px;
-  // padding: 10px;
-  // display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 36px;
+  padding: 0 6px;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  background-color: $white-text-color;
+  background-color: transparent;
+  transition: color $animation;
+
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-youtube {
-  padding-top: 10px;
   background-color: $white-text-color;
-  min-width: 320px;
-
-  @include respond-above($tablet) {
-    max-width: 700px;
-  }
-
-  @include respond-above($desktop) {
-    max-width: 1000px;
-  }
+  padding-top: 35px;
 }
+
+.modal-youtube__iframe-container {
+  display: flex;
+  width: 100%;
+}
+
 .modal-youtube__iframe {
-  width: 320px;
+  width: 100%;
+  height: 168px;
+
   @include respond-above($tablet) {
-    max-width: 700px;
+    width: 516px;
+    min-height: 290px;
   }
 
   @include respond-above($desktop) {
-    max-width: 1000px;
+    width: 768px;
+    min-height: 432px;
   }
-}
-.modal-youtube__close-btn {
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  cursor: pointer;
-  position: fixed;
-  top: 10px;
-  right: 10px;
+  // max-width: 516px;
+  // max-height: 316px;
+  // @include respond-above($tablet) {
+  //   width: 900px;
+  //   height: 700px;
+  // }
 }

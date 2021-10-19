@@ -73,7 +73,7 @@
   height: 22px;
   justify-content: center;
 
-  transition: background-color $animation, fill $animation;
+  transition: $animation;
 
   &:not(:last-child) {
     margin-right: 12px;
@@ -109,4 +109,44 @@
   color: $modal-grey-title-color;
   font-size: 20px;
   line-height: 1.2;
+}
+
+// Splide
+.splide__arrow {
+  & svg {
+    fill: $btn-arrow-bg-color;
+    transform: scaleX(1);
+    transition: transform 0.2s;
+  }
+
+  &:hover svg {
+    fill: $btn-accent-bg-color;
+    transform: scaleX(1.15);
+  }
+}
+
+.splide__arrow--prev {
+  & svg {
+    transform: scaleX(-1);
+  }
+
+  &:hover svg {
+    transform: scaleX(-1.15);
+  }
+}
+
+.splide__pagination__page {
+  width: 30px;
+  height: 10px;
+  transform: scaleY(1);
+
+  &.is-active {
+    background: $btn-accent-bg-color;
+  }
+
+  &:hover {
+    background: $btn-accent-bg-color;
+    transform-origin: top;
+    transform: scaleY(1.4);
+  }
 }

@@ -38,6 +38,8 @@
   text-decoration: none;
   vertical-align: middle;
   border-radius: 5px;
+
+  transition: $btn-animation;
 }
 
 .tui-pagination .tui-page-btn:hover {
