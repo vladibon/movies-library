@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 280px;
   @include respond-below($tablet) {
-    padding-bottom: 70px;
+    padding-bottom: 80px;
   }
   @include respond-above($tablet) {
     padding: 40px 30px;
