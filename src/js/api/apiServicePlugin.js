@@ -128,9 +128,11 @@ export const movieApiService = {
     const response = await fetch(url);
     const trailer = await response.json();
     const key = trailer.results[0]?.key;
+    if (!key) return;
     return `${URL.TRAILER}${key}?${new URLSearchParams(this.params_2).toString()}`;
   },
 };
+
 // Запрос всех ЖАНРОВ кинофильмов
 export const genresApiService = {
   PATH: `genre/movie/list`,
