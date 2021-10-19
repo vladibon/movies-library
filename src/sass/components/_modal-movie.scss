@@ -5,17 +5,18 @@
 .modal-movie {
   background-color: $white-text-color;
   padding: 50px 20px;
-  max-width: 280px;
+  width: 280px;
+  @include respond-below($tablet) {
+    padding-bottom: 70px;
+  }
   @include respond-above($tablet) {
-    padding: 40px, 30px;
-    max-width: 620px;
-    min-height: 562px;
+    padding: 40px 30px;
+    width: 618px;
     display: flex;
   }
   @include respond-above($desktop) {
     padding: 50px 30px 40px;
-    max-width: 900px;
-    min-height: 565px;
+    width: 882px;
   }
 }
 
@@ -24,8 +25,8 @@
   top: 0;
   right: 0;
   width: 50px;
-  height: 50px;
-  padding: 10px;
+  height: 40px;
+  padding: 10px 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,10 +36,10 @@
   color: $btn-secondary-color;
 
   transition: color $animation;
-}
 
-.modal-movie__close-btn:hover {
-  color: $btn-accent-bg-color;
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-movie__poster {
@@ -156,6 +157,7 @@
 
 .modal-movie__overview {
   margin-top: 10px;
+  margin-bottom: 20px;
   font-size: 12px;
   line-height: 1.67;
 }
@@ -180,27 +182,33 @@
   color: $movie-title-black-color;
   line-height: 1.33;
   font-weight: 500;
-  margin-top: 10px;
+  margin-top: auto;
   border-radius: 5px;
   width: 135px;
-  height: 40px;
+  height: 44px;
   border: $btn-border;
   border-color: $movie-title-black-color;
   cursor: pointer;
-  background-color: transparent;
+  background-color: $btn-bg-color;
   align-items: center;
   justify-content: space-around;
   display: flex;
-  transform: scale(1);
 
-  transition: color 250ms ease-out, background-color 250ms ease-out, transform 250ms ease-out;
+  transition: $btn-animation;
+
+  @include respond-below($desktop) {
+    width: 122px;
+  }
+
+  @include respond-below($tablet) {
+    width: 112px;
+  }
 
   &:hover,
   &:focus {
     color: $btn-primary-color;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
-    transform: scale(1.05);
   }
 }
 
@@ -208,6 +216,10 @@
   width: 33px;
   height: 30px;
   pointer-events: none;
+
+  @include respond-below($desktop) {
+    width: 44px;
+  }
 
   animation: pulsing 2s infinite;
   @keyframes pulsing {
@@ -224,17 +236,22 @@
 }
 .modal-youtube__close-btn {
   position: absolute;
-  top: -3px;
+  top: 0;
   right: 0;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
+  width: 42px;
+  height: 36px;
+  padding: 0 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
   background-color: transparent;
+  transition: color $animation;
+
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-youtube {
@@ -248,10 +265,22 @@
 }
 
 .modal-youtube__iframe {
-  max-width: 516px;
-  max-height: 316px;
+  width: 100%;
+  height: 168px;
+
   @include respond-above($tablet) {
-    width: 900px;
-    height: 700px;
+    width: 516px;
+    min-height: 290px;
   }
+
+  @include respond-above($desktop) {
+    width: 768px;
+    min-height: 432px;
+  }
+  // max-width: 516px;
+  // max-height: 316px;
+  // @include respond-above($tablet) {
+  //   width: 900px;
+  //   height: 700px;
+  // }
 }

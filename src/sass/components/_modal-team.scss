@@ -73,7 +73,7 @@
   height: 22px;
   justify-content: center;
 
-  transition: background-color $animation, fill $animation;
+  transition: $animation;
 
   &:not(:last-child) {
     margin-right: 12px;

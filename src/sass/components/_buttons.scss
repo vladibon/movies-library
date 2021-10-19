@@ -19,7 +19,9 @@
 
   color: $btn-primary-color;
   border: $btn-border;
-  background-color: $btn-primary-bg-color;
+  background-color: $btn-bg-color;
+
+  transition: $btn-animation;
 
   @include respond-above($tablet) {
     width: 136px;
@@ -43,7 +45,9 @@
 
   color: $btn-secondary-color;
   border: $btn-border;
-  background-color: $btn-secondary-bg-color;
+  background-color: $btn-bg-color;
+
+  transition: $btn-animation;
 
   @include respond-above($tablet) {
     width: 125px;
@@ -61,7 +65,7 @@
     color: $btn-primary-color;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
-    transform: scale(1.1);
+    // transform: scale(1.1);
   }
 }
 
@@ -88,6 +92,8 @@
   font-weight: 500;
   text-align: right;
   cursor: pointer;
+
+  transition: $btn-animation;
 
   @include respond-above($tablet) {
     padding: 0 15px 0 0;
