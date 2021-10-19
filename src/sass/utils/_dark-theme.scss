@@ -92,4 +92,18 @@
     background-color: $dark-primary-bg-color;
     color: $btn-primary-color;
   }
+  & .modal-youtube {
+    background-color: $dark-primary-bg-color;
+  }
+
+  // Team
+  & .team {
+    fill: $white-text-color;
+    background-color: $dark-primary-bg-color;
+    color: $btn-primary-color;
+  }
+
+  & .team-social__icon {
+    fill: $white-text-color;
+  }
 }
