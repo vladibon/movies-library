@@ -142,9 +142,8 @@ export default {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
           if (el.genre_ids.length) {
             const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
-            if (arr.length > 3) return `${arr.slice(0, 2).join(', ')}, Other`;
-            return arr.join(', ');
-          } else return 'classic';
+            return arr.length > 3 ? `${arr.slice(0, 2).join(', ')}, Other` : arr.join(', ');
+          } else return 'Classic';
         })(),
         watched: (() => {
           this.getWatchedMovies();

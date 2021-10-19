@@ -11,9 +11,10 @@ window.onscroll = e => {
   }
 };
 
-function scrollTop() {
-  refs.rootElement.scrollTo({
+export default function scrollTop() {
+  window.scroll({
     top: 0,
+    left: 0,
     behavior: 'smooth',
   });
 }

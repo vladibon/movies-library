@@ -1,14 +1,10 @@
-.basicLightbox.basicLightbox--visible {
-  background: rgba(127, 127, 127, 0.8);
-}
-
 .modal-movie {
   background-color: $white-text-color;
   padding: 50px 20px;
   width: 100%;
   max-width: 280px;
   @include respond-below($tablet) {
-    padding-bottom: 80px;
+    padding-bottom: calc(50px + var(--vh, 1vh) * 6);
   }
   @include respond-above($tablet) {
     padding: 40px 30px;

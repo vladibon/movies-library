@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import { apiService } from '../api/api-service';
 import { loadMovies } from './load-movies';
+import scrollTop from './scrollTop';
 import refs from './refs';
 
 const paginationContainer = document.getElementById('pagination');
@@ -62,12 +63,4 @@ export function showPagination() {
 
 export function hidePagination() {
   refs.pagination.classList.add('tui-pagination-is-hidden');
-}
-
-function scrollTop() {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
 }

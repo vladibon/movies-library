@@ -19,7 +19,7 @@ export function onSearch(e) {
   if (!apiService.searchQuery) {
     refs.buttonToday.classList.add('btnFilter--active');
     e.currentTarget.firstElementChild.value = '';
-    onSearchError();
+    Notify.failure(messages.searchFailure);
     return;
   }
 

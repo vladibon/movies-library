@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "axios": "^0.22.0",
+    "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",

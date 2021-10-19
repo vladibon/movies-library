@@ -25,7 +25,6 @@ export default {
   resetBtn: document.querySelector('.page-header__box-btn--reset-btn'),
 
   // btn scroll
-  rootElement: document.documentElement,
   scrollBtn: document.querySelector('.btn__scroll-top'),
 
   // Footer
