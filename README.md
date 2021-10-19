@@ -1,6 +1,6 @@
 # Movie library
 
-An excellent resourse for anyone interested in movies. Team project, developed by GO-It students
+An excellent resourse for anyone interested in movies. Team project, developed by Go-IT students
 while studying JavaScript
 
 ## Task
@@ -21,6 +21,7 @@ dynamically after fetching needed movies data and handling it in user browser.
 
 - VS Code;
 - Figma;
+- Trello;
 - Git / github;
 - Parcel bundler;
 
@@ -28,7 +29,7 @@ dynamically after fetching needed movies data and handling it in user browser.
 
 - Fetch API;
 - Handlebars;
-- BasicLightBox;
+- Basic LightBox;
 - Notiflix;
 - Tui pagination;
 - Splide;
@@ -65,7 +66,7 @@ clicking on link in footer.
 
 - Team leader, developer and crisis manager [Vladimir Bondar](https://github.com/vladibon);
 - Scrum muster, developer and designer [Olena Horobets](https://github.com/Olena-Horobets);
-- Front end developer, tester and bug-fixer [Valeriy Fedulov](https://github.com/Valeriy-Fedulov);
+- Front end developer, QA and bug-fixer [Valeriy Fedulov](https://github.com/Valeriy-Fedulov);
 - Front end developer, modals champion [Iryna Grabovska](https://github.com/Iryna-Grabovska);
 - Back end / Front end developer, project core logic
   [Eduard Konovka](https://github.com/Eduard-Konovka);
