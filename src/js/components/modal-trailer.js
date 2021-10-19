@@ -37,5 +37,5 @@ export function onTrailerPlay(cb, e) {
         window.removeEventListener('keydown', onTrailerModalCloseEsc);
       }
     })
-    .catch();
+    .catch(console.log);
 }
