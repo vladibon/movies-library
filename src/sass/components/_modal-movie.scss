@@ -216,6 +216,20 @@
   }
 }
 
+.youtube-btn--inactive {
+  color: $modal-grey-title-color;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: $btn-border;
+  // pointer-events: none;
+
+  &:hover,
+  &:focus {
+    color: $modal-grey-title-color;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: $btn-border;
+  }
+}
+
 .youtube__btn-icon {
   width: 33px;
   height: 30px;
@@ -238,6 +252,11 @@
     }
   }
 }
+
+.youtube__btn-icon--inactive {
+  animation: none;
+}
+
 .modal-youtube__close-btn {
   position: absolute;
   top: 0;

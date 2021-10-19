@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 import modalMovieTemplate from '../../templates/modal-movie.hbs';
 import dataStorage from '../components/data-storage';
+import { movieApiService } from '../api/apiServicePlugin';
 
 import { onTrailerPlay } from './modal-trailer';
 
@@ -40,6 +41,15 @@ function onOpenModalMovie(e) {
 
   btnCloseModal.addEventListener('click', movieLightbox.close);
   window.addEventListener('keydown', onModalCloseEsc);
+
+  movieApiService.fetchArticles(movieObj.id).then(link => {
+    const youtubeBtn = document.querySelector('.youtube-btn');
+    const youtubeBtnIcon = document.querySelector('.youtube__btn-icon');
+    if (!link) {
+      youtubeBtn.classList.add('youtube-btn--inactive');
+      youtubeBtnIcon.classList.add('youtube__btn-icon--inactive');
+    }
+  });
 
   function onModalCloseEsc(e) {
     if (e.code === 'Escape') {
