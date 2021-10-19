@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 import * as basicLightbox from 'basiclightbox';
 import trailerTemplate from '../../templates/trailer.hbs';
 import { movieApiService } from '../api/apiServicePlugin';
@@ -9,6 +10,9 @@ export function onTrailerPlay(cb, e) {
   movieApiService
     .fetchArticles(trailerId)
     .then(link => {
+      const message = `Sorry, there is no trailer for this movie.`;
+      if (!link) throw message;
+
       const trailerLightbox = basicLightbox.create(trailerTemplate({ trailer_link: link }), {
         onClose: onTrailerClose,
         className: 'trailer',
@@ -37,5 +41,9 @@ export function onTrailerPlay(cb, e) {
         window.removeEventListener('keydown', onTrailerModalCloseEsc);
       }
     })
-    .catch();
+    .catch(onFetchError);
+}
+
+function onFetchError(message) {
+  Notify.failure(message);
 }
