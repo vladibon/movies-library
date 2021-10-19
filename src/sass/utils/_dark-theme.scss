@@ -59,6 +59,11 @@
   // Footer link
   & .footer__link.js-footer__link {
     color: $footer-bg-color;
+
+    &:focus,
+    &:hover {
+      color: $footer-heart-color;
+    }
   }
 
   // Backdrop modal
