@@ -43,11 +43,8 @@ function onOpenModalMovie(e) {
   window.addEventListener('keydown', onModalCloseEsc);
 
   movieApiService.fetchArticles(movieObj.id).then(link => {
-    const youtubeBtn = document.querySelector('.youtube-btn');
-    const youtubeBtnIcon = document.querySelector('.youtube__btn-icon');
     if (!link) {
-      youtubeBtn.classList.add('youtube-btn--inactive');
-      youtubeBtnIcon.classList.add('youtube__btn-icon--inactive');
+      btnYouTube.classList.add('youtube-btn--inactive');
     }
   });
 
