@@ -4,9 +4,9 @@
 
   // Shadow cards
   & .gallery__item {
-    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.15);
+    box-shadow: $dark-gallery-shadow;
     &:hover {
-      box-shadow: 6px 15px 7px rgba(255, 255, 255, 0.42);
+      box-shadow: $dark-gallery-shadow-hover;
     }
   }
 
@@ -42,17 +42,17 @@
 
   // Footer text
   & .footer__text {
-    color: #f7f7f7;
+    color: $footer-bg-color;
   }
 
   // Footer link
   & .footer__link.js-footer__link {
-    color: #f7f7f7;
+    color: $footer-bg-color;
   }
 
   // Backdrop modal
   & .basicLightbox.basicLightbox--visible {
-    background: rgba(0, 0, 0, 0.8);
+    background: $dark-backdrop-bg-color;
   }
 
   // Background modal
@@ -83,8 +83,8 @@
 
   // Button youtube
   & .youtube-btn {
-    border-color: white;
-    color: white;
+    border-color: $btn-primary-color;
+    color: $btn-primary-color;
   }
 
   // Button modal
