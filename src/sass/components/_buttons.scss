@@ -29,7 +29,7 @@
 
   &:hover,
   &:focus,
-  &:active {
+  &--active {
     z-index: 2;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;

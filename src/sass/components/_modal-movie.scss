@@ -31,10 +31,10 @@
   color: $btn-secondary-color;
 
   transition: color $animation;
-}
 
-.modal-movie__close-btn:hover {
-  color: $btn-accent-bg-color;
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-movie__poster {
@@ -182,7 +182,6 @@
   align-items: center;
   justify-content: space-around;
   display: flex;
-  transform: scale(1);
 
   transition: $btn-animation;
 
@@ -191,7 +190,6 @@
     color: $btn-primary-color;
     background-color: $btn-accent-bg-color;
     border: 1px solid $btn-accent-bg-color;
-    transform: scale(1.05);
   }
 }
 
@@ -215,17 +213,22 @@
 }
 .modal-youtube__close-btn {
   position: absolute;
-  top: -3px;
+  top: 0;
   right: 0;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
+  width: 42px;
+  height: 36px;
+  padding: 0 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
   background-color: transparent;
+  transition: color $animation;
+
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
 }
 
 .modal-youtube {
