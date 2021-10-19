@@ -22,7 +22,7 @@ export default {
 
   pagination: document.querySelector('[data-pagin]'),
   input: document.querySelector('.page-header__search--input'),
-  resetBtn: document.querySelector('.page-header__reset--btn'),
+  resetBtn: document.querySelector('.page-header__box-btn--reset-btn'),
 
   // btn scroll
   rootElement: document.documentElement,
