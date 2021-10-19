@@ -1,0 +1,95 @@
+.dark-theme {
+  // Main page
+  background-color: $dark-primary-bg-color;
+
+  // Shadow cards
+  & .gallery__item {
+    box-shadow: $dark-gallery-shadow;
+    &:hover {
+      box-shadow: $dark-gallery-shadow-hover;
+    }
+  }
+
+  // Name movie
+  & .gallery__title {
+    color: $white-text-color;
+  }
+
+  // Background card movie
+  & li .gallery__info {
+    background-color: transparent;
+    border-color: $btn-primary-color;
+  }
+
+  // Pagination btn
+  & .tui-page-btn.tui-btn {
+    background-color: $modal-grey-title-color;
+
+    &:hover {
+      background-color: $page-accent-bg-color;
+    }
+  }
+
+  // Page namber pagination
+  & a.tui-page-btn {
+    color: $white-text-color;
+  }
+
+  // Background footer
+  & .footer {
+    background-color: $dark-footer-bg-color;
+  }
+
+  // Footer text
+  & .footer__text {
+    color: $footer-bg-color;
+  }
+
+  // Footer link
+  & .footer__link.js-footer__link {
+    color: $footer-bg-color;
+  }
+
+  // Backdrop modal
+  & .basicLightbox.basicLightbox--visible {
+    background: $dark-backdrop-bg-color;
+  }
+
+  // Background modal
+  & .modal-movie {
+    background-color: $dark-primary-bg-color;
+    opacity: 1;
+  }
+
+  // Backgroud button close
+  & .modal-movie__close-btn {
+    background-color: $dark-primary-bg-color;
+  }
+
+  //Vote modal
+  & .vote {
+    color: $movie-title-black-color;
+  }
+
+  //Votes modal
+  & .votes {
+    color: $movie-title-black-color;
+  }
+
+  // Text modal
+  & .modal-movie__description {
+    color: $white-text-color;
+  }
+
+  // Button youtube
+  & .youtube-btn {
+    border-color: $btn-primary-color;
+    color: $btn-primary-color;
+  }
+
+  // Button modal
+  & .modal-movie__btn-item {
+    background-color: $dark-primary-bg-color;
+    color: $btn-primary-color;
+  }
+}

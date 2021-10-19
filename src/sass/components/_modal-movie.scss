@@ -1,3 +1,7 @@
+.basicLightbox.basicLightbox--visible {
+  background: rgba(127, 127, 127, 0.8);
+}
+
 .modal-movie {
   background-color: $white-text-color;
   padding: 50px 20px;
@@ -119,7 +123,12 @@
 }
 
 .votes {
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
   min-width: 36px;
+  font-size: 12px;
+  line-height: 1.7;
   background-color: $footer-bg-color;
 }
 

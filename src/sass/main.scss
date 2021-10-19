@@ -2,6 +2,7 @@
 @import './utils/mixins';
 @import './utils/placeholders';
 @import './utils/common';
+@import './utils/dark-theme';
 
 @import './layout/page-header';
 @import './layout/container';
@@ -16,3 +17,4 @@
 @import './components/pagination';
 @import './components/no-results-message';
 @import './components/button-scroll';
+@import './components/theme-switch';
