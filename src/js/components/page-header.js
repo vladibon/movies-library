@@ -1,9 +1,6 @@
 import renderWatchedMovies from './render-watched-movies';
 import renderQueueMovies from './render-queue-movies';
-import {
-  preloadTrendingMoviesTotalItems,
-  preloadWeekTrendingMoviesTotalItems,
-} from './render-trending-movies';
+import { preloadTrendingMoviesTotalItems } from './render-trending-movies';
 import hideResetBtn from './resetBtn';
 import refs from '../components/refs.js';
 
@@ -19,10 +16,10 @@ refs.menuNav.addEventListener('click', e => {
 refs.logo.addEventListener('click', onLogoClick);
 refs.buttonHomeMenu.addEventListener('click', onStartMenu);
 refs.buttonToday.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? (loadTrending(), toTodayActive()) : null;
+  !e.target.classList.contains('btnFilter--active') ? (loadTrending('day'), toTodayActive()) : null;
 });
 refs.buttonWeek.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? (loadWeekTrending(), toWeekActive()) : null;
+  !e.target.classList.contains('btnFilter--active') ? (loadTrending('week'), toWeekActive()) : null;
 });
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
@@ -42,19 +39,13 @@ function onLogoClick() {
 }
 
 function onStartMenu() {
-  loadTrending();
+  loadTrending('day');
   toggleFilter();
 }
 
-function loadTrending() {
+function loadTrending(timeUnits) {
   refs.input.value = '';
-  preloadTrendingMoviesTotalItems();
-  hideResetBtn();
-}
-
-function loadWeekTrending() {
-  refs.input.value = '';
-  preloadWeekTrendingMoviesTotalItems();
+  preloadTrendingMoviesTotalItems(timeUnits);
   hideResetBtn();
 }
 

@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
-import { homeApiService, homeWeekApiService, searchApiService } from '../api/apiServicePlugin';
-import { loadTrendingMovies, loadWeekTrendingMovies } from './render-trending-movies';
+import { homeApiService, searchApiService } from '../api/apiServicePlugin';
+import { loadTrendingMovies } from './render-trending-movies';
 import { loadSearchedMovies } from './render-search-movies';
 import refs from './refs';
 
@@ -43,15 +43,15 @@ tuiIcoPrev.textContent = '<';
 tuiIcoNext.textContent = '>';
 
 pagination.on('afterMove', function (eventData) {
-  if (refs.pagination.dataset.pagin === 'home') {
+  if (refs.pagination.dataset.pagin === 'day') {
     homeApiService.page = eventData.page;
-    loadTrendingMovies();
+    loadTrendingMovies('day');
     scrollTop();
   }
 
   if (refs.pagination.dataset.pagin === 'week') {
-    homeWeekApiService.page = eventData.page;
-    loadWeekTrendingMovies();
+    homeApiService.page = eventData.page;
+    loadTrendingMovies('week');
     scrollTop();
   }
 

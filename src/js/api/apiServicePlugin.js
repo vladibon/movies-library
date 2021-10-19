@@ -1,47 +1,17 @@
 import URL from './settingsURL';
 
-// Запрос на список самых популярных фильмов НА СЕГОДНЯ для создания коллекции на главной странице
+// Запрос на список самых популярных фильмов НА СЕГОДНЯ или ЗА НЕДЕЛЮ для создания коллекции на главной странице
 export const homeApiService = {
-  PATH: 'trending/movie/day',
+  PATH: 'trending/movie',
   params: {
     api_key: `${URL.KEY}`,
     page: 1,
   },
 
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
-
-    const response = await fetch(url);
-    return await response.json();
-  },
-
-  incrementPage() {
-    this.params.page += 1;
-  },
-
-  resetPage() {
-    this.params.page = 1;
-  },
-
-  get page() {
-    return this.params.page;
-  },
-
-  set page(newPage) {
-    this.params.page = newPage;
-  },
-};
-
-// Запрос на список самых популярных фильмов ЗА НЕДЕЛЮ для создания коллекции на главной странице
-export const homeWeekApiService = {
-  PATH: 'trending/movie/week',
-  params: {
-    api_key: `${URL.KEY}`,
-    page: 1,
-  },
-
-  async fetchArticles() {
-    const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
+  async fetchArticles(timeUnits) {
+    const url = `${URL.BASE}/${this.PATH}/${timeUnits}?${new URLSearchParams(
+      this.params,
+    ).toString()}`;
 
     const response = await fetch(url);
     return await response.json();

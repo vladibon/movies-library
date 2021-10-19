@@ -1,5 +1,5 @@
 import { Notify, Loading } from 'notiflix';
-import { homeApiService, homeWeekApiService } from '../api/apiServicePlugin';
+import { homeApiService } from '../api/apiServicePlugin';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import dataStorage from './data-storage';
 import refs from './refs.js';
@@ -9,13 +9,13 @@ import { onEmptyLibraryList } from '../common/common.js';
 const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
 
 dataStorage.saveGenresToLS();
-loadTrendingMovies();
+loadTrendingMovies('day');
 
-// Rendering popular movies TODAY --------------------------------
-export function loadTrendingMovies() {
+// Rendering popular movies --------------------------------------
+export function loadTrendingMovies(timeUnits) {
   Loading.circle('Loading...');
   homeApiService
-    .fetchArticles()
+    .fetchArticles(timeUnits)
     .then(({ results }) => {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
@@ -25,9 +25,9 @@ export function loadTrendingMovies() {
     .finally(Loading.remove(300));
 }
 
-export function preloadTrendingMoviesTotalItems() {
+export function preloadTrendingMoviesTotalItems(timeUnits) {
   homeApiService
-    .fetchArticles()
+    .fetchArticles(timeUnits)
     .then(({ total_results }) => {
       if (!total_results) {
         hidePagination();
@@ -36,39 +36,7 @@ export function preloadTrendingMoviesTotalItems() {
         throw failureMessage;
       }
       setPaginationTotalItems(total_results);
-      resetPaginationPage('home');
-      showPagination();
-    })
-    .catch(onFetchError);
-}
-// ---------------------------------------------------------------
-
-// Rendering popular movies THIS WEEK ----------------------------
-export function loadWeekTrendingMovies() {
-  Loading.circle('Loading...');
-  homeWeekApiService
-    .fetchArticles()
-    .then(({ results }) => {
-      const currentPageMovies = dataStorage.getFilmData(results);
-      dataStorage.saveCurrentMovies(currentPageMovies);
-      createGallery(currentPageMovies);
-    })
-    .catch(onFetchError)
-    .finally(Loading.remove(300));
-}
-
-export function preloadWeekTrendingMoviesTotalItems() {
-  homeWeekApiService
-    .fetchArticles()
-    .then(({ total_results }) => {
-      if (!total_results) {
-        hidePagination();
-        clearGalleryContainer();
-        onEmptyLibraryList();
-        throw 'Nothing found';
-      }
-      setPaginationTotalItems(total_results);
-      resetPaginationPage('week');
+      resetPaginationPage(timeUnits);
       showPagination();
     })
     .catch(onFetchError);
