@@ -4,8 +4,6 @@ import { apiService } from '../api/api-service';
 import refs from './refs';
 import { preloadMoviesTotalItems } from './load-movies';
 
-const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
-
 refs.sectionHome.addEventListener('submit', onSearch);
 
 export function onSearch(e) {
@@ -24,8 +22,4 @@ export function onSearch(e) {
   }
 
   preloadMoviesTotalItems('search');
-}
-
-function onSearchError() {
-  Notify.failure(failureMessage);
 }
