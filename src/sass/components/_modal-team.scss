@@ -151,3 +151,23 @@
     transform: scaleY(1.4);
   }
 }
+
+.modal-team__close-btn {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: $btn-arrow-bg-color;
+
+  transition: color $animation;
+
+  &:hover {
+    color: $btn-accent-bg-color;
+  }
+}

@@ -22,6 +22,9 @@ refs.footerLink.addEventListener('click', e => {
 
   new Splide('.splide', teamSplideOptions).mount();
 
+  const closeBtn = document.querySelector('.js-modal-team__close-btn');
+  closeBtn.addEventListener('click', teamLightbox.close);
+
   function onKeydown(e) {
     if (e.code !== 'Escape') return;
     teamLightbox.close();
