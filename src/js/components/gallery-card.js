@@ -1,9 +1,12 @@
 import dataStorage from './data-storage';
 import messages from '../common/messages.js';
+import refs from '../common/refs';
 
 export function onGalleryHover() {
   const cards = document.querySelectorAll('li[data-source]');
 
+  //   refs.galleryContainer.addEventListener('mouseover', onCardHover);
+  //   refs.galleryContainer.addEventListener('mouseover', onMouseLeave);
   cards.forEach(el => {
     el.addEventListener('mouseover', onCardHover);
     el.addEventListener('mouseout', onMouseLeave);
@@ -15,15 +18,12 @@ function onCardHover(e) {
     return;
   }
 
-  const movieId = e.target.getAttribute('id');
   document.querySelectorAll('.gallery__card-nav').forEach(el => {
     el.classList.remove('is-hidden');
   });
 
-  const watchedBtnArray = document.querySelectorAll('[data-action="add-watched"]');
-  const addWatchedBtnGallery = Array.from(watchedBtnArray).find(el => el.dataset.id === movieId);
-  const queueBtnArray = document.querySelectorAll('[data-action="add-queue"]');
-  const addQueueBtnGallery = Array.from(queueBtnArray).find(el => el.dataset.id === movieId);
+  const addWatchedBtnGallery = e.target.querySelector('[data-action="add-watched"]');
+  const addQueueBtnGallery = e.target.querySelector('[data-action="add-queue"]');
 
   addWatchedBtnGallery.addEventListener('click', addToWatched);
   addQueueBtnGallery.addEventListener('click', addToQueue);
@@ -33,9 +33,7 @@ function addToWatched(e) {
   e.preventDefault();
 
   const movieId = e.target.getAttribute('data-id');
-  const btnTextHelper = Array.from(e.target.children).find(el =>
-    el.classList.contains('watched-helper'),
-  );
+  const btnTextHelper = e.target.querySelector('.watched-helper');
   const movieObj = dataStorage.getCurrentMovies().find(el => el.id === movieId);
 
   dataStorage.toggleWatchedMovieProp(movieObj);
@@ -60,10 +58,9 @@ function addToWatched(e) {
 
 function addToQueue(e) {
   e.preventDefault();
+
   const movieId = e.target.getAttribute('data-id');
-  const btnTextHelper = Array.from(e.target.children).find(el =>
-    el.classList.contains('queue-helper'),
-  );
+  const btnTextHelper = e.target.querySelector('.queue-helper');
   const movieObj = dataStorage.getCurrentMovies().find(el => el.id === movieId);
 
   dataStorage.toggleQueueMovieProp(movieObj);
