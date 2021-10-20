@@ -1,8 +1,6 @@
-import refs from './refs';
+import refs from '../common/refs';
 
 refs.input.addEventListener('input', inputIsActive);
-
-
 
 function inputIsActive() {
   refs.resetBtn.addEventListener('click', hideResetBtn, { once: true });

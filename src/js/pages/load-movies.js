@@ -1,0 +1,49 @@
+import { Loading } from 'notiflix';
+import messages from '../common/messages';
+import { apiService } from '../api/api-service';
+import dataStorage from '../components/data-storage';
+import {
+  resetPaginationPage,
+  setPaginationTotalItems,
+  showPagination,
+  hidePagination,
+} from '../components/pagination';
+import {
+  onEmptyLibraryList,
+  createGallery,
+  clearGalleryContainer,
+  onFetchError,
+} from '../common/common';
+
+dataStorage.saveGenresToLS();
+loadMovies('day');
+
+export function loadMovies(request) {
+  Loading.circle('Loading...');
+  apiService
+    .fetchArticles(request)
+    .then(({ results }) => {
+      const currentPageMovies = dataStorage.getFilmData(results);
+      dataStorage.saveCurrentMovies(currentPageMovies);
+      createGallery(currentPageMovies);
+    })
+    .catch(onFetchError)
+    .finally(Loading.remove(300));
+}
+
+export function preloadMoviesTotalItems(request) {
+  apiService
+    .fetchArticles(request)
+    .then(({ total_results }) => {
+      if (!total_results) {
+        hidePagination();
+        clearGalleryContainer();
+        onEmptyLibraryList();
+        throw messages.searchFailure;
+      }
+      setPaginationTotalItems(total_results);
+      resetPaginationPage(request);
+      showPagination();
+    })
+    .catch(onFetchError);
+}

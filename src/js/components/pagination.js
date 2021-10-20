@@ -1,9 +1,8 @@
 import Pagination from 'tui-pagination';
-import { homeApiService, homeWeekApiService, searchApiService } from '../api/apiServicePlugin';
-import { loadTrendingMovies, loadWeekTrendingMovies } from './render-trending-movies';
-import { loadSearchedMovies } from './render-search-movies';
+import { apiService } from '../api/api-service';
+import { loadMovies } from '../pages/load-movies';
 import scrollTop from './scrollTop';
-import refs from './refs';
+import refs from '../common/refs';
 
 const paginationContainer = document.getElementById('pagination');
 const options = {
@@ -44,23 +43,9 @@ tuiIcoPrev.textContent = '<';
 tuiIcoNext.textContent = '>';
 
 pagination.on('afterMove', function (eventData) {
-  if (refs.pagination.dataset.pagin === 'home') {
-    homeApiService.page = eventData.page;
-    loadTrendingMovies();
-    scrollTop();
-  }
-
-  if (refs.pagination.dataset.pagin === 'week') {
-    homeWeekApiService.page = eventData.page;
-    loadWeekTrendingMovies();
-    scrollTop();
-  }
-
-  if (refs.pagination.dataset.pagin === 'input') {
-    searchApiService.page = eventData.page;
-    loadSearchedMovies();
-    scrollTop();
-  }
+  apiService.page = eventData.page;
+  loadMovies(refs.pagination.dataset.pagin);
+  scrollTop();
 });
 
 export function setPaginationTotalItems(total_results) {

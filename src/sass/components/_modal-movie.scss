@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 280px;
   @include respond-below($tablet) {
-    padding-bottom: calc(50px + var(--vh, 1vh) * 6);
+    padding-bottom: calc(50px + var(--vh, 1vh) * 7);
   }
   @include respond-above($tablet) {
     padding: 40px 30px;

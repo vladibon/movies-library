@@ -6,15 +6,15 @@ import './sass/main.scss';
 
 import './js/utils/viewport-units';
 
-import './js/components/notiflix-options';
-import './js/components/refs';
+import './js/options/notiflix-options';
 
-import './js/components/render-trending-movies';
-import './js/components/render-search-movies';
+import './js/pages/load-movies';
+import './js/pages/search-movies';
+
 import './js/components/page-header';
+import './js/components/theme-switch';
+import './js/components/resetBtn';
 import './js/components/pagination';
 import './js/components/scrollTop';
 import './js/components/modal-movie';
 import './js/components/modal-team';
-import './js/components/theme-switch';
-import './js/components/resetBtn';
