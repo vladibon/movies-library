@@ -65,7 +65,7 @@
   transition: $btn-animation;
 
   &:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px) scale(1.07);
   }
 
   &-title {
@@ -106,7 +106,7 @@
 
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: translateY(-3px) scale(1.1);
     }
 
     &--active[data-nav='home'] {
@@ -178,7 +178,7 @@
 
   &:hover,
   &:focus {
-    transform: translateY(-5px) scale(1.2);
+    transform: translateY(-5px) scale(1.15);
     transition: transform $animation;
   }
 

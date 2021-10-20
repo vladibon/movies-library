@@ -8,6 +8,7 @@
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
+  overflow: hidden;
 
   transform: translateY(0px) scale(1);
   transition: transform 200ms ease-out, box-shadow 200ms ease-out;
@@ -25,10 +26,9 @@
   transform: translateY(-12px) scale(1.02);
   box-shadow: $default-gallery-shadow-hover;
 
-  // & .gallery__card-nav {
-  //   transform: translateY(0);
-  //   opacity: 1;
-  // }
+  & .gallery__card-nav {
+    transform: translateY(0);
+  }
 }
 
 .gallery__img-thumb {
@@ -43,15 +43,14 @@
   height: 100%;
   object-fit: cover;
   background-color: #fff;
+  pointer-events: none;
 }
 
+// Buttons add/remove from watched/queue
 .gallery__card-nav {
   position: absolute;
   right: 0;
   top: 0;
-
-  transform: translateX(100%);
-  opacity: 0;
 
   display: flex;
   flex-direction: column;
@@ -59,16 +58,21 @@
 
   height: 90px;
   width: 50px;
-  background-color: rgba(255, 255, 255, 0.603);
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0 5px 0 5px;
 
-  transition: transform 250ms ease-out 270ms, opacity 200ms ease-out 320ms;
-  display: none;
+  transform: translateX(100%);
+  transition: transform 250ms ease-out 150ms;
+
+  &.is-hidden {
+    display: none;
+  }
 }
 
 .gallery__btn {
   border: 0;
   padding: 0;
+  margin: 0;
   background-color: transparent;
   color: $btn-primary-color;
   opacity: 0.6;
@@ -95,7 +99,22 @@
   color: $btn-accent-bg-color;
 }
 
+.gallery__btn[data-action='add-watched']:hover {
+  .gallery__btn-helper.watched-helper {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.gallery__btn[data-action='add-queue']:hover {
+  .gallery__btn-helper.queue-helper {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .gallery__icon {
+  pointer-events: none;
   background-size: contain;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.377));
 
@@ -103,37 +122,26 @@
 }
 
 .gallery__btn-helper {
+  pointer-events: none;
   position: absolute;
-  right: 50px;
+  top: 2px;
+  right: 47px;
   display: inline-flex;
   justify-content: center;
-  width: 120px;
+  width: 130px;
 
-  padding-top: 6px;
-  padding-bottom: 6px;
-  background-color: rgba(255, 255, 255, 0.603);
+  padding: 6px 2px;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 5px 0 0 5px;
 
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
   color: $movie-title-black-color;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.377);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.13);
 
   opacity: 0;
   transform: translateX(100%);
-  transition: transform $animation, opacity $animation;
-}
-
-.watched-helper {
-  top: 8px;
-}
-
-.queue-helper {
-  top: 52px;
-}
-
-.gallery__btn-helper.active {
-  opacity: 1;
-  transform: translateX(0);
+  transition: transform 250ms ease-out, opacity 200ms ease-out 100ms;
 }
 
 .gallery__info {
