@@ -9,20 +9,24 @@
         alt='{{title}}'
       />
     </div>
-    <div class='gallery__card-nav'>
-      <span class='gallery__btn-helper watched-helper'>add to watched</span>
-      <button class='gallery__btn' type='button' data-action='add-watched'>
+
+    <div class='gallery__card-nav is-hidden'>
+
+      <button class='gallery__btn {{#if watched}}activated{{/if}}' type='button' data-action='add-watched' data-id='{{id}}'>
         <svg class='gallery__icon' width='34' height='34'>
           <use href='sprite.svg#icon-eye'></use>
         </svg>
+        <span class='gallery__btn-helper watched-helper'>{{#if watched}}remove from watched{{else}}add to watched{{/if}}</span>
       </button>
-      <span class='gallery__btn-helper queue-helper'>add to queue</span>
-      <button class='gallery__btn activated' type='button'>
+
+      <button class='gallery__btn {{#if queue}}activated{{/if}}' type='button' data-action='add-queue' data-id='{{id}}'>
         <svg class='gallery__icon' width='32' height='32'>
           <use href='sprite.svg#icon-queue'></use>
         </svg>
+        <span class='gallery__btn-helper queue-helper'>{{#if queue}}remove from queue{{else}}add to queue{{/if}}</span>
       </button>
     </div>
+
     <div class='gallery__info'>
       <h2 class='gallery__title'>{{title}}</h2>
       <div class='gallery__help-wrapper'>
