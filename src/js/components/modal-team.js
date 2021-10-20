@@ -1,9 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
 import Splide from '@splidejs/splide';
-import refs from './refs';
+import refs from '../common/refs';
 import { preventPageScroll, setPageScroll } from '../common/common';
 import team from '../db/team.json';
-import teamSplideOptions from './splide-options';
+import teamSplideOptions from '../options/splide-options';
 import teamCardsTemplate from '../../templates/team-markup.hbs';
 
 refs.footerLink.addEventListener('click', e => {

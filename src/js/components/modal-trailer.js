@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import trailerTemplate from '../../templates/trailer.hbs';
-import { movieApiService } from '../api/apiServicePlugin';
+import { movieApiService } from '../api/api-service';
 
 export function onTrailerPlay(cb, e) {
   window.removeEventListener('keydown', cb);
