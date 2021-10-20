@@ -10,9 +10,9 @@ import { addToWatched, addToQueue, preventPageScroll, setPageScroll } from '../c
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
 function onOpenModalMovie(e) {
-  preventPageScroll();
-
   if (!e.target.classList.contains('gallery__item')) return;
+
+  preventPageScroll();
 
   const currentMovies = dataStorage.getCurrentMovies();
   const movieId = e.target.getAttribute('id');
@@ -41,10 +41,12 @@ function onOpenModalMovie(e) {
   btnCloseModal.addEventListener('click', movieLightbox.close);
   window.addEventListener('keydown', onModalCloseEsc);
 
+  // the link to the trailer is saved to local storage, so we can display the trailer's popup
   movieApiService.fetchArticles(movieObj.id).then(link => {
     if (!link) {
       btnYouTube.classList.add('youtube-btn--inactive');
     }
+    localStorage.setItem('trailer_link', JSON.stringify(link));
   });
 
   function onModalCloseEsc(e) {
