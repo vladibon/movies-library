@@ -41,10 +41,12 @@ function onOpenModalMovie(e) {
   btnCloseModal.addEventListener('click', movieLightbox.close);
   window.addEventListener('keydown', onModalCloseEsc);
 
+  // the link to the trailer is saved to local storage, so we can display the trailer's popup
   movieApiService.fetchArticles(movieObj.id).then(link => {
     if (!link) {
       btnYouTube.classList.add('youtube-btn--inactive');
     }
+    localStorage.setItem('trailer_link', link);
   });
 
   function onModalCloseEsc(e) {
