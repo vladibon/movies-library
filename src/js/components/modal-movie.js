@@ -46,7 +46,7 @@ function onOpenModalMovie(e) {
     if (!link) {
       btnYouTube.classList.add('youtube-btn--inactive');
     }
-    localStorage.setItem('trailer_link', JSON.stringify(link));
+    localStorage.setItem('trailer_link', link);
   });
 
   function onModalCloseEsc(e) {
