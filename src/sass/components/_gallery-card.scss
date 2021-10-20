@@ -122,6 +122,7 @@
 }
 
 .gallery__btn-helper {
+  pointer-events: none;
   position: absolute;
   top: 2px;
   right: 47px;

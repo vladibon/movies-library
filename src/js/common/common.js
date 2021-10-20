@@ -3,12 +3,13 @@ import refs from './refs';
 import dataStorage from '../components/data-storage';
 import noResultsTpl from '../../templates/no-results.hbs';
 import imageCardTpl from '../../templates/card-markup.hbs';
+import messages from './messages.js';
 
 export function onEmptyLibraryList(listName) {
   refs.galleryContainer.innerHTML = '';
   let messageTxt = '';
   if (listName) {
-    messageTxt = `Sorry, it seems like you don't have any saved movies in ${listName} list.`;
+    messageTxt = messages.emptyLibraryList(listName);
   }
   const message = noResultsTpl({ messageTxt: messageTxt });
   refs.messageContainer.innerHTML = message;
@@ -18,10 +19,10 @@ export function onEmptyLibraryList(listName) {
 export function addToWatched(movieObj, e) {
   dataStorage.toggleWatchedMovieProp(movieObj);
   if (dataStorage.getWatchedPropForMovie(movieObj.id)) {
-    e.target.textContent = 'remove from watched';
+    e.target.textContent = messages.watchedBtnTrue;
     dataStorage.saveToWatched(movieObj);
   } else {
-    e.target.textContent = 'add to watched';
+    e.target.textContent = messages.watchedBtnFalse;
   }
 
   if (!movieObj.source_list || movieObj.source_list !== 'watched') {
@@ -49,10 +50,10 @@ export function addToWatched(movieObj, e) {
 export function addToQueue(movieObj, e) {
   dataStorage.toggleQueueMovieProp(movieObj);
   if (dataStorage.getQueuePropForMovie(movieObj.id)) {
-    e.target.textContent = 'remove from queue';
+    e.target.textContent = messages.queueBtnTrue;
     dataStorage.saveToQueue(movieObj);
   } else {
-    e.target.textContent = 'add to queue';
+    e.target.textContent = messages.queueBtnFalse;
   }
 
   if (!movieObj.source_list || movieObj.source_list !== 'queue') {

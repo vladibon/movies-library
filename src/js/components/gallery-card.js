@@ -1,4 +1,5 @@
 import dataStorage from './data-storage';
+import messages from '../common/messages.js';
 
 export function onGalleryHover() {
   const cards = document.querySelectorAll('li[data-source]');
@@ -41,10 +42,10 @@ function addToWatched(e) {
   e.target.classList.toggle('activated');
 
   if (dataStorage.getWatchedPropForMovie(movieObj.id)) {
-    btnTextHelper.textContent = 'remove from watched';
+    btnTextHelper.textContent = messages.watchedBtnTrue;
     dataStorage.saveToWatched(movieObj);
   } else {
-    btnTextHelper.textContent = 'add to watched';
+    btnTextHelper.textContent = messages.watchedBtnFalse;
   }
 
   const list = dataStorage.getCurrentMovies().map(el => {
@@ -69,10 +70,10 @@ function addToQueue(e) {
   e.target.classList.toggle('activated');
 
   if (dataStorage.getQueuePropForMovie(movieObj.id)) {
-    btnTextHelper.textContent = 'remove from queue';
+    btnTextHelper.textContent = messages.queueBtnTrue;
     dataStorage.saveToQueue(movieObj);
   } else {
-    btnTextHelper.textContent = 'add to queue';
+    btnTextHelper.textContent = messages.queueBtnFalse;
   }
 
   const list = dataStorage.getCurrentMovies().map(el => {
