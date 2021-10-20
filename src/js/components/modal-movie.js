@@ -9,9 +9,9 @@ import { addToWatched, addToQueue, preventPageScroll, setPageScroll } from '../c
 refs.galleryContainer.addEventListener('click', onOpenModalMovie);
 
 function onOpenModalMovie(e) {
-  preventPageScroll();
-
   if (!e.target.classList.contains('gallery__item')) return;
+
+  preventPageScroll();
 
   const currentMovies = dataStorage.getCurrentMovies();
   const movieId = e.target.getAttribute('id');

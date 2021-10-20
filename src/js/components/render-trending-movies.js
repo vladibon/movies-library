@@ -57,6 +57,8 @@ export function loadWeekTrendingMovies() {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
+
+      onGalleryHover();
     })
     .catch(onFetchError)
     .finally(Loading.remove(300));

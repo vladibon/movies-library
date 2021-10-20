@@ -1,15 +1,11 @@
-import refs from './refs';
-// import { addToWatched } from '../common/common';
 import dataStorage from './data-storage';
-import imageCardTpl from '../../templates/card-markup.hbs';
-// refs.galleryContainer.addEventListener('mouseenter', onGalleryHover);
 
 export function onGalleryHover() {
   const cards = document.querySelectorAll('li[data-source]');
-  //   console.log(cards);
+
   cards.forEach(el => {
     el.addEventListener('mouseover', onCardHover);
-    // el.addEventListener('mouseout', onMouseLeave);
+    el.addEventListener('mouseout', onMouseLeave);
   });
 }
 
@@ -34,6 +30,7 @@ function onCardHover(e) {
 
 function addToWatched(e) {
   e.preventDefault();
+
   const movieId = e.target.getAttribute('data-id');
   const btnTextHelper = Array.from(e.target.children).find(el =>
     el.classList.contains('watched-helper'),
@@ -91,5 +88,4 @@ function addToQueue(e) {
 function onMouseLeave(e) {
   e.target.removeEventListener('mouseover', onCardHover);
   e.target.removeEventListener('mouseout', onMouseLeave);
-  console.log(99);
 }
