@@ -1,12 +1,9 @@
 import dataStorage from './data-storage';
 import messages from '../common/messages.js';
-import refs from '../common/refs';
 
 export function onGalleryHover() {
   const cards = document.querySelectorAll('li[data-source]');
 
-  //   refs.galleryContainer.addEventListener('mouseover', onCardHover);
-  //   refs.galleryContainer.addEventListener('mouseover', onMouseLeave);
   cards.forEach(el => {
     el.addEventListener('mouseover', onCardHover);
     el.addEventListener('mouseout', onMouseLeave);
