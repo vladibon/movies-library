@@ -1,3 +1,4 @@
+const axios = require('axios');
 import URL from './settings-url';
 
 // Запросы на списки популярных фильмов НА СЕГОДНЯ, ЗА НЕДЕЛЮ или ПО КЛЮЧЕВОМУ СЛОВУ для создания коллекции на главной странице
@@ -26,8 +27,8 @@ export const apiService = {
       ).toString()}`;
     }
 
-    const response = await fetch(this.url);
-    return await response.json();
+    const { data } = await axios.get(this.url);
+    return data;
   },
 
   incrementPage() {
@@ -73,9 +74,8 @@ export const movieApiService = {
       this.params_1,
     ).toString()}`;
 
-    const response = await fetch(url);
-    const trailer = await response.json();
-    const key = trailer.results[0]?.key;
+    const { data } = await axios.get(url);
+    const key = data.results[0]?.key;
     if (!key) return;
     return `${URL.TRAILER}${key}?${new URLSearchParams(this.params_2).toString()}`;
   },
@@ -92,8 +92,9 @@ export const genresApiService = {
   async fetchArticles() {
     const url = `${URL.BASE}/${this.PATH}?${new URLSearchParams(this.params).toString()}`;
 
-    const response = await fetch(url);
-    const { genres } = await response.json();
+    const {
+      data: { genres },
+    } = await axios.get(url);
     return genres;
   },
 };
