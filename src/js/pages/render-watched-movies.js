@@ -1,7 +1,7 @@
-import dataStorage from './data-storage';
-import refs from './refs';
+import dataStorage from '../components/data-storage';
+import { onEmptyLibraryList } from '../common/common';
+import refs from '../common/refs';
 import imageCardTpl from '../../templates/card-markup.hbs';
-import { onEmptyLibraryList } from '../common/common.js';
 
 export default function renderWatchedMovies() {
   const watchedListMovies = dataStorage.getWatchedMovies();

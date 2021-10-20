@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix';
-import refs from '../components/refs';
+import refs from './refs';
 import dataStorage from '../components/data-storage';
 import noResultsTpl from '../../templates/no-results.hbs';
 import imageCardTpl from '../../templates/card-markup.hbs';

@@ -1,11 +1,8 @@
-import renderWatchedMovies from './render-watched-movies';
-import renderQueueMovies from './render-queue-movies';
-import {
-  preloadTrendingMoviesTotalItems,
-  preloadWeekTrendingMoviesTotalItems,
-} from './render-trending-movies';
+import renderWatchedMovies from '../pages/render-watched-movies';
+import renderQueueMovies from '../pages/render-queue-movies';
+import { preloadMoviesTotalItems } from '../pages/load-movies';
 import hideResetBtn from './resetBtn';
-import refs from '../components/refs.js';
+import refs from '../common/refs';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {
@@ -19,10 +16,14 @@ refs.menuNav.addEventListener('click', e => {
 refs.logo.addEventListener('click', onLogoClick);
 refs.buttonHomeMenu.addEventListener('click', onStartMenu);
 refs.buttonToday.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? (loadTrending(), toTodayActive()) : null;
+  !e.target.classList.contains('btnFilter--active')
+    ? (loadCardMovies('day'), toTodayActive())
+    : null;
 });
 refs.buttonWeek.addEventListener('click', e => {
-  !e.target.classList.contains('btnFilter--active') ? (loadWeekTrending(), toWeekActive()) : null;
+  !e.target.classList.contains('btnFilter--active')
+    ? (loadCardMovies('week'), toWeekActive())
+    : null;
 });
 refs.buttonWatched.addEventListener('click', e => {
   !e.target.classList.contains('btn--primary--active') ? renderWatchedMovies() : null;
@@ -42,19 +43,13 @@ function onLogoClick() {
 }
 
 function onStartMenu() {
-  loadTrending();
+  loadCardMovies('day');
   toggleFilter();
 }
 
-function loadTrending() {
+function loadCardMovies(request) {
   refs.input.value = '';
-  preloadTrendingMoviesTotalItems();
-  hideResetBtn();
-}
-
-function loadWeekTrending() {
-  refs.input.value = '';
-  preloadWeekTrendingMoviesTotalItems();
+  preloadMoviesTotalItems(request);
   hideResetBtn();
 }
 
