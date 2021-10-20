@@ -1,8 +1,8 @@
-import renderWatchedMovies from './render-watched-movies';
-import renderQueueMovies from './render-queue-movies';
-import { preloadMoviesTotalItems } from './load-movies';
+import renderWatchedMovies from '../pages/render-watched-movies';
+import renderQueueMovies from '../pages/render-queue-movies';
+import { preloadMoviesTotalItems } from '../pages/load-movies';
 import hideResetBtn from './resetBtn';
-import refs from '../components/refs.js';
+import refs from '../common/refs';
 
 refs.menuNav.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {

@@ -1,17 +1,22 @@
-import { Notify, Loading } from 'notiflix';
+import { Loading } from 'notiflix';
+import messages from '../common/messages';
 import { apiService } from '../api/api-service';
-import imageCardTpl from '../../templates/card-markup.hbs';
-import dataStorage from './data-storage';
-import refs from './refs.js';
+import dataStorage from '../components/data-storage';
 import {
   resetPaginationPage,
   setPaginationTotalItems,
   showPagination,
   hidePagination,
-} from './pagination.js';
-import { onEmptyLibraryList } from '../common/common.js';
+} from '../components/pagination';
+import {
+  onEmptyLibraryList,
+  createGallery,
+  clearGalleryContainer,
+  onFetchError,
+} from '../common/common';
 
-const failureMessage = `Sorry, there are no movies matching your search query. Please try again.`;
+dataStorage.saveGenresToLS();
+loadMovies('day');
 
 export function loadMovies(request) {
   Loading.circle('Loading...');
@@ -34,25 +39,11 @@ export function preloadMoviesTotalItems(request) {
         hidePagination();
         clearGalleryContainer();
         onEmptyLibraryList();
-        throw failureMessage;
+        throw messages.searchFailure;
       }
       setPaginationTotalItems(total_results);
       resetPaginationPage(request);
       showPagination();
     })
     .catch(onFetchError);
-}
-
-function createGallery(movies) {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = imageCardTpl(movies);
-}
-
-function clearGalleryContainer() {
-  refs.messageContainer.classList.add('visually-hidden');
-  refs.galleryContainer.innerHTML = '';
-}
-
-function onFetchError(message) {
-  Notify.failure(message);
 }

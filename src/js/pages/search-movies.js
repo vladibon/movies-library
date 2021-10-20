@@ -1,7 +1,8 @@
 // Рендеринг кинофильма по ключевому слову на главное странице
 import { Notify } from 'notiflix';
 import { apiService } from '../api/api-service';
-import refs from './refs';
+import messages from '../common/messages';
+import refs from '../common/refs';
 import { preloadMoviesTotalItems } from './load-movies';
 
 refs.sectionHome.addEventListener('submit', onSearch);

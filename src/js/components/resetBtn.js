@@ -1,4 +1,4 @@
-import refs from './refs';
+import refs from '../common/refs';
 
 refs.input.addEventListener('input', inputIsActive);
 

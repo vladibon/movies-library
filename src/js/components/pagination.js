@@ -1,8 +1,8 @@
 import Pagination from 'tui-pagination';
 import { apiService } from '../api/api-service';
-import { loadMovies } from './load-movies';
+import { loadMovies } from '../pages/load-movies';
 import scrollTop from './scrollTop';
-import refs from './refs';
+import refs from '../common/refs';
 
 const paginationContainer = document.getElementById('pagination');
 const options = {
