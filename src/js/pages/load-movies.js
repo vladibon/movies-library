@@ -3,6 +3,7 @@ import messages from '../common/messages';
 import { apiService } from '../api/api-service';
 import dataStorage from '../components/data-storage';
 import {
+  setPaginationMode,
   resetPaginationPage,
   setPaginationTotalItems,
   showPagination,
@@ -27,7 +28,6 @@ export function loadMovies(request) {
       const currentPageMovies = dataStorage.getFilmData(results);
       dataStorage.saveCurrentMovies(currentPageMovies);
       createGallery(currentPageMovies);
-
       onGalleryHover();
     })
     .catch(onFetchError)
@@ -45,7 +45,8 @@ export function preloadMoviesTotalItems(request) {
         throw messages.searchFailure;
       }
       setPaginationTotalItems(total_results);
-      resetPaginationPage(request);
+      setPaginationMode(request);
+      resetPaginationPage();
       showPagination();
     })
     .catch(onFetchError);

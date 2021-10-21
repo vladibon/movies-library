@@ -52,8 +52,11 @@ export function setPaginationTotalItems(total_results) {
   pagination.setTotalItems(total_results);
 }
 
-export function resetPaginationPage(mode) {
+export function setPaginationMode(mode) {
   refs.pagination.dataset.pagin = mode;
+}
+
+export function resetPaginationPage() {
   pagination.movePageTo(1);
 }
 

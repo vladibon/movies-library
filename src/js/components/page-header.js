@@ -87,3 +87,8 @@ function toggleFilter() {
   }
   refs.buttonToday.classList.add('btnFilter--active');
 }
+
+export function deactivateFilter() {
+  refs.buttonToday.classList.remove('btnFilter--active');
+  refs.buttonWeek.classList.remove('btnFilter--active');
+}

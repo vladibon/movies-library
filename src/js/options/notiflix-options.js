@@ -11,6 +11,7 @@ Notiflix.Notify.init({
   cssAnimationStyle: 'zoom', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
   useIcon: true,
   clickToClose: true,
+  showOnlyTheLastOne: true,
 
   failure: {
     background: '#ff6b08',
