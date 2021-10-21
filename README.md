@@ -34,6 +34,8 @@ dynamically after fetching needed movies data and handling it in user browser.
 - Tui pagination;
 - Splide;
 - Web Storage API;
+- Axios;
+- Lodash;
 
 ## About our project
 
