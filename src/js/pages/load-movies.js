@@ -31,7 +31,7 @@ export function loadMovies(request) {
       onGalleryHover();
     })
     .catch(onFetchError)
-    .finally(Loading.remove(300));
+    .finally(Loading.remove(400));
 }
 
 export function preloadMoviesTotalItems(request) {

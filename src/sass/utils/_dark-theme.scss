@@ -21,6 +21,10 @@
     }
   }
 
+  & .gallery__img {
+    background-color: $modal-grey-title-color;
+  }
+
   // Name movie
   & .gallery__title {
     color: $white-text-color;

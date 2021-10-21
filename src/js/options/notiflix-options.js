@@ -12,13 +12,13 @@ Notiflix.Notify.init({
   useIcon: true,
   clickToClose: true,
 
-   failure: {
+  failure: {
     background: '#ff6b08',
   },
 });
 
 Notiflix.Loading.init({
-  backgroundColor: 'rgba(0,0,0,0.8)',
+  backgroundColor: 'none',
   cssAnimationDuration: 450,
   svgSize: '100px',
   svgColor: '#ff6b08',
