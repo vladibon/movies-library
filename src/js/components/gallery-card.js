@@ -4,10 +4,12 @@ import messages from '../common/messages.js';
 export function onGalleryHover() {
   const cards = document.querySelectorAll('li[data-source]');
 
-  cards.forEach(el => {
-    el.addEventListener('mouseover', onCardHover);
-    el.addEventListener('mouseout', onMouseLeave);
-  });
+  if (window.innerWidth >= 1024) {
+    cards.forEach(el => {
+      el.addEventListener('mouseover', onCardHover);
+      el.addEventListener('mouseout', onMouseLeave);
+    });
+  }
 }
 
 function onCardHover(e) {

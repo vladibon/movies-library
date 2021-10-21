@@ -4,6 +4,7 @@ import dataStorage from '../components/data-storage';
 import noResultsTpl from '../../templates/no-results.hbs';
 import imageCardTpl from '../../templates/card-markup.hbs';
 import messages from './messages.js';
+import { onGalleryHover } from '../components/gallery-card';
 
 export function onEmptyLibraryList(listName) {
   refs.galleryContainer.innerHTML = '';
@@ -35,6 +36,7 @@ export function addToWatched(movieObj, e) {
 
     dataStorage.saveCurrentMovies(list);
     refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    onGalleryHover();
     return;
   } else {
     const list = dataStorage.getWatchedMovies();
@@ -66,6 +68,7 @@ export function addToQueue(movieObj, e) {
 
     dataStorage.saveCurrentMovies(list);
     refs.galleryContainer.innerHTML = imageCardTpl(dataStorage.getCurrentMovies());
+    onGalleryHover();
     return;
   } else {
     const list = dataStorage.getQueueMovies();
