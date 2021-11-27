@@ -17,8 +17,7 @@ import {
 } from '../common/common';
 import { onGalleryHover } from '../components/gallery-card';
 
-dataStorage.saveGenresToLS();
-loadMovies('day');
+dataStorage.saveGenresToLS(() => loadMovies('day'));
 
 export function loadMovies(request) {
   Loading.circle('Loading...');

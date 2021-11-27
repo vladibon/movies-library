@@ -140,10 +140,10 @@ export default {
         release_date: el.release_date?.slice(0, 4),
         genres: (() => {
           const genres = JSON.parse(localStorage.getItem(this.GENRES));
-          if (el.genre_ids.length) {
+          if (el.genre_ids.length && genres) {
             const arr = el.genre_ids.map(id => genres.find(genre => genre.id === id).name);
             return arr.length > 3 ? `${arr.slice(0, 2).join(', ')}, Other` : arr.join(', ');
-          } else return 'Classic';
+          } else return 'Other';
         })(),
         watched: (() => {
           this.getWatchedMovies();
@@ -162,14 +162,15 @@ export default {
     return movies;
   },
 
-  saveGenresToLS() {
-    if (!localStorage.getItem(this.GENRES)) {
-      genresApiService
-        .fetchArticles()
-        .then(genres => {
-          localStorage.setItem(this.GENRES, JSON.stringify(genres));
-        })
-        .catch(err => console.log(err));
-    }
+  saveGenresToLS(loadMovies) {
+    if (localStorage.getItem(this.GENRES)) return loadMovies();
+
+    genresApiService
+      .fetchArticles()
+      .then(genres => {
+        localStorage.setItem(this.GENRES, JSON.stringify(genres));
+      })
+      .then(loadMovies)
+      .catch(err => console.log(err));
   },
 };
